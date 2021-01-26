@@ -18,7 +18,7 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include
  > * Why is it important or interesting to you?
- > *  This project grabbed at our interest because of the versatility of implementing a library system. The system allows for users to search for items, in this case books, CDs and DVDS, and rent based on the quantity left. An admin account can add, delete, and edit inventory. The library system can be used as a template for a store's online shopping system for customers.So, this program could have personal use as well as professional use.
+ >  *  This project grabbed at our interest because of the versatility of implementing a library system. The system allows for users to search for items, in this case books, CDs and DVDS, and rent based on the quantity left. An admin account can add, delete, and edit inventory. The library system can be used as a template for a store's online shopping system for customers.So, this program could have personal use as well as professional use.
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * [toolname](link) - Short description
  > * What will be the input/output of your project?
