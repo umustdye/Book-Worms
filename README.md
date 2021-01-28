@@ -21,8 +21,11 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
   - This project grabbed at our interest because of the versatility of implementing a library system. The system allows for users to search for items, in this case books, CDs and DVDS, and rent based on the quantity left. An admin account can add, delete, and edit inventory. The library system can be used as a template for a store's online shopping system for customers. So, this program could have personal use as well as professional use.
   
 ### Languages, Tools, and Technologies
- > What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
-  - [toolname](link) - Short description
+  - C++17 - Written in C++ 17
+  - [Qt 6](https://www.qt.io/product/qt6) - C++ based gui library
+  - [SQLite](https://sqlite.org/index.html) - SQLite database
+  - [Valgrind](https://www.valgrind.org/) - Memory error detector
+  - [Git](https://github.com) - Version control software
   
 ### Input / Output
  > What will be the input/output of your project?
