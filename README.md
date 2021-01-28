@@ -17,7 +17,6 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
 
 ## Project Description
 ### Project Importance
- > Why is it important or interesting to you?
   - This project grabbed at our interest because of the versatility of implementing a library system. The system allows for users to search for items, in this case books, CDs and DVDS, and rent based on the quantity left. An admin account can add, delete, and edit inventory. The library system can be used as a template for a store's online shopping system for customers. So, this program could have personal use as well as professional use.
   
 ### Languages, Tools, and Technologies
