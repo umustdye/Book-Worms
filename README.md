@@ -22,12 +22,20 @@
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * [toolname](link) - Short description
  > * What will be the input/output of your project?
- >   * Input: User Information(Account Name, Account Password), Library Item Information(Book/CD/DVD Title, Book/CD/DVD Quantity on Hand, Book/CD/DVD Genre/Sub-genre, Item Type), Library Item Changes(Add/Edit/Remove Item)
- >   * Output: User Displays(Books currently borrowed, Account Debt, Available Books/CDs/DVDs, Recommended Books/CDs/DVDs)
+ >   * Input: 
+ >      * User Information (Account Name, Account Password)
+ >      * Library Item Information (Book/CD/DVD Title, Book/CD/DVD Quantity on Hand, Book/CD/DVD Genre/Sub-genre, Item Type)
+ >      * Library Item Changes (Add/Edit/Remove Item)
+ >   * Output: 
+ >      * User Displays (Books currently borrowed, Account Debt, Available Books/CDs/DVDs, Recommended Books/CDs/DVDs)
  > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
  >   * Why you picked this pattern and what feature you will implement with it
  >   * What problem you anticipate encountering when implementing your project that you will solve using the design pattern
  >   * Why the chosen design pattern will lead to a good solution to that problem
+  >   * Design 1: Composite Pattern
+ >      * We picked the Composite Pattern for its simplicity and its ability to treat primitives and composites uniformly. We intend to use it to implement items in our library like Books, DVDs, and CDs that have genres / sub-genres. The problem we anticipate in the project is in both adding more items / collections of items to the library and in searching through them to create user recommendations. The composite pattern will allow us to use a single interface to easily add more primitives and composites to the libary and then search through the tree of items for our various reasons. 
+ >   * Design 2: \<INSERT\>
+ >      * ...
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
 
  > ## Phase II
