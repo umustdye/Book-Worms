@@ -44,8 +44,8 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
   
   - Design 1: Composite Pattern
     - We picked the Composite Pattern for its simplicity and its ability to treat primitives and composites uniformly. We intend to use it to implement items in our library like Books, DVDs, and CDs that have genres / sub-genres. The problem we anticipate in the project is in both adding more items / collections of items to the library and in searching through them to create user recommendations. The composite pattern will allow us to use a single interface to easily add more primitives and composites to the libary and then search through the tree of items for our various reasons. 
-  - Design 2: 
-    - ...
+  - Design 2: Observer
+    - We picked Observer for our design pattern because of its ability to vary subjects and observers independently. We intend to use an observer to implement the administrative accounts for the library system. The problem we anticipate within our program is the admin account editing items, for example the quantity of a book. The oberserver will allow us to have an interface that updates a library component, which will be our observer, when the admin account(s), which is our subject, makes such changes. 
 
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
 
