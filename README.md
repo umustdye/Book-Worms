@@ -16,31 +16,35 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group.
 
 ## Project Description
-* Why is it important or interesting to you?
+### Project Importance
+ > Why is it important or interesting to you?
   - This project grabbed at our interest because of the versatility of implementing a library system. The system allows for users to search for items, in this case books, CDs and DVDS, and rent based on the quantity left. An admin account can add, delete, and edit inventory. The library system can be used as a template for a store's online shopping system for customers. So, this program could have personal use as well as professional use.
   
-* What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
+### Languages, Tools, and Technologies
+ > What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
   - [toolname](link) - Short description
   
-* What will be the input/output of your project?
+### Input / Output
+ > What will be the input/output of your project?
   - Input: 
     - User Information (Account Name, Account Password)
     - Library Item Information (Book/CD/DVD Title, Book/CD/DVD Quantity on Hand, Book/CD/DVD Genre/Sub-genre, Item Type)
     - Library Item Changes (Add/Edit/Remove Item)
   - Output: 
     - User Displays (Books currently borrowed, Account Debt, Available Books/CDs/DVDs, Recommended Books/CDs/DVDs)
-    
-* What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
-  - Why you picked this pattern and what feature you will implement with it
-  - What problem you anticipate encountering when implementing your project that you will solve using the design pattern
-  - Why the chosen design pattern will lead to a good solution to that problem
+
+### Design Patterns
+ > What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
+ >   - Why you picked this pattern and what feature you will implement with it
+ >   - What problem you anticipate encountering when implementing your project that you will solve using the design pattern
+ >   - Why the chosen design pattern will lead to a good solution to that problem
   
   - Design 1: Composite Pattern
     - We picked the Composite Pattern for its simplicity and its ability to treat primitives and composites uniformly. We intend to use it to implement items in our library like Books, DVDs, and CDs that have genres / sub-genres. The problem we anticipate in the project is in both adding more items / collections of items to the library and in searching through them to create user recommendations. The composite pattern will allow us to use a single interface to easily add more primitives and composites to the libary and then search through the tree of items for our various reasons. 
   - Design 2: 
     - ...
-    
-* This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
+
+ > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
