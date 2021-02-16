@@ -23,8 +23,11 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
 ### Design Patterns
   - Design 1: Composite Pattern
     - We picked the Composite Pattern for its simplicity and its ability to treat primitives and composites uniformly. We intend to use it to implement items in our library like Books, DVDs, and CDs that have genres / sub-genres. The problem we anticipate in the project is in both adding more items / collections of items to the library and in searching through them to create user recommendations. The composite pattern will allow us to use a single interface to easily add more primitives and composites to the libary and then search through the tree of items for our various reasons. 
-  - Design 2: Observer
-    - We picked Observer for our design pattern because of its ability to vary subjects and observers independently. We intend to use an observer to implement the administrative accounts for the library system. The problem we anticipate within our program is the admin account editing items, for example the quantity of a book. The oberserver will allow us to have an interface that updates a library component, which will be our observer, when the admin account(s), which is our subject, makes such changes. 
+  - Design 2: Strategy Pattern
+    - ...
+  - Design 3: Mediator Pattern
+    - We picked the Mediator pattern for its ability to allow objects to interact with each other. We intend to use it to connect the user account class and the library item component class and to notify when a library item is either checked out or returned by a user. The problem we are solving with this design pattern is having this notification feature without having to connect the two classes directly, instead they interact through the mediator. This is a good solution to this feature as the interactions are encapsulated in a mediator object, it has loose coupling, and it makes it easier to modify or add new features later.
+
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
