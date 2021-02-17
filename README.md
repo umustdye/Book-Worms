@@ -37,12 +37,16 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
  > Include a class diagram(s) for each design pattern and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
+
  ![Library item UML](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/LibraryItemUML.png?raw=true)
   - Library Item Composite Pattern
     - A library item can consist of a book, dvd, cd, or a collection which consists of multiple books, dvds, and/or cds. A collection could be the Lord of the Rings Trilogy for example. So the Book, DVD, and CD classes, which are our leafs, represent the type of library item that the item is and the Library Item Collection class, which is our composite, represents multiple books, dvds, and/or cds. The Lbrary item Component class, which is our component, represents any item in the library system. It holds all the values that are true to all items in the libary sytems such as return due date and the year it was released. This class is what is derivative to the client. 
  ![Admin Strategy UML](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/admin_strategy_uml.png?raw=true)
   - Library Item Composite Pattern
     - The admin
+ ![Mediator OMT](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/mediator-design-pattern.png?raw=true)
+   - User Account and Library Item Mediator Design Pattern
+    - The main function of the mediator design pattern is to connect the user account and library item classes. It will create a notification when the user account either checks out or returns a library item to the library, these are functions in their respective classes. For the structure the Library class is an abstract base class and interface that communicates with the abstract Communicator class. The Coordinator class inherits from the Library class and
  
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
