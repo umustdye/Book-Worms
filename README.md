@@ -38,11 +38,11 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
 ## Class Diagram
  > Include a class diagram(s) for each design pattern and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
 
- ![Library item UML](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/LibraryItemUML.png?raw=true)
+ ![Library item OMT](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/LibraryItemOMT.png?raw=true)
   - Library Item Composite Pattern
     - A library item can consist of a book, dvd, cd, or a collection which consists of multiple books, dvds, and/or cds. A collection could be the Lord of the Rings Trilogy for example. So the Book, DVD, and CD classes, which are our leafs, represent the type of library item that the item is and the Library Item Collection class, which is our composite, represents multiple books, dvds, and/or cds. The Lbrary item Component class, which is our component, represents any item in the library system. It holds all the values that are true to all items in the libary sytems such as return due date and the year it was released. This class is what is derivative to the client. 
  
-![Admin Strategy UML](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/admin_strategy_uml.png?raw=true)
+![Admin Strategy OMT](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/admin_strategy_uml.png?raw=true)
   - Admin strategy pattern for modifying library content. An admin has the ability to add, update, and remove four different items through a singular interface that allows. There are three different strategy patterns, one for each of the major types of modifications that an admin can make.
 
  ![Mediator OMT](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/mediator-design-pattern.png?raw=true)
