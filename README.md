@@ -41,9 +41,10 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
  ![Library item UML](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/LibraryItemUML.png?raw=true)
   - Library Item Composite Pattern
     - A library item can consist of a book, dvd, cd, or a collection which consists of multiple books, dvds, and/or cds. A collection could be the Lord of the Rings Trilogy for example. So the Book, DVD, and CD classes, which are our leafs, represent the type of library item that the item is and the Library Item Collection class, which is our composite, represents multiple books, dvds, and/or cds. The Lbrary item Component class, which is our component, represents any item in the library system. It holds all the values that are true to all items in the libary sytems such as return due date and the year it was released. This class is what is derivative to the client. 
- ![Admin Strategy UML](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/admin_strategy_uml.png?raw=true)
-  - Library Item Composite Pattern
-    - The admin
+ 
+![Admin Strategy UML](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/admin_strategy_uml.png?raw=true)
+  - Admin strategy pattern for modifying library content
+
  ![Mediator OMT](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/mediator-design-pattern.png?raw=true)
    - User Account and Library Item Mediator Design Pattern
     - The main function of the mediator design pattern is to connect the user account and library item classes. It will create a notification when the user account either checks out or returns a library item to the library, these are functions in their respective classes. For the structure the Library class is an abstract base class and interface that communicates with the abstract Communicator class. The Coordinator class inherits from the Library class and
