@@ -1,0 +1,18 @@
+#include "cd.hpp"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    Cd cd1;
+    cd1.setArtist("Yo Gabba Gabba");
+    cd1.setTracks(10);
+    cout << "Cd1 Artist: " << cd1.getArtist()<<endl;
+    cout << "Cd1 Tracks: " << cd1.getTracks()<<endl;
+
+    Cd cd2("Katy Perry", 13);
+    cout << "Cd2 Artist: " << cd2.getArtist()<<endl;
+    cout << "Cd2 Tracks: " << cd2.getTracks()<<endl;
+    return 0;
+}
