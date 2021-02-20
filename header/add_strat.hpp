@@ -1,5 +1,5 @@
-#ifndef ADDSTRAT_HPP
-#define ADDSTRAT_HPP
+#ifndef ADD_STRAT_HPP
+#define ADD_STRAT_HPP
 
 
 class AddStrat {

@@ -1,5 +1,5 @@
-#ifndef UPDATESTRAT_HPP
-#define UPDATESTRAT_HPP
+#ifndef UPDATE_STRAT_HPP
+#define UPDATE_STRAT_HPP
 
 
 class UpdateStrat {

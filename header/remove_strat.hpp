@@ -1,5 +1,5 @@
-#ifndef REMOVESTRAT_HPP
-#define REMOVESTRAT_HPP
+#ifndef REMOVE_STRAT_HPP
+#define REMOVE_STRAT_HPP
 
 
 class RemoveStrat {
