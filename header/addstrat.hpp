@@ -7,7 +7,7 @@ private:
 
 public:
     AddStrat();
-    virtual void add() = 0;
+    virtual bool add() = 0;
 };
 
 
