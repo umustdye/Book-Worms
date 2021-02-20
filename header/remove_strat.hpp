@@ -7,7 +7,7 @@ private:
 
 public:
     RemoveStrat();
-    virtual bool remove() = 0;
+    virtual bool remove(int id) = 0;
 };
 
 

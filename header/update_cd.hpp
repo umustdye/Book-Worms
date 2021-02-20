@@ -10,7 +10,7 @@ private:
 public:
     UpdateCd();
     ~UpdateCd();
-    virtual bool update() override;
+    virtual bool update(int id) override;
 };
 
 

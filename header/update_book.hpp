@@ -10,7 +10,7 @@ private:
 public:
     UpdateBook();
     ~UpdateBook();
-    virtual bool update() override;
+    virtual bool update(int id) override;
 };
 
 

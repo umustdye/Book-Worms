@@ -10,7 +10,7 @@ private:
 public:
     RemoveBook();
     ~RemoveBook();
-    virtual bool remove() override;
+    virtual bool remove(int id) override;
 };
 
 

@@ -10,7 +10,7 @@ private:
 public:
     UpdateDvd();
     ~UpdateDvd();
-    virtual bool update() override;
+    virtual bool update(int id) override;
 };
 
 

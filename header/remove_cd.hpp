@@ -10,7 +10,7 @@ private:
 public:
     RemoveCd();
     ~RemoveCd();
-    virtual bool remove() override;
+    virtual bool remove(int id) override;
 };
 
 

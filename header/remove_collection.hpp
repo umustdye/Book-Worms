@@ -10,7 +10,7 @@ private:
 public:
     RemoveCollection();
     ~RemoveCollection();
-    virtual bool remove() override;
+    virtual bool remove(int id) override;
 };
 
 

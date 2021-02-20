@@ -7,7 +7,7 @@ private:
 
 public:
     UpdateStrat();
-    virtual bool update() = 0;
+    virtual bool update(int id) = 0;
 };
 
 

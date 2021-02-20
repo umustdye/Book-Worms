@@ -10,7 +10,7 @@ private:
 public:
     UpdateCollection();
     ~UpdateCollection();
-    virtual bool update() override;
+    virtual bool update(int id) override;
 };
 
 
