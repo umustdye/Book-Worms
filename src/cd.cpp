@@ -8,8 +8,8 @@ using std::max;
 
 Cd::Cd()
 {
-    this->artist = "";
-    this->tracks = 0;
+    setArtist("");
+    setTracks(0);
 }
 
 

@@ -2,6 +2,7 @@
 
 #include "../header/cd.hpp"
 #include "cdTest.hpp"
+#include "bookTest.hpp"
 
 int main(int argc, char **argv)
 {
