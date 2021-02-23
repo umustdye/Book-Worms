@@ -1,9 +1,9 @@
 #include "../header/mock_user_account.hpp"
 
 void MockUserAccount::checkOutItem() {
-    change();
+    change("checkOutItem", 3);
 }
 
 void MockUserAccount::returnItem() {
-    change();
+    change("returnItem", 4);
 }

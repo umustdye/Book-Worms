@@ -1,9 +1,9 @@
 #include "../header/mock_library_item_component.hpp"
 
 void MockLibraryItemComponent::giveItem() {
-    change();
+    change("giveItem", 1);
 }
 
 void MockLibraryItemComponent::receiveItem() {
-    change();
+    change("receiveItem", 2);
 }

@@ -14,7 +14,7 @@ private:
 public:
     void setItem(MockLibraryItemComponent*);
     void setUser(MockUserAccount*);
-    virtual void itemChange(Communicator*);
+    virtual void itemChange(Communicator*, std::string, int);
 };
 
 #endif //__COORDINATOR_HPP__

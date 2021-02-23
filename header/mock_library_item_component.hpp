@@ -1,6 +1,8 @@
 #ifndef __MOCK_LIBRARY_ITEM_COMPONENT_HPP__
 #define __MOCK_LIBRARY_ITEM_COMPONENT_HPP__
 
+#include <string>
+
 #include "../header/communicator.hpp"
 
 class MockLibraryItemComponent : public Communicator {
