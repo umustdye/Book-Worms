@@ -3,6 +3,7 @@
 #include "../header/cd.hpp"
 #include "cdTest.hpp"
 #include "bookTest.hpp"
+#include "dvdTest.hpp"
 
 int main(int argc, char **argv)
 {
