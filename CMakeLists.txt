@@ -6,6 +6,7 @@ ADD_SUBDIRECTORY(googletest)
 
 ADD_EXECUTABLE(main
     src/main.cpp
+    src/user.cpp
 )
 
 ADD_EXECUTABLE(test
