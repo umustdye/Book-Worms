@@ -35,16 +35,6 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
 ![Admin Strategy OMT](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/admin_strategy_uml.png?raw=true)
   - Admin Account Strategy Pattern 
     - The strategy pattern is for modifying library item content. An admin has the ability to add, update, and remove the four different library items of Books, CDs, DVDs, and collections through a singular interface. There are three different strategy patterns, one for each of the major types of modifications that an admin can make. These are for adding, updating, and removing library item content.
- 
- 
- > ## Phase III
- > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
- > * Before the meeting you should perform a sprint plan like you did in Phase II
- > * In the meeting with your TA you will discuss: 
- >   - How effective your last sprint was (each member should talk about what they did)
- >   - Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- >   - Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- >   - What tasks you are planning for this next sprint.
 
  > ## Final deliverable
  > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
