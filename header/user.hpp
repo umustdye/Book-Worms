@@ -1,9 +1,10 @@
 #ifndef __USER_HPP__
 #define __USER_HPP__
 
+#include "../header/user_items.hpp"
+
 #include <string>
 #include <vector>
-#include <utility>
 
 class User {
 private:
@@ -11,7 +12,7 @@ private:
     std::string password;
     std::string firstName;
     std::string lastName;
-    std::vector<std::pair<int, int>> userItems;
+    std::vector<userItems> userItem;
 
 public:
     void setUserName(std::string);
