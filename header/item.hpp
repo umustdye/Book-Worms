@@ -17,14 +17,7 @@ class LibraryItemComponent
         int id;
 
     public:
-        LibraryItemComponent(std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=0)
-        {
-            setTitle(title);
-            setQuantity(quantity);
-            setGenres(genres);
-            setYear(year);
-            setId(id);
-        }
+        LibraryItemComponent(std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=0);
 
         virtual void setTitle(std::string title);
         virtual std::string getTitle();

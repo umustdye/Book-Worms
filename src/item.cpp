@@ -7,6 +7,16 @@ using std::string;
 using std::vector;
 
 
+LibraryItemComponent::LibraryItemComponent(std::string title, int quantity, std::vector<std::string> genres, std::string year, int id)
+{
+    setTitle(title);
+    setQuantity(quantity);
+    setGenres(genres);
+    setYear(year);
+    setId(id);
+
+}
+
 void LibraryItemComponent::setTitle(std::string title)
 {
     this->title = title;
