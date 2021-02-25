@@ -4,6 +4,7 @@
 #include "cdTest.hpp"
 #include "bookTest.hpp"
 #include "dvdTest.hpp"
+#include "itemTest.hpp"
 
 int main(int argc, char **argv)
 {
