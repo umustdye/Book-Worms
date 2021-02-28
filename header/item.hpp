@@ -15,9 +15,11 @@ class LibraryItemComponent
         std::vector<std::string> genres;
         std::string year;
         int id;
+        std::string description;
+        int length;
 
     public:
-        LibraryItemComponent(std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=0);
+        LibraryItemComponent(std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=0, std::string description="", int length=0);
 
         virtual void setTitle(std::string title);
         virtual std::string getTitle();
@@ -30,6 +32,10 @@ class LibraryItemComponent
         virtual std::string getYear();
         virtual void setId(int id);
         virtual int getId();
+        virtual void setDescription(std::string description);
+        virtual std::string getDescription();
+        virtual void setLength(int length);
+        virtual int getLength();
         virtual std::string stringifyItem();
 
 };
