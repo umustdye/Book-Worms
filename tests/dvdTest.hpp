@@ -16,6 +16,7 @@ TEST(dvdTest, constructor)
     EXPECT_EQ(dvd.getDirector(), "Tim Burton");
     Dvd dvd1("");
     EXPECT_EQ(dvd1.getDirector(), "");
+    EXPECT_EQ(dvd1.getLength(), 0);
 }
 
 TEST(dvdTest, changeDirector)

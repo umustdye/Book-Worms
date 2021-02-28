@@ -22,6 +22,8 @@ TEST(CdTest, constructor)
     Cd cd("Yo Gabba Gabba", 10);
     EXPECT_EQ(cd.getArtist(), "Yo Gabba Gabba");
     EXPECT_EQ(cd.getTracks(), 10);
+    cd.setLength(46);
+    EXPECT_EQ(cd.getLength(), 46);
 }
 
 TEST(CdTest, changeValue)
