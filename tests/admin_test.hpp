@@ -3,7 +3,7 @@
 
 #include "gtest/gtest.h"
 
-#include "../header/admin.hpp"
+#include "admin.hpp"
 
 TEST(AdminTest, SetGetItemType) {
     Admin admin;

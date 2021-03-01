@@ -3,7 +3,7 @@
 
 #include "gtest/gtest.h"
 
-#include "../header/user.hpp"
+#include "user.hpp"
 
 TEST(UserTest, SetGetUsername) {
     User user;
