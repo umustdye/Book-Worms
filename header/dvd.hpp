@@ -12,11 +12,14 @@ class Dvd : public LibraryItemComponent
 {
     private:
         std::string director;
-
+        int length;
+        
     public:
-        Dvd(std::string director= "", std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year ="", int id=0, std::string description="", int length=0);
+        Dvd(std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year ="", int id=-1, std::string description="", std::string director="", int length=0);
         void setDirector(std::string director);
         std::string getDirector();
+        void setLength(int length);
+        int getLength();
 };
 
 #endif //__DVD_HPP__

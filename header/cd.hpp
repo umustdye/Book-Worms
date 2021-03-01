@@ -16,7 +16,7 @@ class Cd : public LibraryItemComponent
 
 
     public:
-        Cd(std::string artist="", int tracks=0, std::string title="", int qunatity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=0, std::string description="", int length=0);
+        Cd(std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=-1, std::string description="", std::string artist="", int tracks=0);
 
         void setArtist(std::string artist);
 

@@ -13,14 +13,13 @@ TEST(ItemTest, emptyConstructor)
 {
     LibraryItemComponent item;
     EXPECT_EQ(item.getTitle(), "");
-    EXPECT_EQ(item.getId(), 0);
+    EXPECT_EQ(item.getId(), -1);
     EXPECT_EQ(item.getYear(), "");
     EXPECT_EQ(item.getQuantity(), 0);
     //empty vector to test against
     std::vector<std::string> testVect;
     EXPECT_EQ(item.getGenres(), testVect);
     EXPECT_EQ(item.getDescription(), "");
-    EXPECT_EQ(item.getLength(), 0);
 }
 
 TEST(ItemTest, constructor)
@@ -33,8 +32,7 @@ TEST(ItemTest, constructor)
     std::string year = "1959";
     int id = 23;
     string description = "Story of some kid going through a midlife crisis.";
-    int length = 125;    
-    LibraryItemComponent item(title, quantity, testVect, year, id, description, length);
+    LibraryItemComponent item(title, quantity, testVect, year, id, description);
     
     EXPECT_EQ(item.getTitle(), title);
     EXPECT_EQ(item.getId(), id);
@@ -42,7 +40,6 @@ TEST(ItemTest, constructor)
     EXPECT_EQ(item.getQuantity(), quantity);
     EXPECT_EQ(item.getGenres(), testVect);
     EXPECT_EQ(item.getDescription(), description);
-    EXPECT_EQ(item.getLength(), length);
 
 }
 

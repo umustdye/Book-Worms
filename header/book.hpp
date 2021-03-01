@@ -10,11 +10,14 @@ class Book : public LibraryItemComponent
 {
     private:
         std::string author;
+        int pages;
 
     public:
-        Book(std::string author="", std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=0, std::string description="", int length=0);
+        Book(std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=-1, std::string description="", std::string author = "", int pages=0);
         void setAuthor(std::string author);
         std::string getAuthor();
+        void setPages(int pages);
+        int getPages();
 };
 
 

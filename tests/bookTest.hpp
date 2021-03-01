@@ -9,23 +9,54 @@ TEST(BookTest, defaultConstructor)
 {
     Book bk;
     EXPECT_EQ(bk.getAuthor(), "");
+    EXPECT_EQ(bk.getPages(), 0);
 }
 
 TEST(BookTest, Constructor)
 {
-    Book bk("Tom Greene");
-    EXPECT_EQ(bk.getAuthor(), "Tom Greene");
+    //series of test values
+    string title = "GooseBumps HorrorLand: Revenge of the Living Dummy";
+    int quantity = 1;
+    std::vector<std::string> testVect;
+    testVect.push_back("Horror Fiction");
+    testVect.push_back("Children's");
+    std::string year = "2008";
+    int id = 3;
+    string description = "First book in the Goosebumps HorrorLand book series.";
+    string author = "R.L. Stine";
+    int pages = 135;
 
-    Book bk2("");
-    EXPECT_EQ(bk2.getAuthor(), "");
+    Book bk(title, quantity, testVect, year, id, description, author, pages);
+
+    EXPECT_EQ(bk.getAuthor(), author);
+    EXPECT_EQ(bk.getPages(), pages);
+    EXPECT_EQ(bk.getQuantity(), quantity);
+
 }
 
-TEST(BookTest, changedAuthor)
+TEST(BookTest, changedValues)
 {
-    Book bk("Tom Greene");
-    EXPECT_EQ(bk.getAuthor(), "Tom Greene");
-    bk.setAuthor("Stephen King");
-    EXPECT_EQ(bk.getAuthor(), "Stephen King");
+    //series of test values
+    string title = "It";
+    int quantity = 5;
+    std::vector<std::string> testVect;
+    testVect.push_back("Horror");
+    testVect.push_back("Thriller");
+    std::string year = "1986";
+    int id = 324;
+    string description = "Horror novel.";
+    string author = "Steven King";
+    int pages = 1038;
+
+    Book bk(title, quantity, testVect, year, id, description, author, pages);
+    EXPECT_EQ(bk.getAuthor(), author);
+    EXPECT_EQ(bk.getPages(), pages);
+    author = "Stephen King";
+    pages = 1138;
+    bk.setAuthor(author);
+    bk.setPages(pages);
+    EXPECT_EQ(bk.getAuthor(), author);
+    EXPECT_EQ(bk.getPages(), pages);
 }
 
 #endif //__BOOK_TEST_HPP__
