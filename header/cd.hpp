@@ -2,10 +2,13 @@
 #define __CD_HPP__
 
 #include <string>
+#include <vector>
+#include "item.hpp"
 
 using std::string;
+using std::vector;
 
-class Cd 
+class Cd : public LibraryItemComponent
 {
     private:
         std::string artist;
@@ -13,9 +16,7 @@ class Cd
 
 
     public:
-        Cd();
-
-        Cd(std::string artist, int tracks);
+        Cd(std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=-1, std::string description="", std::string artist="", int tracks=0);
 
         void setArtist(std::string artist);
 

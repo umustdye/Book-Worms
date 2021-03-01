@@ -6,14 +6,10 @@
 using std::string;
 using std::max;
 
-Cd::Cd()
-{
-    setArtist("");
-    setTracks(0);
-}
 
 
-Cd::Cd(std::string artist, int tracks)
+Cd::Cd(std::string title, int quantity, std::vector<std::string> genres, std::string year, int id, std::string description, std::string artist, int tracks)
+    : LibraryItemComponent{title, quantity, genres, year, id, description}
 {
     setArtist(artist);
     setTracks(tracks);

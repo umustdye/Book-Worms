@@ -7,13 +7,14 @@ using std::string;
 using std::vector;
 
 
-LibraryItemComponent::LibraryItemComponent(std::string title, int quantity, std::vector<std::string> genres, std::string year, int id)
+LibraryItemComponent::LibraryItemComponent(std::string title, int quantity, std::vector<std::string> genres, std::string year, int id, std::string description)
 {
     setTitle(title);
     setQuantity(quantity);
     setGenres(genres);
     setYear(year);
     setId(id);
+    setDescription(description);
 
 }
 
@@ -70,6 +71,16 @@ void LibraryItemComponent::setId(int id)
 int LibraryItemComponent::getId()
 {
     return this->id;
+}
+
+void LibraryItemComponent::setDescription(std::string description)
+{
+    this->description = description;
+}
+
+std::string LibraryItemComponent::getDescription()
+{
+    return this->description;
 }
 
 std::string LibraryItemComponent::stringifyItem()
