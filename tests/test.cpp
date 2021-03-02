@@ -1,13 +1,10 @@
 #include "gtest/gtest.h"
-#include "cd.hpp"
+
 #include "cdTest.hpp"
 #include "bookTest.hpp"
 #include "dvdTest.hpp"
 #include "itemTest.hpp"
-#include "user_test.hpp"
-#include "admin_test.hpp"
-#include "user.hpp"
-#include "admin.hpp"
+#include "account_test.hpp"
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

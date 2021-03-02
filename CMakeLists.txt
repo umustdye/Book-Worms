@@ -8,8 +8,7 @@ INCLUDE_DIRECTORIES(tests)
 
 ADD_EXECUTABLE(test
     tests/test.cpp
-    src/user.cpp
-    src/admin.cpp
+    src/account.cpp
     src/library.cpp
     src/cd.cpp
     src/book.cpp
