@@ -10,6 +10,7 @@ ADD_EXECUTABLE(test
     src/book.cpp
     src/dvd.cpp
     src/item.cpp
+    src/collection.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)
