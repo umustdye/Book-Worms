@@ -10,6 +10,10 @@ ADD_EXECUTABLE(test
     src/user.cpp
     src/admin.cpp
     src/library.cpp
+    src/cd.cpp
+    src/book.cpp
+    src/dvd.cpp
+    src/item.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)
