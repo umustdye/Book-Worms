@@ -13,6 +13,8 @@ class AccountMainPage : public QWidget
 
 public:
     AccountMainPage(QWidget *parent = nullptr);
+    void createAccountClass();
+    void checkAdminStatus();
     ~AccountMainPage();
 
 private slots:

@@ -15,6 +15,14 @@ AccountMainPage::~AccountMainPage()
     delete ui;
 }
 
+void AccountMainPage::createAccountClass() {
+
+}
+
+void AccountMainPage::checkAdminStatus() {
+    ui->adminButton->setVisible(false);
+}
+
 void AccountMainPage::on_logoutButton_clicked() {
     qDebug() << "LOGOUT";
 }
@@ -30,3 +38,4 @@ void AccountMainPage::on_profileButton_clicked() {
 void AccountMainPage::on_adminButton_clicked() {
     qDebug() << "ADMIN";
 }
+
