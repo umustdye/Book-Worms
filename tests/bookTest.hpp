@@ -59,4 +59,42 @@ TEST(BookTest, changedValues)
     EXPECT_EQ(bk.getPages(), pages);
 }
 
+
+TEST(BookTest, stringifyItem)
+{
+    //series of test values
+    string title = "GooseBumps HorrorLand: Revenge of the Living Dummy";
+    int quantity = 1;
+    std::vector<std::string> testVect;
+    testVect.push_back("Horror Fiction");
+    testVect.push_back("Children's");
+    std::string year = "2008";
+    int id = 3;
+    string description = "First book in the Goosebumps HorrorLand book series.";
+    string author = "R.L. Stine";
+    int pages = 135;
+
+    Book bk(title, quantity, testVect, year, id, description, author, pages);
+
+    string item = "";
+    item = "Title: "+title+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year+"\n";
+    item += "Genres: ";
+    for(auto genre:testVect)
+    {
+        item += genre + " ";   
+    }
+    item += "\nDescription: "+description+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    item += "\nAuthor: "+author+"\n";
+    item += "Pages: "+std::to_string(pages)+"\n";
+
+
+
+    EXPECT_EQ(bk.stringifyItem(), item);
+
+}
+
+
 #endif //__BOOK_TEST_HPP__

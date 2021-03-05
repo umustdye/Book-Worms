@@ -19,7 +19,7 @@ class LibraryItemComponent
 
     public:
         LibraryItemComponent(std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=-1, std::string description="");
-
+        virtual ~LibraryItemComponent(){}
         virtual void setTitle(std::string title);
         virtual std::string getTitle();
         virtual void setQuantity(int quantity);

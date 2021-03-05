@@ -32,3 +32,11 @@ int Dvd::getLength()
 {
     return this->length;
 }
+
+string Dvd::stringifyItem()
+{
+    string item = LibraryItemComponent::stringifyItem();
+    item += "\nDirector: "+ this->director+"\n";
+    item += "Length: "+std::to_string(length)+" minutes\n";
+    return item;
+}

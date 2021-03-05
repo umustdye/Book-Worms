@@ -1,5 +1,4 @@
 #include "../header/cd.hpp"
-
 #include <string>
 #include <algorithm>
 
@@ -34,4 +33,12 @@ void Cd::setTracks(int tracks)
 int Cd::getTracks()
 {
     return this->tracks;
+}
+
+string Cd::stringifyItem()
+{
+    string item = LibraryItemComponent::stringifyItem();
+    item += "\nArtist: "+ this->artist+"\n";
+    item += "Tracks: "+std::to_string(tracks)+"\n";
+    return item;
 }
