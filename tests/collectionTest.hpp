@@ -19,14 +19,15 @@ TEST(CollectionTest, emptyConstructor)
     LibraryItemCollection collection;
     EXPECT_EQ(collection.getId(), -1);
     EXPECT_EQ(collection.getTitle(), "");
-    vector<LibraryItemComponent> testItems = collection.getChildren();
+    vector<LibraryItemComponent*> testItems = collection.getChildren();
     for(auto item:testItems)
     {
-        EXPECT_EQ(item.getTitle(), "");   
+        EXPECT_EQ(item->getTitle(), "");   
     }
     EXPECT_EQ(collection.getDescription(), "");
     EXPECT_EQ(collection.getYear(), "");
     EXPECT_EQ(collection.getQuantity(), 0);
+
 }
 
 TEST(CollectionTest, constructorBook)
@@ -51,10 +52,10 @@ TEST(CollectionTest, constructorBook)
     int pages1 = 374;
     int pages2 = 391;
     int pages3 = 390;
-    Book book1(title1, quantity, genres, year1, id, description1, author, pages1);
-    Book book2(title2, quantity, genres, year2, id, description2, author, pages2);
-    Book book3(title3, quantity, genres, year3, id, description3, author, pages3);
-    vector<LibraryItemComponent> items;
+    LibraryItemComponent* book1 = new Book(title1, quantity, genres, year1, id, description1, author, pages1);
+    LibraryItemComponent* book2 = new Book(title2, quantity, genres, year2, id, description2, author, pages2);
+    LibraryItemComponent* book3 = new Book(title3, quantity, genres, year3, id, description3, author, pages3);
+    vector<LibraryItemComponent*> items;
     items.push_back(book1);
     items.push_back(book2);
     items.push_back(book3);
@@ -70,13 +71,13 @@ TEST(CollectionTest, constructorBook)
     EXPECT_EQ(collection.getId(), id);
     EXPECT_EQ(collection.getDescription(), description);
     //Test the individual items
-    vector<LibraryItemComponent> testItems = collection.getChildren();
-    EXPECT_EQ(testItems[0].getTitle(), title1);
-    EXPECT_EQ(testItems[1].getTitle(), title2);
-    EXPECT_EQ(testItems[2].getTitle(), title3);
-    EXPECT_EQ(testItems[0].getYear(), year1);
-    EXPECT_EQ(testItems[1].getYear(), year2);
-    EXPECT_EQ(testItems[2].getYear(), year3);
+    vector<LibraryItemComponent*> testItems = collection.getChildren();
+    EXPECT_EQ(testItems[0]->getTitle(), title1);
+    EXPECT_EQ(testItems[1]->getTitle(), title2);
+    EXPECT_EQ(testItems[2]->getTitle(), title3);
+    EXPECT_EQ(testItems[0]->getYear(), year1);
+    EXPECT_EQ(testItems[1]->getYear(), year2);
+    EXPECT_EQ(testItems[2]->getYear(), year3);
 
 }
 
@@ -102,10 +103,10 @@ TEST(CollectionTest, constructorDvd)
     int length1 = 178;
     int length2 = 179;
     int length3 = 201;
-    Dvd dvd1(title1, quantity, genres, year1, id, description1, director, length1);
-    Dvd dvd2(title2, quantity, genres, year2, id, description2, director, length2);
-    Dvd dvd3(title3, quantity, genres, year3, id, description3, director, length3);
-    vector<LibraryItemComponent> items;
+    LibraryItemComponent* dvd1 = new Dvd(title1, quantity, genres, year1, id, description1, director, length1);
+    LibraryItemComponent* dvd2 = new Dvd(title2, quantity, genres, year2, id, description2, director, length2);
+    LibraryItemComponent* dvd3 = new Dvd(title3, quantity, genres, year3, id, description3, director, length3);
+    vector<LibraryItemComponent*> items;
     items.push_back(dvd1);
     items.push_back(dvd2);
     items.push_back(dvd3);
@@ -121,13 +122,13 @@ TEST(CollectionTest, constructorDvd)
     EXPECT_EQ(collection.getId(), id);
     EXPECT_EQ(collection.getDescription(), description);
     //Test the individual items
-    vector<LibraryItemComponent> testItems = collection.getChildren();
-    EXPECT_EQ(testItems[0].getTitle(), title1);
-    EXPECT_EQ(testItems[1].getTitle(), title2);
-    EXPECT_EQ(testItems[2].getTitle(), title3);
-    EXPECT_EQ(testItems[0].getYear(), year1);
-    EXPECT_EQ(testItems[1].getYear(), year2);
-    EXPECT_EQ(testItems[2].getYear(), year3);
+    vector<LibraryItemComponent*> testItems = collection.getChildren();
+    EXPECT_EQ(testItems[0]->getTitle(), title1);
+    EXPECT_EQ(testItems[1]->getTitle(), title2);
+    EXPECT_EQ(testItems[2]->getTitle(), title3);
+    EXPECT_EQ(testItems[0]->getYear(), year1);
+    EXPECT_EQ(testItems[1]->getYear(), year2);
+    EXPECT_EQ(testItems[2]->getYear(), year3);
 
 }
 
@@ -153,10 +154,10 @@ TEST(CollectionTest, constructorCd)
     int tracks1 = 10;
     int tracks2 = 11;
     int tracks3 = 10;
-    Cd cd1(title1, quantity, genres, year1, id, description1, artist, tracks1);
-    Cd cd2(title2, quantity, genres, year2, id, description2, artist, tracks2);
-    Cd cd3(title3, quantity, genres, year3, id, description3, artist, tracks3);
-    vector<LibraryItemComponent> items;
+    LibraryItemComponent* cd1 = new Cd(title1, quantity, genres, year1, id, description1, artist, tracks1);
+    LibraryItemComponent* cd2 = new Cd(title2, quantity, genres, year2, id, description2, artist, tracks2);
+    LibraryItemComponent* cd3 = new Cd(title3, quantity, genres, year3, id, description3, artist, tracks3);
+    vector<LibraryItemComponent*> items;
     items.push_back(cd1);
     items.push_back(cd2);
     items.push_back(cd3);
@@ -171,14 +172,73 @@ TEST(CollectionTest, constructorCd)
     EXPECT_EQ(collection.getYear(), year1);
     EXPECT_EQ(collection.getId(), id);
     EXPECT_EQ(collection.getDescription(), description);
+    string item = "";
+    item = "Title: "+title+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year1+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";   
+    }
+    item += "\nDescription: "+description+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    
+    //item one
+    item += "\n\tTitle: "+title1+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year1+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";   
+    }
+    item += "\nDescription: "+description1+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    item += "\nArtist: "+artist+"\n";
+    item += "Tracks: "+std::to_string(tracks1)+"\n";
+
+
+    //item 2
+    item += "\n\tTitle: "+title2+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year2+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";   
+    }
+    item += "\nDescription: "+description2+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    item += "\nArtist: "+artist+"\n";
+    item += "Tracks: "+std::to_string(tracks2)+"\n";
+
+    //item 3
+    item += "\n\tTitle: "+title3+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year3+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";   
+    }
+    item += "\nDescription: "+description3+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    item += "\nArtist: "+artist+"\n";
+    item += "Tracks: "+std::to_string(tracks3)+"\n";
+
+    EXPECT_EQ(collection.stringifyItem(), item);
+
+
+
     //Test the individual items
-    vector<LibraryItemComponent> testItems = collection.getChildren();
-    EXPECT_EQ(testItems[0].getTitle(), title1);
-    EXPECT_EQ(testItems[1].getTitle(), title2);
-    EXPECT_EQ(testItems[2].getTitle(), title3);
-    EXPECT_EQ(testItems[0].getYear(), year1);
-    EXPECT_EQ(testItems[1].getYear(), year2);
-    EXPECT_EQ(testItems[2].getYear(), year3);
+    vector<LibraryItemComponent*> testItems = collection.getChildren();
+    EXPECT_EQ(testItems[0]->getTitle(), title1);
+    EXPECT_EQ(testItems[1]->getTitle(), title2);
+    EXPECT_EQ(testItems[2]->getTitle(), title3);
+    EXPECT_EQ(testItems[0]->getYear(), year1);
+    EXPECT_EQ(testItems[1]->getYear(), year2);
+    EXPECT_EQ(testItems[2]->getYear(), year3);
 
 }
 

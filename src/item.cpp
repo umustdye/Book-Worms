@@ -85,6 +85,17 @@ std::string LibraryItemComponent::getDescription()
 
 std::string LibraryItemComponent::stringifyItem()
 {
-    return "";
+    string item = "";
+    item = "Title: "+this->title+"\n";
+    item += "Item ID: "+std::to_string(this->id)+"\n";
+    item += "Year: "+this->year+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";   
+    }
+    item += "\nDescription: "+this->description+"\n";
+    item += "Quantity: "+std::to_string(this->quantity);
+    return item;
 }
 

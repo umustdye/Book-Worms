@@ -18,6 +18,7 @@ class Cd : public LibraryItemComponent
     public:
         Cd(std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=-1, std::string description="", std::string artist="", int tracks=0);
 
+        virtual ~Cd(){}
         void setArtist(std::string artist);
 
         std::string getArtist();
@@ -25,6 +26,9 @@ class Cd : public LibraryItemComponent
         void setTracks(int tracks);
 
         int getTracks();
+
+        virtual string stringifyItem() override;
+       
 
 };
 
