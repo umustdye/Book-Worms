@@ -83,4 +83,78 @@ TEST(CdTest, changeValue)
     EXPECT_EQ(cd.getArtist(), artist);
     EXPECT_EQ(cd.getTracks(), tracks);
 }
+
+TEST(CdTest, stringifyItem)
+{ 
+    //series of test values
+    string title = "Salad Days";
+    int quantity = 3;
+    std::vector<std::string> testVect;
+    testVect.push_back("Indie Rock");
+    testVect.push_back("Psychedelic pop");
+    std::string year = "2014";
+    int id = 15;
+    string description = "Studio album by Mac DeMarco.";
+    string artist = "Mac DeMarco";
+    int tracks = 11;
+
+    Cd cd(title, quantity, testVect, year, id, description, artist, tracks);
+    string item = "";
+    item = "Title: "+title+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year+"\n";
+    item += "Genres: ";
+    for(auto genre:testVect)
+    {
+        item += genre + " ";   
+    }
+    item += "\nDescription: "+description+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    item += "\nArtist: "+artist+"\n";
+    item += "Tracks: "+std::to_string(tracks)+"\n";
+    
+    //EXPECT_EQ(cd.getArtist(), artist);
+    //EXPECT_EQ(cd.getTracks(), tracks);
+    EXPECT_EQ(cd.stringifyItem(), item);
+}
+
+
+TEST(CdTest, stringify2)
+{ 
+    //series of test values
+    string title = "Salad Days";
+    int quantity = 3;
+    std::vector<std::string> testVect;
+    testVect.push_back("Indie Rock");
+    testVect.push_back("Psychedelic pop");
+    std::string year = "2014";
+    int id = 15;
+    string description = "Studio album by Mac DeMarco.";
+    string artist = "Mac DeMarco";
+    int tracks = 11;
+
+    LibraryItemComponent* cd = new Cd(title, quantity, testVect, year, id, description, artist, tracks);
+
+    string item = "";
+    item = "Title: "+title+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year+"\n";
+    item += "Genres: ";
+    for(auto genre:testVect)
+    {
+        item += genre + " ";   
+    }
+    item += "\nDescription: "+description+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    item += "\nArtist: "+artist+"\n";
+    item += "Tracks: "+std::to_string(tracks)+"\n";
+    
+    EXPECT_EQ(cd->stringifyItem(), item);
+
+
+    delete cd;
+}
+
+
+
 #endif //__CD_TEST_HPP__
