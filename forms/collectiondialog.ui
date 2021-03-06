@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CdDialog</class>
- <widget class="QDialog" name="CdDialog">
+ <class>CollectionDialog</class>
+ <widget class="QDialog" name="CollectionDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>435</height>
+    <width>470</width>
+    <height>417</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,7 +25,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Add Cd</string>
+      <string>Add Collection</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -43,32 +43,22 @@
      <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Cd Title</string>
+        <string>Collection Title</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="cdTitle"/>
+      <widget class="QLineEdit" name="collectionTitle"/>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>Artist</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="cdArtist"/>
-     </item>
-     <item row="2" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
         <string>Year</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QSpinBox" name="cdYearSpinbox">
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="collectionYearSpinbox">
        <property name="minimum">
         <number>1900</number>
        </property>
@@ -80,35 +70,35 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
+     <item row="2" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>Quantity</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QSpinBox" name="cdQuantitySpinbox"/>
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="collectionQuantitySpinbox"/>
      </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_7">
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_8">
        <property name="text">
-        <string>Tracks</string>
+        <string>Description</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QSpinBox" name="cdTracksSpinbox"/>
+     <item row="3" column="1">
+      <widget class="QTextEdit" name="collectionDescriptionTextEdit"/>
      </item>
-     <item row="6" column="0">
+     <item row="4" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
         <string>Genres</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="1">
-      <widget class="QListWidget" name="cdGenreList">
+     <item row="4" column="1">
+      <widget class="QListWidget" name="collectionGenreList">
        <property name="alternatingRowColors">
         <bool>true</bool>
        </property>
@@ -153,15 +143,36 @@
        </item>
       </widget>
      </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_8">
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="topMargin">
+      <number>14</number>
+     </property>
+     <property name="bottomMargin">
+      <number>14</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="addBookPushButton">
        <property name="text">
-        <string>Description</string>
+        <string>Add Book</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QTextEdit" name="cdDescriptionTextEdit"/>
+     <item>
+      <widget class="QPushButton" name="addCdPushButton">
+       <property name="text">
+        <string>Add Cd</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="addDvdPushButton">
+       <property name="text">
+        <string>Add Dvd</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -181,33 +192,33 @@
  <connections>
   <connection>
    <sender>acceptButtonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>CdDialog</receiver>
-   <slot>reject()</slot>
+   <signal>accepted()</signal>
+   <receiver>CollectionDialog</receiver>
+   <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>189</x>
-     <y>415</y>
+     <x>402</x>
+     <y>570</y>
     </hint>
     <hint type="destinationlabel">
-     <x>189</x>
-     <y>217</y>
+     <x>500</x>
+     <y>442</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>acceptButtonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>CdDialog</receiver>
-   <slot>accept()</slot>
+   <signal>rejected()</signal>
+   <receiver>CollectionDialog</receiver>
+   <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>189</x>
-     <y>415</y>
+     <x>402</x>
+     <y>570</y>
     </hint>
     <hint type="destinationlabel">
-     <x>189</x>
-     <y>217</y>
+     <x>500</x>
+     <y>442</y>
     </hint>
    </hints>
   </connection>

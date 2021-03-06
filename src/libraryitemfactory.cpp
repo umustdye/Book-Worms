@@ -1,7 +1,4 @@
 #include "libraryitemfactory.hpp"
-#include "bookdialog.hpp"
-#include "cddialog.hpp"
-#include "dvddialog.hpp"
 
 LibraryItemFactory::LibraryItemFactory()
 {
@@ -15,16 +12,20 @@ LibraryItemComponent *LibraryItemFactory::createItem(Type type, int id)
 {
     switch(type) {
     case BookItem: {
-        BookDialog fac;
-        return fac.create(id);
+        BookDialog dialog;
+        return dialog.create(id);
     }
     case CdItem: {
-        CdDialog fac;
-        return fac.create(id);
+        CdDialog dialog;
+        return dialog.create(id);
     }
     case DvdItem: {
-        DvdDialog fac;
-        return fac.create(id);
+        DvdDialog dialog;
+        return dialog.create(id);
+    }
+    case CollectionItem: {
+        CollectionDialog dialog;
+        return dialog.create(id);
     }
     default: return nullptr;
     }

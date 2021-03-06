@@ -16,6 +16,7 @@ public:
     QString getArtist();
     void setTracks(int tracks);
     int getTracks();
+    virtual QString stringifyItem() override;
 };
 
 #endif //__CD_HPP__
