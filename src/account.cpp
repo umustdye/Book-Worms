@@ -53,3 +53,11 @@ std::string Account::getFirstName() {
 std::string Account::getLastName() {
     return this->lastName;
 }
+
+void Account::setAccountType(AccountType at) {
+    this->accountType = at;
+}
+
+AccountType Account::getAccountType() {
+    return this->accountType;
+}

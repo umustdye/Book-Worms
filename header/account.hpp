@@ -9,12 +9,13 @@
 #include <string>
 #include <vector>
 
+enum AccountType {
+    user, admin
+};
+
 class Account {
 private:
     // admin
-    AddStrat* add;
-    UpdateStrat* update;
-    RemoveStrat* remove;
     int itemType;
 
     // user
@@ -24,7 +25,7 @@ private:
     std::string lastName;
     std::vector<userItems> userItem;
 
-    enum accountType { user, account };
+    AccountType accountType;
 
 public:
     // admin
@@ -43,6 +44,9 @@ public:
     std::string getPassword();
     std::string getFirstName();
     std::string getLastName();
+
+    void setAccountType(AccountType);
+    AccountType getAccountType();
 };
 
 #endif //__ACCOUNT_HPP__

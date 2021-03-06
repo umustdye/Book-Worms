@@ -104,4 +104,14 @@ TEST(AccountTest, SetValueInStruct) {
     EXPECT_EQ(qty, 7);
 }
 
+TEST(AccountTest, SetGetAccountType) {
+    Account account;
+    account.setAccountType(user);
+    AccountType at0 = user;
+    EXPECT_EQ(at0, account.getAccountType());
+    account.setAccountType(admin);
+    AccountType at1 = admin;
+    EXPECT_EQ(at1, account.getAccountType());
+}
+
 #endif //__ACCOUNT_TEST_HPP__
