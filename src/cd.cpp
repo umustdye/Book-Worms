@@ -1,26 +1,26 @@
-#include "cd.hpp"
+#include "../header/cd.hpp"
+#include <string>
 #include <algorithm>
 
+using std::string;
 using std::max;
 
 
-Cd::Cd(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description, QString artist, int tracks)
-    : LibraryItemComponent(title, quantity, genres, year, id, description)
+
+Cd::Cd(std::string title, int quantity, std::vector<std::string> genres, std::string year, int id, std::string description, std::string artist, int tracks)
+    : LibraryItemComponent{title, quantity, genres, year, id, description}
 {
     setArtist(artist);
     setTracks(tracks);
 }
 
-Cd::~Cd()
-{
-}
 
-void Cd::setArtist(QString artist)
+void Cd::setArtist(std::string artist)
 {
     this->artist = artist;
 }
 
-QString Cd::getArtist()
+std::string Cd::getArtist()
 {
     return this->artist;
 }
@@ -35,10 +35,10 @@ int Cd::getTracks()
     return this->tracks;
 }
 
-QString Cd::stringifyItem()
+string Cd::stringifyItem()
 {
-    QString item = LibraryItemComponent::stringifyItem();
+    string item = LibraryItemComponent::stringifyItem();
     item += "\nArtist: "+ this->artist+"\n";
-    item += "Tracks: "+QString::number(tracks)+"\n";
+    item += "Tracks: "+std::to_string(tracks)+"\n";
     return item;
 }

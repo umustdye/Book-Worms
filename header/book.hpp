@@ -15,7 +15,6 @@ public:
     QString getAuthor();
     void setPages(int pages);
     int getPages();
-    QString stringifyItem() override;
 };
 
 
