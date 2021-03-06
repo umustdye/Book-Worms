@@ -2,7 +2,7 @@
 #define BOOKDIALOG_HPP
 
 #include <QDialog>
-#include "item.hpp"
+#include "book.hpp"
 
 namespace Ui {
 class BookDialog;
@@ -14,11 +14,12 @@ class BookDialog : public QDialog
 public:
     explicit BookDialog(QWidget *parent = nullptr);
     ~BookDialog();
-    LibraryItemComponent *createItem(int id = -1);
+    Book *create(int id = -1);
 
 private:
     Ui::BookDialog *ui;
     int id;
+    Book *book;
 
 public slots:
     void accept() override;
