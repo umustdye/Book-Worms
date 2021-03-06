@@ -1,23 +1,20 @@
 #ifndef __BOOK_HPP__
 #define __BOOK_HPP__
 #include "item.hpp"
-#include <string>
-#include <vector>
-using std::string;
-using std::vector;
 
 class Book : public LibraryItemComponent
 {
-    private:
-        std::string author;
-        int pages;
+private:
+    QString author;
+    int pages;
 
-    public:
-        Book(std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=-1, std::string description="", std::string author = "", int pages=0);
-        void setAuthor(std::string author);
-        std::string getAuthor();
-        void setPages(int pages);
-        int getPages();
+public:
+    Book(QString title="", int quantity=0, QVector<QString> genres = QVector<QString>(), QString year="", int id=-1, QString description="", QString author = "", int pages=0);
+    virtual ~Book();
+    void setAuthor(QString author);
+    QString getAuthor();
+    void setPages(int pages);
+    int getPages();
 };
 
 

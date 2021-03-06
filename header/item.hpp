@@ -1,40 +1,35 @@
 #ifndef __ITEM_HPP__
 #define __ITEM_HPP__
 
-#include <string>
-#include <vector>
-
-using std::string;
-using std::vector;
-
+#include <QString>
+#include <QVector>
 class LibraryItemComponent
 {
-    private:
-        std::string title;
-        int quantity;
-        std::vector<std::string> genres;
-        std::string year;
-        int id;
-        std::string description;
+private:
+    QString title;
+    int quantity;
+    QVector<QString> genres;
+    QString year;
+    int id;
+    QString description;
 
-    public:
-        LibraryItemComponent(std::string title="", int quantity=0, std::vector<std::string> genres = std::vector<std::string>(), std::string year="", int id=-1, std::string description="");
-
-        virtual void setTitle(std::string title);
-        virtual std::string getTitle();
-        virtual void setQuantity(int quantity);
-        virtual int getQuantity();
-        virtual void setGenres(std::vector<std::string> genres);
-        virtual void addGenre(std::string genre);
-        virtual std::vector<std::string> getGenres();
-        virtual void setYear(std::string year);
-        virtual std::string getYear();
-        virtual void setId(int id);
-        virtual int getId();
-        virtual void setDescription(std::string description);
-        virtual std::string getDescription();
-        virtual std::string stringifyItem();
-
+public:
+    LibraryItemComponent(QString title="", int quantity=0, QVector<QString> genres = QVector<QString>(), QString year="", int id=-1, QString description="");
+    virtual ~LibraryItemComponent();
+    void setTitle(QString title);
+    QString getTitle();
+    void setQuantity(int quantity);
+    int getQuantity();
+    void setGenres(QVector<QString> genres);
+    void addGenre(QString genre);
+    QVector<QString> getGenres();
+    void setYear(QString year);
+    QString getYear();
+    void setId(int id);
+    int getId();
+    void setDescription(QString description);
+    QString getDescription();
+    virtual QString stringifyItem();
 };
 
 #endif //__ITEM_HPP__
