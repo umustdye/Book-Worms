@@ -114,4 +114,11 @@ TEST(AccountTest, SetGetAccountType) {
     EXPECT_EQ(at1, account.getAccountType());
 }
 
+TEST(AccountTest, SetGetId) {
+    Account account;
+    account.setId(123456);
+    int id = account.getId();
+    EXPECT_EQ(123456, id);
+}
+
 #endif //__ACCOUNT_TEST_HPP__

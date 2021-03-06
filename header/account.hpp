@@ -26,6 +26,7 @@ private:
     std::vector<userItems> userItem;
 
     AccountType accountType;
+    int id;
 
 public:
     // admin
@@ -47,6 +48,8 @@ public:
 
     void setAccountType(AccountType);
     AccountType getAccountType();
+    void setId(int);
+    int getId();
 };
 
 #endif //__ACCOUNT_HPP__

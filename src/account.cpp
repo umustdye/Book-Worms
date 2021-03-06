@@ -54,10 +54,19 @@ std::string Account::getLastName() {
     return this->lastName;
 }
 
+// user and admin
 void Account::setAccountType(AccountType at) {
     this->accountType = at;
 }
 
 AccountType Account::getAccountType() {
     return this->accountType;
+}
+
+void Account::setId(int i) {
+    this->id = i;
+}
+
+int Account::getId() {
+    return this->id;
 }
