@@ -1,12 +1,7 @@
-#include "../header/collection.hpp"
-#include <string>
-#include <vector>
-
-using std::string;
-using std::vector;
+#include "collection.hpp"
 
 
-LibraryItemCollection::LibraryItemCollection(string title, int quantity, vector<string> genres, string year, int id, string description, vector<LibraryItemComponent*> children)
+LibraryItemCollection::LibraryItemCollection(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description, QVector<LibraryItemComponent*> children)
     : LibraryItemComponent{title, quantity, genres, year, id, description}
 {
     setChildren(children);
@@ -35,19 +30,19 @@ LibraryItemComponent* LibraryItemCollection::getChild(int index)
     return this->children[index];
 }
 
-void LibraryItemCollection::setChildren(vector<LibraryItemComponent*> children)
+void LibraryItemCollection::setChildren(QVector<LibraryItemComponent*> children)
 {
     this->children = children;
 }
         
-vector<LibraryItemComponent*> LibraryItemCollection::getChildren()
+QVector<LibraryItemComponent*> LibraryItemCollection::getChildren()
 {
     return this->children;
 }
 
-string LibraryItemCollection::stringifyItem()
+QString LibraryItemCollection::stringifyItem()
 {
-    string item = LibraryItemComponent::stringifyItem();
+    QString item = LibraryItemComponent::stringifyItem();
     for(auto child : children)
     {
         item += "\n\t" + child->stringifyItem();

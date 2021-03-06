@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>417</width>
+    <width>400</width>
     <height>435</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -95,7 +98,11 @@
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QSpinBox" name="dvdLengthSpinbox"/>
+      <widget class="QSpinBox" name="dvdLengthSpinbox">
+       <property name="maximum">
+        <number>1000</number>
+       </property>
+      </widget>
      </item>
      <item row="5" column="0">
       <widget class="QLabel" name="label_8">

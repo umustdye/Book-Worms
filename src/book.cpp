@@ -1,23 +1,22 @@
-#include "../header/book.hpp"
+#include "book.hpp"
 
-#include <string>
-
-using std::string;
-
-
-Book::Book(std::string title, int quantity, std::vector<std::string> genres, std::string year, int id, std::string description, std::string author, int pages)
-    : LibraryItemComponent{title, quantity, genres, year, id, description}
+Book::Book(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description, QString author, int pages)
+    : LibraryItemComponent(title, quantity, genres, year, id, description)
 {
     setAuthor(author);
     setPages(pages);
 }
 
-void Book::setAuthor(std::string author)
+Book::~Book()
+{
+}
+
+void Book::setAuthor(QString author)
 {
     this->author = author;
 }
 
-std::string Book::getAuthor()
+QString Book::getAuthor()
 {
     return this->author;
 }
@@ -32,10 +31,10 @@ int Book::getPages()
     return this->pages;
 }
 
-string Book::stringifyItem()
+QString Book::stringifyItem()
 {
-    string item = LibraryItemComponent::stringifyItem();
+    QString item = LibraryItemComponent::stringifyItem();
     item += "\nAuthor: "+ this->author+"\n";
-    item += "Pages: "+std::to_string(pages)+"\n";
+    item += "Pages: "+QString::number(pages)+"\n";
     return item;
 }

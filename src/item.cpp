@@ -1,13 +1,6 @@
-#include "../header/item.hpp"
+#include "item.hpp"
 
-#include <string>
-#include <vector>
-
-using std::string;
-using std::vector;
-
-
-LibraryItemComponent::LibraryItemComponent(std::string title, int quantity, std::vector<std::string> genres, std::string year, int id, std::string description)
+LibraryItemComponent::LibraryItemComponent(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description)
 {
     setTitle(title);
     setQuantity(quantity);
@@ -15,15 +8,18 @@ LibraryItemComponent::LibraryItemComponent(std::string title, int quantity, std:
     setYear(year);
     setId(id);
     setDescription(description);
-
 }
 
-void LibraryItemComponent::setTitle(std::string title)
+LibraryItemComponent::~LibraryItemComponent()
+{
+}
+
+void LibraryItemComponent::setTitle(QString title)
 {
     this->title = title;
 }
         
-std::string LibraryItemComponent::getTitle()
+QString LibraryItemComponent::getTitle()
 {
     return this->title;
 }
@@ -38,27 +34,27 @@ int LibraryItemComponent::getQuantity()
     return this->quantity;
 }
 
-void LibraryItemComponent::setGenres(std::vector<std::string> genres)
+void LibraryItemComponent::setGenres(QVector<QString> genres)
 {
     this->genres = genres;
 }
 
-void LibraryItemComponent::addGenre(std::string genre)
+void LibraryItemComponent::addGenre(QString genre)
 {
     this->genres.push_back(genre);
 }
 
-std::vector<std::string> LibraryItemComponent::getGenres()
+QVector<QString> LibraryItemComponent::getGenres()
 {
     return this->genres;
 }
 
-void LibraryItemComponent::setYear(std::string year)
+void LibraryItemComponent::setYear(QString year)
 {
     this->year = year;
 }
 
-std::string LibraryItemComponent::getYear()
+QString LibraryItemComponent::getYear()
 {
     return this->year;
 }
@@ -73,29 +69,29 @@ int LibraryItemComponent::getId()
     return this->id;
 }
 
-void LibraryItemComponent::setDescription(std::string description)
+void LibraryItemComponent::setDescription(QString description)
 {
     this->description = description;
 }
 
-std::string LibraryItemComponent::getDescription()
+QString LibraryItemComponent::getDescription()
 {
     return this->description;
 }
 
-std::string LibraryItemComponent::stringifyItem()
+QString LibraryItemComponent::stringifyItem()
 {
-    string item = "";
+    QString item = "";
     item = "Title: "+this->title+"\n";
-    item += "Item ID: "+std::to_string(this->id)+"\n";
+    item += "Item ID: "+QString::number(this->id)+"\n";
     item += "Year: "+this->year+"\n";
     item += "Genres: ";
-    for(auto genre:genres)
+    for(QString &genre : genres)
     {
-        item += genre + " ";   
+        item += genre + " ";
     }
     item += "\nDescription: "+this->description+"\n";
-    item += "Quantity: "+std::to_string(this->quantity);
+    item += "Quantity: "+QString::number(this->quantity);
     return item;
 }
 
