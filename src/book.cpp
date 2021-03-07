@@ -31,3 +31,11 @@ int Book::getPages()
 {
     return this->pages;
 }
+
+string Book::stringifyItem()
+{
+    string item = LibraryItemComponent::stringifyItem();
+    item += "\nAuthor: "+ this->author+"\n";
+    item += "Pages: "+std::to_string(pages)+"\n";
+    return item;
+}

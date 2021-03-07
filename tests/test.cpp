@@ -4,6 +4,8 @@
 #include "bookTest.hpp"
 #include "dvdTest.hpp"
 #include "itemTest.hpp"
+#include "collectionTest.hpp"
+
 #include "account_test.hpp"
 #include "library_test.hpp"
 
