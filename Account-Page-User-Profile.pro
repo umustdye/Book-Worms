@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,13 +10,19 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    account_main_page.cpp
+    account_page_user_profile.cpp \
+    accountwidget.cpp \
+    userprofiledialog.cpp \
 
 HEADERS += \
-    account_main_page.h
+    account_page_user_profile.h \
+    accountwidget.h \
+    userprofiledialog.h \
 
 FORMS += \
-    accountmainpage.ui
+    account_page_user_profile.ui \
+    accountwidget.ui \
+    userprofiledialog.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

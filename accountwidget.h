@@ -1,6 +1,8 @@
 #ifndef ACCOUNTMAINPAGE_H
 #define ACCOUNTMAINPAGE_H
 
+#include "userprofiledialog.h"
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE

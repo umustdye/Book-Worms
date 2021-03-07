@@ -1,5 +1,5 @@
-#include "account_main_page.h"
-#include "ui_accountmainpage.h"
+#include "accountwidget.h"
+#include "ui_accountwidget.h"
 #include <QDebug>
 
 AccountMainPage::AccountMainPage(QWidget *parent)
@@ -7,7 +7,7 @@ AccountMainPage::AccountMainPage(QWidget *parent)
     , ui(new Ui::AccountMainPage)
 {
     ui->setupUi(this);
-    checkAdminStatus();
+    //checkAdminStatus();
 }
 
 AccountMainPage::~AccountMainPage()
@@ -33,6 +33,8 @@ void AccountMainPage::on_libraryButton_clicked() {
 
 void AccountMainPage::on_profileButton_clicked() {
     qDebug() << "PROFILE";
+    UserProfileDialog u;
+    u.exec();
 }
 
 void AccountMainPage::on_adminButton_clicked() {
