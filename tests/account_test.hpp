@@ -73,7 +73,28 @@ TEST(AccountTest, SetGetItemType) {
     EXPECT_EQ(42, itemType);
 }
 
-TEST(AccountTest, SetGetFromUserClass) {
+TEST(AccountTest, SetGetEmpty) {
+    Account account;
+    std::string str;
+
+    account.setUserName("");
+    str = account.getUserName();
+    EXPECT_EQ("", str);
+
+    account.setPassword("");
+    str = account.getPassword();
+    EXPECT_EQ("", str);
+
+    account.setFirstName("");
+    str = account.getFirstName();
+    EXPECT_EQ("", str);
+
+    account.setLastName("");
+    str = account.getLastName();
+    EXPECT_EQ("", str);
+}
+
+TEST(AccountTest, SetGetFromAccountClass) {
     Account account;
     std::string str;
 
