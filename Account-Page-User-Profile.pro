@@ -1,4 +1,4 @@
-QT       += core gui widgets
+QT       += core gui widgets sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,11 +13,25 @@ SOURCES += \
     account_page_user_profile.cpp \
     accountwidget.cpp \
     userprofiledialog.cpp \
+    src/account.cpp \
+    src/book.cpp \
+    src/cd.cpp \
+    src/collection.cpp \
+    src/dvd.cpp \
+    src/item.cpp \
+    src/library.cpp \
 
 HEADERS += \
     account_page_user_profile.h \
     accountwidget.h \
     userprofiledialog.h \
+    header/account.hpp \
+    header/book.hpp \
+    header/cd.hpp \
+    header/collection.hpp \
+    header/library.hpp \
+    header/item.hpp \
+    header/user_items.hpp \
 
 FORMS += \
     account_page_user_profile.ui \

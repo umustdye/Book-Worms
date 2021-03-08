@@ -18,4 +18,3 @@ void UserProfileDialog::createTableWidget() {
     QTableView itemTableView;
 
 }
-

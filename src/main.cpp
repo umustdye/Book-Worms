@@ -1,13 +1,11 @@
-#include "account_page_user_profile.h"
-#include "accountwidget.h"
+#include <iostream>
+using namespace std;
 
-#include <QApplication>
+#include "library.hpp"
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-//    AccountPageUserProfile w;
-    AccountMainPage w;
-    w.show();
-    return a.exec();
+int main() {
+
+    Library lib;
+
+    return 0;
 }

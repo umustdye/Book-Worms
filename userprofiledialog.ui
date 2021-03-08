@@ -35,19 +35,6 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QPushButton" name="mainPagePushButton">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="text">
-       <string>Main Page</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="Line" name="line">
@@ -63,13 +50,13 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QTableView" name="itemTableView">
+  <widget class="QListView" name="itemListView">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>20</x>
      <y>140</y>
-     <width>721</width>
-     <height>401</height>
+     <width>751</width>
+     <height>431</height>
     </rect>
    </property>
   </widget>
