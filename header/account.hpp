@@ -1,9 +1,6 @@
 #ifndef __ACCOUNT_HPP__
 #define __ACCOUNT_HPP__
 
-#include "add_strat.hpp"
-#include "update_strat.hpp"
-#include "remove_strat.hpp"
 #include "user_items.hpp"
 
 #include <string>
