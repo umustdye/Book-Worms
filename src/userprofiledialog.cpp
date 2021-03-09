@@ -1,4 +1,4 @@
-#include "userprofiledialog.h"
+#include "header/userprofiledialog.h"
 #include "ui_userprofiledialog.h"
 
 UserProfileDialog::UserProfileDialog(QWidget *parent)

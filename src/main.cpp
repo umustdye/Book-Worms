@@ -1,5 +1,5 @@
-#include "account_page_user_profile.h"
-#include "accountwidget.h"
+#include "../header/account_page_user_profile.h"
+#include "../header/accountwidget.h"
 
 #include <QApplication>
 
