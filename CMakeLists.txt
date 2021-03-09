@@ -3,11 +3,13 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 SET(CMAKE_CXX_STANDARD 11)
 
 ADD_SUBDIRECTORY(googletest)
+INCLUDE_DIRECTORIES(header)
+INCLUDE_DIRECTORIES(tests)
 
 ADD_EXECUTABLE(test
     tests/test.cpp
-    src/user.cpp
-    src/admin.cpp
+    src/account.cpp
+    src/library.cpp
     src/cd.cpp
     src/book.cpp
     src/dvd.cpp
