@@ -42,6 +42,8 @@ HEADERS += \
     tests/dvdTest.hpp \
     tests/itemTest.hpp \
     tests/library_test.hpp \
+    #
+    databases/ \
 
 FORMS += \
     forms/account_page_user_profile.ui \
