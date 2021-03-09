@@ -10,7 +10,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b49c6ce-66b2-41f3-8c0b-43c2a6af5bdc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/bookdialog.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/cddialog.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/collectiondialog.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/dvddialog.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/googletest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/header/admin.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/header/bookdialog.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/header/cddialog.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/header/collectiondialog.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/header/dvddialog.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/header/libraryitemfactory.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/header/user.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/LibraryItemOMT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/LibraryItemUML.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/admin_strategy_uml.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/mediator-design-pattern.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bookdialog.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cddialog.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/collectiondialog.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dvddialog.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libraryitemfactory.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/admin_test.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/user_test.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header/book.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/header/book.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header/cd.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/header/cd.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header/collection.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/header/collection.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header/dvd.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/header/dvd.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header/item.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/header/item.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/book.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/book.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collection.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/collection.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dvd.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/dvd.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/item.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/item.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,11 +83,6 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -63,6 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615246555116</updated>
       <workItem from="1615246563886" duration="1561000" />
+      <workItem from="1615249789457" duration="398000" />
     </task>
     <servers />
   </component>
