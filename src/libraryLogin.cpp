@@ -1,7 +1,7 @@
-#include "libraryLogin.h"
+#include "libraryLogin.hpp"
 #include "ui_libraryLogin.h"
-#include "account.h"
-#include "createAccountPage.h"
+#include "account.hpp"
+#include "createAccountPage.hpp"
 
 #include <QDebug>
 
@@ -11,16 +11,7 @@ LibraryLogin::LibraryLogin(QWidget *parent)
     , ui(new Ui::LibraryLogin)
 {
     ui->setupUi(this);
-    //TEST THE ACCOUNT CLASS!
-    QString userName = "username";
-    QString password = "password";
-    QString firstName = "Some";
-    QString lastName = "Person";
-    int id = 1;
-    AccountType accountType= admin;
-    Account account(userName, password, firstName, lastName, id, accountType);
-    qDebug() << account.getAccountType();
-    //------------------------------------------------------------------------------------
+
     ui->inputMessage->hide();
     //Set up password field
     ui->passwordInput->setEchoMode(QLineEdit::Password);
@@ -40,16 +31,6 @@ void LibraryLogin::on_loginButton_clicked()
     //check if the user is in the database
     QString message = "";
 
-    /*
-    //if the account does not exist
-    message = "Account Does Not Exist";
-
-    //if the password is incorrect
-    message = "Password is Incorrect";
-    */
-
-
-
 
     if(connectToAccountDB())
     {
@@ -61,35 +42,30 @@ void LibraryLogin::on_loginButton_clicked()
 
 
         //if the login is successful
-        if(validLogin(userName, password))
+        message = validLogin(userName, password);
+
+
+
+        //get the values from the database and save into User item
+        if(message == "Login Successful")
         {
-            message = "Login Successful";
+           loadAccount(userName, password);
 
-            //get the values from the database and save into User item
-            loadAccount(userName, password);
+           /*
+           //go to the appropriate login page
+           if(user)
+           {
+               //go to user page
+           }
 
-
-
-
-            /*
-            //go to the appropriate login page
-            if(user)
-            {
-                //go to user page
-            }
-
-            else
-            {
-                //go to admin page
-            }
-            */
+           else
+           {
+               //go to admin page
+           }
+           */
         }
 
-        //if the login was not in the database
-        else
-        {
-            message = "Account does not exist";
-        }
+
 
         //close database connection
         db.close();
@@ -151,7 +127,7 @@ bool LibraryLogin::connectToAccountDB()
 
 }
 
-bool LibraryLogin::validLogin(QString userName, QString password)
+QString LibraryLogin::validLogin(QString userName, QString password)
 {
     //check the database to see if the username exists
     QSqlQuery query = QSqlQuery(db);
@@ -164,7 +140,7 @@ bool LibraryLogin::validLogin(QString userName, QString password)
     if(query.first() == false)
     {
         qDebug() << "Account DNE";
-        return false;
+        return "Username does not exist";
     }
     //if the user exists
     else
@@ -172,14 +148,14 @@ bool LibraryLogin::validLogin(QString userName, QString password)
         QString dbPassword = query.value(0).toString();
         if(dbPassword != password)
         {
-            return false;
+            return "Password is incorrect";
         }
 
     }
 
 
     //username and password exist
-    return true;
+    return "Login Successful";
 }
 
 
@@ -197,11 +173,19 @@ void LibraryLogin::loadAccount(QString userName, QString password)
     int firstNo = query.record().indexOf("firstName");
     int lastNo = query.record().indexOf("lastName");
     int typeNo = query.record().indexOf("accountType");
+    int itemsNo = query.record().indexOf("items");
     int id = query.value(indexNo).toInt();
     QString firstName = query.value(firstNo).toString();
     QString lastName = query.value(lastNo).toString();
     int accountTypeInt = query.value(typeNo).toInt();
     AccountType accountType = admin;
+    QByteArray byteArray = query.value(itemsNo).toByteArray();
+    QVector<userItems> items;
+    if(!byteArray.isEmpty())
+    {
+        //parse QByteArray into vector
+        items = parseObject(byteArray);
+    }
 
     switch(accountTypeInt)
     {
@@ -223,6 +207,38 @@ void LibraryLogin::loadAccount(QString userName, QString password)
     qDebug() << lastName;
     qDebug() << accountTypeInt;
     qDebug() << accountType;
-
+    for (int i=0; i<items.count(); i++)
+    {
+       qDebug() << items[i].id;
+       qDebug() << items[i].quantity;
+       qDebug() << items[i].dueDate;
+    }
     //save in user object
+}
+
+
+
+
+
+QVector<userItems> LibraryLogin::parseObject(QByteArray byteArray)
+{
+    QVector<userItems> items;
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(byteArray);
+    QJsonArray jsonArray = jsonDoc.array();
+    for (int i=0; i<jsonArray.count(); i++)
+    {
+        QJsonObject obj = jsonArray[i].toObject();
+
+        int id = obj["id"].toInt();
+        int quantity = obj["quantity"].toInt();
+        QString dueDateStr = obj["dueDate"].toString();
+        QDateTime dueDate = QDateTime::fromString(dueDateStr, Qt::SystemLocaleLongDate);
+        userItems item;
+        item.id = id;
+        item.quantity = quantity;
+        item.dueDate = dueDate;
+        items.push_back(item);
+    }
+
+    return items;
 }

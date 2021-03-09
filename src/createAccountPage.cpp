@@ -1,4 +1,4 @@
-#include "createAccountPage.h"
+#include "createAccountPage.hpp"
 #include "ui_createAccountPage.h"
 
 #include <QtSql>
@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QRegExp>
 #include <QRegExpValidator>
+
+
 
 CreateAccountPage::CreateAccountPage(QWidget *parent) :
     QDialog(parent),
@@ -41,7 +43,7 @@ bool CreateAccountPage::connectToAccountDB()
         //set a new query
         QSqlQuery query = QSqlQuery(db);
         //create account table if it does not exist
-        query.exec( "CREATE TABLE IF NOT EXISTS account ( id INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT, password TEXT, firstName TEXT, lastName TEXT, accountType INTEGER )" );
+        query.exec( "CREATE TABLE IF NOT EXISTS account ( id INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT, password TEXT, firstName TEXT, lastName TEXT, accountType INTEGER, items BLOB )" );
         return true;
 
     }
@@ -123,16 +125,23 @@ void CreateAccountPage::on_createButton_clicked()
 
 void CreateAccountPage::addAccount(QString userName, QString password, QString firstName, QString lastName, AccountType accountType)
 {
-    //put the values into the database
 
+
+    /*FOR TESTING PURPOSES
+    QJsonDocument jsonDoc(makeObjArray());
+    QByteArray byteArray = jsonDoc.toJson(QJsonDocument::Compact);
+    -------------------------------------------------------*/
+    //put the values into the database
+    QByteArray byteArray;
     //make a query
     QSqlQuery query = QSqlQuery(db);
-    query.prepare("INSERT INTO account (userName, password, firstName, lastName, accountType) VALUES (?, ?, ?, ?, ?)");
+    query.prepare("INSERT INTO account (userName, password, firstName, lastName, accountType, items) VALUES (?, ?, ?, ?, ?, ?)");
     query.addBindValue(userName);
     query.addBindValue(password);
     query.addBindValue(firstName);
     query.addBindValue(lastName);
     query.addBindValue(accountType);
+    query.addBindValue(byteArray);
 
 
     //insert it into database
@@ -176,4 +185,60 @@ bool CreateAccountPage::validPassword(QString password)
         return false;
     }
 
+}
+
+void CreateAccountPage::on_visiblePassword1_stateChanged(int state)
+{
+    //the visible password box is checked
+    if(state == 2)
+    {
+      ui->passwordInput->setEchoMode(QLineEdit::Normal);
+    }
+    else
+    {
+      ui->passwordInput->setEchoMode(QLineEdit::Password);
+    }
+}
+
+void CreateAccountPage::on_visiblePassword2_stateChanged(int state)
+{
+    //the visible password box is checked
+    if(state == 2)
+    {
+      ui->retypePasswordInput->setEchoMode(QLineEdit::Normal);
+    }
+    else
+    {
+      ui->retypePasswordInput->setEchoMode(QLineEdit::Password);
+    }
+}
+
+
+
+//FOR ITEM  INSERTING TESTING
+QJsonArray CreateAccountPage::makeObjArray()
+{
+    QJsonArray array;
+    QDate date = QDate::currentDate();
+    //add 14 days to the checkout date
+    date = date.addDays(14);
+    //set time to 11:59 PM
+    QTime time;
+    time.setHMS(23, 59, 0);
+    QDateTime dueDate;
+    dueDate.setDate(date);
+    dueDate.setTime(time);
+    QString dueDateStr = dueDate.toString(Qt::SystemLocaleLongDate);
+
+    for (int i=0; i<10; i++)
+    {
+        QJsonObject obj;
+        obj.insert("id", QJsonValue::fromVariant(2));
+        obj.insert("quantity", QJsonValue::fromVariant(3));
+        obj.insert("dueDate", QJsonValue::fromVariant(dueDateStr));
+        array.push_back(obj);
+    }
+    //qDebug() << array;
+
+    return array;
 }
