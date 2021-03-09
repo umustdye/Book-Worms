@@ -15,6 +15,7 @@ ADD_EXECUTABLE(test
     src/dvd.cpp
     src/item.cpp
     src/collection.cpp
+    src/account.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)
