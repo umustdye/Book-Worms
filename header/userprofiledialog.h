@@ -5,6 +5,7 @@
 #include <QDialog>
 
 #include <QTableView>
+#include <QSqlQueryModel>
 
 #include <QSqlDatabase>
 #include <QSqlDriver>
@@ -25,8 +26,13 @@ public:
     UserProfileDialog(QWidget *parent = nullptr);
     ~UserProfileDialog();
     void createItemListView();
+    void returnItem();
+
+private slots:
+    void on_returnItemPushButton_clicked();
 
 private:
     Ui::UserProfileDialog *ui;
 };
+
 #endif // USERPROFILEDIALOG_H

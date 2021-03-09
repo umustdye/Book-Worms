@@ -29,6 +29,8 @@ void AccountMainPage::checkAdminStatus() {
 
 void AccountMainPage::on_logoutButton_clicked() {
     qDebug() << "LOGOUT";
+
+    // TODO, delete user/admin object upon logout, just need the variable name from library main page
 }
 
 void AccountMainPage::on_libraryButton_clicked() {
