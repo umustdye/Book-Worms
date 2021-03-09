@@ -3,6 +3,12 @@
 
 #include "userprofiledialog.h"
 
+#include <QSqlDatabase>
+#include <QSqlDriver>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QtSql>
+#include <QDebug>
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE

@@ -1,4 +1,4 @@
-#include "account.hpp"
+#include "header/account.hpp"
 
 // admin
 void Account::addItem() {
@@ -22,35 +22,35 @@ int Account::getItemType() {
 }
 
 // user
-void Account::setUserName(std::string u) {
+void Account::setUserName(QString u) {
     this->userName = u;
 }
 
-void Account::setPassword(std::string p) {
+void Account::setPassword(QString p) {
     this->password = p;
 }
 
-void Account::setFirstName(std::string f) {
+void Account::setFirstName(QString f) {
     this->firstName = f;
 }
 
-void Account::setLastName(std::string l) {
+void Account::setLastName(QString l) {
     this->lastName = l;
 }
 
-std::string Account::getUserName() {
+QString Account::getUserName() {
     return this->userName;
 }
 
-std::string Account::getPassword() {
+QString Account::getPassword() {
     return this->password;
 }
 
-std::string Account::getFirstName() {
+QString Account::getFirstName() {
     return this->firstName;
 }
 
-std::string Account::getLastName() {
+QString Account::getLastName() {
     return this->lastName;
 }
 

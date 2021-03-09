@@ -10,7 +10,6 @@ CONFIG += c++11
 
 SOURCES += \
     src/main.cpp \
-    src/account_page_user_profile.cpp \
     src/accountwidget.cpp \
     src/userprofiledialog.cpp \
     src/account.cpp \
@@ -24,7 +23,6 @@ SOURCES += \
     src/test.cpp \
 
 HEADERS += \
-    header/account_page_user_profile.h \
     header/accountwidget.h \
     header/userprofiledialog.h \
     header/account.hpp \
@@ -46,7 +44,6 @@ HEADERS += \
     databases/ \
 
 FORMS += \
-    forms/account_page_user_profile.ui \
     forms/accountwidget.ui \
     forms/userprofiledialog.ui \
 
