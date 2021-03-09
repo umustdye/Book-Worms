@@ -70,6 +70,63 @@ TEST(CollectionTest, constructorBook)
     EXPECT_EQ(collection.getYear(), year1);
     EXPECT_EQ(collection.getId(), id);
     EXPECT_EQ(collection.getDescription(), description);
+
+    string item = "";
+    item = "Title: "+title+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year1+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";
+    }
+    item += "\nDescription: "+description+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+
+    //item one
+    item += "\n\tTitle: "+title1+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year1+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";
+    }
+    item += "\nDescription: "+description1+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    item += "\nAuthor: "+author+"\n";
+    item += "Pages: "+std::to_string(pages1)+"\n";
+    
+    //item 2
+    item += "\n\tTitle: "+title2+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year2+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";
+    }
+    item += "\nDescription: "+description2+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    item += "\nAuthor: "+author+"\n";
+    item += "Pages: "+std::to_string(pages2)+"\n";
+
+    //item 3
+    item += "\n\tTitle: "+title3+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year3+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";
+    }
+    item += "\nDescription: "+description3+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    item += "\nAuthor: "+author+"\n";
+    item += "Pages: "+std::to_string(pages3)+"\n";
+
+    EXPECT_EQ(collection.stringifyItem(), item);
+    
     //Test the individual items
     vector<LibraryItemComponent*> testItems = collection.getChildren();
     EXPECT_EQ(testItems[0]->getTitle(), title1);
@@ -85,7 +142,7 @@ TEST(CollectionTest, constructorBook)
 TEST(CollectionTest, constructorDvd)
 {
     string director = "Peter Jackson";
-    
+
     string title1 = "The Fellowship of the Ring";
     string title2 = "The Two Towers";
     string title3 = "The Return of the King";
@@ -121,6 +178,63 @@ TEST(CollectionTest, constructorDvd)
     EXPECT_EQ(collection.getYear(), year1);
     EXPECT_EQ(collection.getId(), id);
     EXPECT_EQ(collection.getDescription(), description);
+
+    string item = "";
+    item = "Title: "+title+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year1+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";
+    }
+    item += "\nDescription: "+description+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+
+    //item one
+    item += "\n\tTitle: "+title1+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year1+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";
+    }
+    item += "\nDescription: "+description1+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    item += "\nDirector: "+director+"\n";
+    item += "Length: "+std::to_string(length1)+"\n";
+    
+    //item 2
+    item += "\n\tTitle: "+title2+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year2+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";
+    }
+    item += "\nDescription: "+description2+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    item += "\nDirector: "+director+"\n";
+    item += "Length: "+std::to_string(length2)+"\n";
+
+    //item 3
+    item += "\n\tTitle: "+title3+"\n";
+    item += "Item ID: "+std::to_string(id)+"\n";
+    item += "Year: "+year3+"\n";
+    item += "Genres: ";
+    for(auto genre:genres)
+    {
+        item += genre + " ";
+    }
+    item += "\nDescription: "+description3+"\n";
+    item += "Quantity: "+std::to_string(quantity);
+    item += "\nDirector: "+director+"\n";
+    item += "Length: "+std::to_string(length3)+"\n";
+
+    EXPECT_EQ(collection.stringifyItem(), item);
+    
     //Test the individual items
     vector<LibraryItemComponent*> testItems = collection.getChildren();
     EXPECT_EQ(testItems[0]->getTitle(), title1);
@@ -135,7 +249,7 @@ TEST(CollectionTest, constructorDvd)
 TEST(CollectionTest, constructorCd)
 {
     string artist = "Hannah Montana";
-    
+
     string title1 = "Hannah Montana";
     string title2 = "Hannah Montana2";
     string title3 = "Hannah Montana3";
@@ -179,11 +293,11 @@ TEST(CollectionTest, constructorCd)
     item += "Genres: ";
     for(auto genre:genres)
     {
-        item += genre + " ";   
+        item += genre + " ";
     }
     item += "\nDescription: "+description+"\n";
     item += "Quantity: "+std::to_string(quantity);
-    
+
     //item one
     item += "\n\tTitle: "+title1+"\n";
     item += "Item ID: "+std::to_string(id)+"\n";
@@ -191,14 +305,13 @@ TEST(CollectionTest, constructorCd)
     item += "Genres: ";
     for(auto genre:genres)
     {
-        item += genre + " ";   
+        item += genre + " ";
     }
     item += "\nDescription: "+description1+"\n";
     item += "Quantity: "+std::to_string(quantity);
     item += "\nArtist: "+artist+"\n";
     item += "Tracks: "+std::to_string(tracks1)+"\n";
-
-
+    
     //item 2
     item += "\n\tTitle: "+title2+"\n";
     item += "Item ID: "+std::to_string(id)+"\n";
@@ -206,7 +319,7 @@ TEST(CollectionTest, constructorCd)
     item += "Genres: ";
     for(auto genre:genres)
     {
-        item += genre + " ";   
+        item += genre + " ";
     }
     item += "\nDescription: "+description2+"\n";
     item += "Quantity: "+std::to_string(quantity);
@@ -220,7 +333,7 @@ TEST(CollectionTest, constructorCd)
     item += "Genres: ";
     for(auto genre:genres)
     {
-        item += genre + " ";   
+        item += genre + " ";
     }
     item += "\nDescription: "+description3+"\n";
     item += "Quantity: "+std::to_string(quantity);
@@ -228,8 +341,6 @@ TEST(CollectionTest, constructorCd)
     item += "Tracks: "+std::to_string(tracks3)+"\n";
 
     EXPECT_EQ(collection.stringifyItem(), item);
-
-
 
     //Test the individual items
     vector<LibraryItemComponent*> testItems = collection.getChildren();
