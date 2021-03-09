@@ -3,13 +3,7 @@
 
 #include "userprofiledialog.h"
 
-#include <QSqlDatabase>
-#include <QSqlDriver>
-#include <QSqlError>
-#include <QSqlQuery>
-#include <QtSql>
-#include <QDebug>
-#include <QWidget>
+#include "header/account.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class AccountMainPage; }
@@ -21,7 +15,6 @@ class AccountMainPage : public QWidget
 
 public:
     AccountMainPage(QWidget *parent = nullptr);
-    void createAccountClass();
     void checkAdminStatus();
     ~AccountMainPage();
 

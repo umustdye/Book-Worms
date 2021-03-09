@@ -1,8 +1,16 @@
 #ifndef USERPROFILEDIALOG_H
 #define USERPROFILEDIALOG_H
 
+#include <QWidget>
 #include <QDialog>
+
 #include <QTableView>
+
+#include <QSqlDatabase>
+#include <QSqlDriver>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QtSql>
 #include <QDebug>
 
 QT_BEGIN_NAMESPACE
@@ -16,7 +24,7 @@ class UserProfileDialog : public QDialog
 public:
     UserProfileDialog(QWidget *parent = nullptr);
     ~UserProfileDialog();
-    void createTableWidget();
+    void createItemListView();
 
 private:
     Ui::UserProfileDialog *ui;

@@ -14,34 +14,17 @@ AccountMainPage::~AccountMainPage()
     delete ui;
 }
 
-void AccountMainPage::createAccountClass() {
-
-}
-
 void AccountMainPage::checkAdminStatus() {
-//    ui->adminButton->setVisible(false);
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setHostName("acidalia");
-    db.setDatabaseName("/home/chris/Documents/qt-to-push/ChristopherCE_qt-branch/databases/items.sqlite");
-    db.setUserName("mojito");
-    db.setPassword("J0a1m8");
-    bool ok = db.open();
+    // TODO, delete new account object after including library main page code
+    Account account;
+    account.setAccountType(admin);
 
-    if(ok) {
-        qDebug() << "Successfully opened database";
 
-        QSqlQuery query;
+    AccountType at = account.getAccountType();
 
-        query.exec("SELECT title FROM items");
+    bool isAdmin = at == admin ? true : false;
 
-        while (query.next()) {
-            QString name = query.value(0).toString();
-            qDebug() << name;
-        }
-    }
-    else {
-        qDebug() << "Cannot open database.";
-    }
+    ui->adminButton->setVisible(isAdmin);
 }
 
 void AccountMainPage::on_logoutButton_clicked() {

@@ -6,7 +6,7 @@ UserProfileDialog::UserProfileDialog(QWidget *parent)
     , ui(new Ui::UserProfileDialog)
 {
     ui->setupUi(this);
-    createTableWidget();
+    createItemListView();
 }
 
 UserProfileDialog::~UserProfileDialog()
@@ -14,7 +14,22 @@ UserProfileDialog::~UserProfileDialog()
     delete ui;
 }
 
-void UserProfileDialog::createTableWidget() {
+void UserProfileDialog::createItemListView() {
     QTableView itemTableView;
 
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("/home/chris/Documents/qt-to-push/ChristopherCE_qt-branch/databases/account.sqlite");
+    bool ok = db.open();
+
+    if(ok) {
+        qDebug() << "Successfully opened database";
+
+        QSqlQuery query;
+
+        query.exec( "CREATE TABLE IF NOT EXISTS account ( id INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT, password TEXT, firstName TEXT, lastName TEXT, accountType INTEGER )" );
+
+    }
+    else {
+        qDebug() << "Cannot open database.";
+    }
 }
