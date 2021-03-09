@@ -1,4 +1,4 @@
-#include "collection.hpp"
+#include "header/collection.hpp"
 
 
 LibraryItemCollection::LibraryItemCollection(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description, QVector<LibraryItemComponent*> children)

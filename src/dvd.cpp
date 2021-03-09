@@ -1,4 +1,4 @@
-#include "dvd.hpp"
+#include "header/dvd.hpp"
 
 Dvd::Dvd(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description, QString director, int length)
     : LibraryItemComponent(title, quantity, genres, year, id, description)

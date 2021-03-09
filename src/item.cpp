@@ -1,4 +1,4 @@
-#include "item.hpp"
+#include "header/item.hpp"
 
 LibraryItemComponent::LibraryItemComponent(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description)
 {

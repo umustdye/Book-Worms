@@ -1,4 +1,4 @@
-#include "book.hpp"
+#include "header/book.hpp"
 
 Book::Book(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description, QString author, int pages)
     : LibraryItemComponent(title, quantity, genres, year, id, description)
