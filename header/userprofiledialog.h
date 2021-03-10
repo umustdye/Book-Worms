@@ -35,6 +35,7 @@ public:
     void returnItem();
     void getIdsTitlesFromDB();
     QVector<QPair<int, QString>> itemIdTitle;
+    Account *acnt = new Account();
     QVector<userItems> itemVector;
 
 private slots:

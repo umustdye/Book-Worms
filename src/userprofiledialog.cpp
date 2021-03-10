@@ -84,13 +84,14 @@ void UserProfileDialog::createItemListView() {
 
     ui->itemTableView->show();
 
+
     // delete this
-//    qDebug() << "END OF FUNCTION TEST: ";
-//    for(int i = 0; i < itemVector.count(); i++) {
-//        qDebug() << itemVector[i].id;
-//        qDebug() << itemVector[i].quantity;
-//        qDebug() << itemVector[i].dueDate;
-//    }
+    qDebug() << "END OF FUNCTION TEST: ";
+    for(int i = 0; i < itemVector.count(); i++) {
+        qDebug() << itemVector[i].id;
+        qDebug() << itemVector[i].quantity;
+        qDebug() << itemVector[i].dueDate;
+    }
 }
 
 void UserProfileDialog::getIdsTitlesFromDB() {
@@ -120,5 +121,24 @@ void UserProfileDialog::getIdsTitlesFromDB() {
 void UserProfileDialog::on_returnItemPushButton_clicked() {
     qDebug() << "Return Item Button Clicked";
 
+    QItemSelectionModel *select = ui->itemTableView->selectionModel();
 
+    QModelIndexList q = select->selectedRows();
+
+    for(int i = 0; i < q.size(); i++)
+    {
+        QModelIndex index = q.at(i);
+
+        int id = 0;
+        for(int k = 0; k < itemIdTitle.size(); k++) {
+            if(index.data().toString() == itemIdTitle[k].second) {
+                id = itemIdTitle[k].first;
+                qDebug() << id;
+                itemVector = acnt->delItem(itemVector, id);
+            }
+        }
+    }
+
+    dbItems.close();
+    createItemListView();
 }
