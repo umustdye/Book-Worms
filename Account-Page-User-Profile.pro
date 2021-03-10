@@ -19,6 +19,13 @@ SOURCES += \
     src/dvd.cpp \
     src/item.cpp \
     src/library.cpp \
+    src/createAccountPage.cpp \
+    src/libraryLogin.cpp \
+    src/bookdialog.cpp \
+    src/cddialog.cpp \
+    src/collectiondialog.cpp \
+    src/dvddialog.cpp \
+    src/libraryitemfactory.cpp \
     #
     src/test.cpp \
 
@@ -32,6 +39,13 @@ HEADERS += \
     header/library.hpp \
     header/item.hpp \
     header/user_items.hpp \
+    header/createAccountPage.hpp \
+    header/libraryLogin.hpp \
+    header/bookdialog.hpp \
+    header/cddialog.hpp \
+    header/collectiondialog.hpp \
+    header/dvddialog.hpp \
+    header/libraryitemfactory.hpp \
     #
     tests/account_test.hpp \
     tests/bookTest.hpp \
@@ -39,13 +53,19 @@ HEADERS += \
     tests/collectionTest.hpp \
     tests/dvdTest.hpp \
     tests/itemTest.hpp \
-    tests/library_test.hpp \
+    tests/library_test.hpp \    
     #
-    databases/ \
+    #databases/ \
 
 FORMS += \
     forms/accountwidget.ui \
     forms/userprofiledialog.ui \
+    forms/libraryLogin.ui \
+    forms/createAccountPage.ui \
+    forms/bookdialog.ui \
+    forms/cddialog.ui \
+    forms/collectiondialog.ui \
+    forms/dvddialog.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

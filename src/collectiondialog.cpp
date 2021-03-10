@@ -1,8 +1,8 @@
 #include "ui_collectiondialog.h"
-#include "collectiondialog.hpp"
-#include "bookdialog.hpp"
-#include "cddialog.hpp"
-#include "dvddialog.hpp"
+#include "header/collectiondialog.hpp"
+#include "header/bookdialog.hpp"
+#include "header/cddialog.hpp"
+#include "header/dvddialog.hpp"
 
 CollectionDialog::CollectionDialog(QWidget *parent) :
     QDialog(parent),

@@ -1,7 +1,7 @@
-#include "libraryLogin.hpp"
+#include "header/libraryLogin.hpp"
 #include "ui_libraryLogin.h"
-#include "account.hpp"
-#include "createAccountPage.hpp"
+#include "header/account.hpp"
+#include "header/createAccountPage.hpp"
 
 #include <QDebug>
 
@@ -232,11 +232,11 @@ QVector<userItems> LibraryLogin::parseObject(QByteArray byteArray)
         int id = obj["id"].toInt();
         int quantity = obj["quantity"].toInt();
         QString dueDateStr = obj["dueDate"].toString();
-        QDateTime dueDate = QDateTime::fromString(dueDateStr, Qt::SystemLocaleLongDate);
+        //QDateTime dueDate = QDateTime::fromString(dueDateStr, Qt::SystemLocaleLongDate);
         userItems item;
         item.id = id;
         item.quantity = quantity;
-        item.dueDate = dueDate;
+        //item.dueDate = dueDate;
         items.push_back(item);
     }
 

@@ -1,11 +1,11 @@
-#include "createAccountPage.hpp"
+#include "header/createAccountPage.hpp"
 #include "ui_createAccountPage.h"
 
 #include <QtSql>
 #include <QString>
 #include <QDebug>
-#include <QRegExp>
-#include <QRegExpValidator>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 
 
 
@@ -214,7 +214,6 @@ void CreateAccountPage::on_visiblePassword2_stateChanged(int state)
 }
 
 
-
 //FOR ITEM  INSERTING TESTING
 QJsonArray CreateAccountPage::makeObjArray()
 {
@@ -228,14 +227,14 @@ QJsonArray CreateAccountPage::makeObjArray()
     QDateTime dueDate;
     dueDate.setDate(date);
     dueDate.setTime(time);
-    QString dueDateStr = dueDate.toString(Qt::SystemLocaleLongDate);
+    //QString dueDateStr = dueDate.toString(Qt::SystemLocaleLongDate);
 
     for (int i=0; i<10; i++)
     {
         QJsonObject obj;
         obj.insert("id", QJsonValue::fromVariant(2));
         obj.insert("quantity", QJsonValue::fromVariant(3));
-        obj.insert("dueDate", QJsonValue::fromVariant(dueDateStr));
+        //obj.insert("dueDate", QJsonValue::fromVariant(dueDateStr));
         array.push_back(obj);
     }
     //qDebug() << array;
