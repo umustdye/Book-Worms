@@ -15,7 +15,7 @@ class CollectionDialog : public QDialog
 public:
     explicit CollectionDialog(QWidget *parent = nullptr);
     ~CollectionDialog();
-    LibraryItemCollection *create(int id = -1);
+    LibraryItemCollection *create(LibraryItemCollection *item = nullptr);
 
 private:
     Ui::CollectionDialog *ui;

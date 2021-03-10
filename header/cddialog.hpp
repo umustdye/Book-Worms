@@ -15,7 +15,7 @@ class CdDialog : public QDialog
 public:
     explicit CdDialog(QWidget *parent = nullptr);
     ~CdDialog();
-    Cd *create(int id = -1);
+    Cd *create(Cd *item = nullptr);
 
 private:
     Ui::CdDialog *ui;

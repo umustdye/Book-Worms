@@ -14,7 +14,7 @@ class BookDialog : public QDialog
 public:
     explicit BookDialog(QWidget *parent = nullptr);
     ~BookDialog();
-    Book *create(int id = -1);
+    Book *create(Book *item = nullptr);
 
 private:
     Ui::BookDialog *ui;
