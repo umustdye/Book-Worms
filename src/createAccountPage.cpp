@@ -129,11 +129,11 @@ void CreateAccountPage::addAccount(QString userName, QString password, QString f
 
 
     //FOR TESTING PURPOSES
-    QJsonDocument jsonDoc(makeObjArray());
-    QByteArray byteArray = jsonDoc.toJson(QJsonDocument::Compact);
+    //QJsonDocument jsonDoc(makeObjArray());
+    //QByteArray byteArray = jsonDoc.toJson(QJsonDocument::Compact);
     //-------------------------------------------------------
     //put the values into the database
-    //QByteArray byteArray;
+    QByteArray byteArray;
     //make a query
     QSqlQuery query = QSqlQuery(db);
     query.prepare("INSERT INTO account (userName, password, firstName, lastName, accountType, items) VALUES (?, ?, ?, ?, ?, ?)");
