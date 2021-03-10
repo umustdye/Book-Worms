@@ -232,7 +232,7 @@ QVector<userItems> LibraryLogin::parseObject(QByteArray byteArray)
         int id = obj["id"].toInt();
         int quantity = obj["quantity"].toInt();
         QString dueDateStr = obj["dueDate"].toString();
-        QDateTime dueDate = QDateTime::fromString(dueDateStr, Qt::SystemLocaleLongDate);
+        QDateTime dueDate = QDateTime::fromString(dueDateStr, "ddd MMMM d yyyy h:m ap");
         userItems item;
         item.id = id;
         item.quantity = quantity;

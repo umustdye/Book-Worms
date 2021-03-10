@@ -4,9 +4,10 @@
 #include <QtSql>
 #include <QString>
 #include <QDebug>
-#include <QRegExp>
-#include <QRegExpValidator>
-
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
+#include <QLocale>
+#include <QByteArray>
 
 
 CreateAccountPage::CreateAccountPage(QWidget *parent) :
@@ -127,12 +128,12 @@ void CreateAccountPage::addAccount(QString userName, QString password, QString f
 {
 
 
-    /*FOR TESTING PURPOSES
+    //FOR TESTING PURPOSES
     QJsonDocument jsonDoc(makeObjArray());
     QByteArray byteArray = jsonDoc.toJson(QJsonDocument::Compact);
-    -------------------------------------------------------*/
+    //-------------------------------------------------------
     //put the values into the database
-    QByteArray byteArray;
+    //QByteArray byteArray;
     //make a query
     QSqlQuery query = QSqlQuery(db);
     query.prepare("INSERT INTO account (userName, password, firstName, lastName, accountType, items) VALUES (?, ?, ?, ?, ?, ?)");
@@ -228,7 +229,9 @@ QJsonArray CreateAccountPage::makeObjArray()
     QDateTime dueDate;
     dueDate.setDate(date);
     dueDate.setTime(time);
-    QString dueDateStr = dueDate.toString(Qt::SystemLocaleLongDate);
+    //QString dueDateStr = dueDate.toString(Qt::SystemLocaleLongDate);
+    QString dueDateStr = dueDate.toString("ddd MMMM d yyyy h:m ap");
+
 
     for (int i=0; i<10; i++)
     {
