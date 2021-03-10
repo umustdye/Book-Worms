@@ -17,16 +17,15 @@ CollectionDialog::~CollectionDialog()
     delete ui;
 }
 
-LibraryItemCollection* CollectionDialog::create(int id)
+LibraryItemCollection* CollectionDialog::create(LibraryItemCollection *item)
 {
-    //Populate form if given id
-    this->id = id;
-    if(id >= 0) {
+    //Populate form if given item
+    if(item) {
         //GET ITEM FROM LIBRARY LIST, LOAD VALUES
-        ui->collectionTitle->setText("Loaded Title");
-        ui->collectionDescriptionTextEdit->setText("Loaded Description");
-        ui->collectionYearSpinbox->setValue(1969);
-        ui->collectionQuantitySpinbox->setValue(69);
+        ui->collectionTitle->setText(item->getTitle());
+        ui->collectionDescriptionTextEdit->setText(item->getDescription());
+        ui->collectionYearSpinbox->setValue(item->getYear().toInt());
+        ui->collectionQuantitySpinbox->setValue(item->getQuantity());
         ui->titleLabel->setText("Update Collection");
     }
 

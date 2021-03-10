@@ -15,7 +15,7 @@ class DvdDialog : public QDialog
 public:
     explicit DvdDialog(QWidget *parent = nullptr);
     ~DvdDialog();
-    Dvd* create(int id = -1);
+    Dvd* create(Dvd *item = nullptr);
 
 private:
     Ui::DvdDialog *ui;

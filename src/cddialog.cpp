@@ -13,19 +13,18 @@ CdDialog::~CdDialog()
     delete ui;
 }
 
-Cd *CdDialog::create(int id)
+Cd *CdDialog::create(Cd *item)
 {
-    //Populate form if given id
-    this->id = id;
-    if(id >= 0) {
+    //Populate form if given valid item
+    if(item) {
         //GET ITEM FROM LIBRARY LIST, LOAD VALUES
-        ui->cdTitle->setText("Loaded Title");
-        ui->cdArtist->setText("Loaded Artist");
-        ui->cdDescriptionTextEdit->setText("Loaded Title");
-        ui->cdYearSpinbox->setValue(1969);
-        ui->cdQuantitySpinbox->setValue(69);
-        ui->cdTracksSpinbox->setValue(69);
-        ui->titleLabel->setText("Update Cd");
+        ui->cdTitle->setText(item->getTitle());
+        ui->cdArtist->setText(item->getArtist());
+        ui->cdDescriptionTextEdit->setText(item->getDescription());
+        ui->cdYearSpinbox->setValue(item->getYear().toInt());
+        ui->cdQuantitySpinbox->setValue(item->getQuantity());
+        ui->cdTracksSpinbox->setValue(item->getTracks());
+        ui->titleLabel->setText("Update cd");
     }
 
     //Execute dialog
