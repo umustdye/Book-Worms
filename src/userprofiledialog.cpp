@@ -86,18 +86,40 @@ void UserProfileDialog::createItemListView() {
 
 
     // delete this
-    qDebug() << "END OF FUNCTION TEST: ";
-    for(int i = 0; i < itemVector.count(); i++) {
-        qDebug() << itemVector[i].id;
-        qDebug() << itemVector[i].quantity;
-        qDebug() << itemVector[i].dueDate;
+//    qDebug() << "END OF FUNCTION TEST: ";
+//    for(int i = 0; i < itemVector.count(); i++) {
+//        qDebug() << itemVector[i].id;
+//        qDebug() << itemVector[i].quantity;
+//        qDebug() << itemVector[i].dueDate;
+//    }
+}
+
+void UserProfileDialog::updateDatabaseAfterReturn(QVector<QPair<int, int>> vector) {
+    dbItems.setDatabaseName("/home/chris/Documents/databases/items (copy).sqlite");
+    bool ok = dbItems.open();
+
+    if(ok) {
+        qDebug() << "Successfully updated items database";
+
+        QSqlQuery query;
+
+        query.exec("SELECT id, title FROM items");
+
+        while (query.next()) {
+            itemIdTitle.push_back(qMakePair(query.value(0).toInt(), query.value(1).toString()));
+            //qDebug() << query.value(0).toInt() << ", " << query.value(1).toString();
+        }
+
+        dbItems.close();
+    }
+    else {
+        qDebug() << "Cannot open item database for update";
     }
 }
 
 void UserProfileDialog::getIdsTitlesFromDB() {
-    QSqlDatabase dbItem = QSqlDatabase::addDatabase("QSQLITE");
-    dbItem.setDatabaseName("/home/chris/Documents/databases/items (copy).sqlite");
-    bool ok = dbItem.open();
+    dbItems.setDatabaseName("/home/chris/Documents/databases/items (copy).sqlite");
+    bool ok = dbItems.open();
 
     if(ok) {
         qDebug() << "Successfully opened items database";
@@ -111,10 +133,10 @@ void UserProfileDialog::getIdsTitlesFromDB() {
             //qDebug() << query.value(0).toInt() << ", " << query.value(1).toString();
         }
 
-        dbItem.close();
+        dbItems.close();
     }
     else {
-        qDebug() << "Cannot open item database.";
+        qDebug() << "Cannot open item database";
     }
 }
 
@@ -123,22 +145,37 @@ void UserProfileDialog::on_returnItemPushButton_clicked() {
 
     QItemSelectionModel *select = ui->itemTableView->selectionModel();
 
-    QModelIndexList q = select->selectedRows();
+    QModelIndexList row = select->selectedRows();
 
-    for(int i = 0; i < q.size(); i++)
+    //
+    QVector<QPair<int, int>> dbUpdateVector;
+
+    for(int i = 0; i < row.size(); i++)
     {
-        QModelIndex index = q.at(i);
+        QModelIndex index = row.at(i);
 
         int id = 0;
-        for(int k = 0; k < itemIdTitle.size(); k++) {
-            if(index.data().toString() == itemIdTitle[k].second) {
-                id = itemIdTitle[k].first;
-                qDebug() << id;
+        int qty = 0;
+        for(int j = 0; j < itemIdTitle.size(); j++) {
+            if(index.data().toString() == itemIdTitle[j].second) {
+                id = itemIdTitle[j].first;
+//                qDebug() << id;
+
+                for(int k = 0; k < itemVector.size(); k++) {
+                    if(itemVector[k].id == id) {
+                        qty = itemVector[k].quantity;
+//                        qDebug() << qty;
+                    }
+                }
+
                 itemVector = acnt->delItem(itemVector, id);
+
+                dbUpdateVector.push_back(qMakePair(id, qty));
+                qDebug() << dbUpdateVector.front();
             }
         }
     }
 
-    dbItems.close();
+    updateDatabaseAfterReturn(dbUpdateVector);
     createItemListView();
 }

@@ -40,12 +40,12 @@ void AccountMainPage::tempAccount() {
     ui1.dueDate = dueDate;
     a->addItem(ui1);
     ui1.id = 3;
-    ui1.quantity = 10;
+    ui1.quantity = 11;
     dueDate = QDateTime::fromString("Tue March 23 2021 11:59 pm", "ddd MMMM d yyyy h:m ap");
     ui1.dueDate = dueDate;
     a->addItem(ui1);
     ui1.id = 4;
-    ui1.quantity = 10;
+    ui1.quantity = 12;
     dueDate = QDateTime::fromString("Tue March 23 2021 11:59 pm", "ddd MMMM d yyyy h:m ap");
     ui1.dueDate = dueDate;
     a->addItem(ui1);

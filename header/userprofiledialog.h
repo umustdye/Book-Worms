@@ -37,13 +37,14 @@ public:
     QVector<QPair<int, QString>> itemIdTitle;
     Account *acnt = new Account();
     QVector<userItems> itemVector;
+    void updateDatabaseAfterReturn(QVector<QPair<int, int>>);
 
 private slots:
     void on_returnItemPushButton_clicked();
 
 private:
     Ui::UserProfileDialog *ui;
-    QSqlDatabase dbItems;
+    QSqlDatabase dbItems = QSqlDatabase::addDatabase("QSQLITE");;
 };
 
 #endif // USERPROFILEDIALOG_H
