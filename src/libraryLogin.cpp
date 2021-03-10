@@ -102,7 +102,7 @@ bool LibraryLogin::connectToAccountDB()
     //connect to DB driver
     db = QSqlDatabase::addDatabase("QSQLITE");
     //database name
-    QString dbName = "/home/chris/Documents/qt-to-push/ChristopherCE_qt-branch/databases/account.db3";
+    QString dbName = "/home/chris/Documents/databases/account (copy).db3";
     //try to connect to database
     db.setDatabaseName(dbName);
     db.open();

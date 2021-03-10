@@ -27,7 +27,7 @@ AccountMainPage::~AccountMainPage()
 void AccountMainPage::tempAccount() {
     a->setUserName("userName");
     a->setPassword("password");
-    a->setFirstName("firstName69");
+    a->setFirstName("firstName");
     a->setLastName("lastName");
     AccountType at = admin;
     a->setAccountType(at);

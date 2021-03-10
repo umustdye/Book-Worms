@@ -75,9 +75,13 @@ void UserProfileDialog::createItemListView() {
         }
     }
 
-    //model->appendRow(itemList);
+    //model->appendRow(itemVector);
 
     ui->itemTableView->setModel(model);
+    ui->itemTableView->resizeColumnsToContents();
+
+    ui->itemTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+
     ui->itemTableView->show();
 
     // delete this
@@ -91,7 +95,7 @@ void UserProfileDialog::createItemListView() {
 
 void UserProfileDialog::getIdsTitlesFromDB() {
     QSqlDatabase dbItem = QSqlDatabase::addDatabase("QSQLITE");
-    dbItem.setDatabaseName("/home/chris/Documents/databases/items.sqlite");
+    dbItem.setDatabaseName("/home/chris/Documents/databases/items (copy).sqlite");
     bool ok = dbItem.open();
 
     if(ok) {
@@ -115,4 +119,6 @@ void UserProfileDialog::getIdsTitlesFromDB() {
 
 void UserProfileDialog::on_returnItemPushButton_clicked() {
     qDebug() << "Return Item Button Clicked";
+
+
 }

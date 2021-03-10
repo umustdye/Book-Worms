@@ -33,7 +33,7 @@ bool CreateAccountPage::connectToAccountDB()
     //connect to DB driver
     db = QSqlDatabase::addDatabase("QSQLITE");
     //database name
-    QString dbName = "Account.db3";
+    QString dbName = "\"/home/chris/Documents/databases/account (copy).db3\"";
     //try to connect to database
     db.setDatabaseName(dbName);
     db.open();
