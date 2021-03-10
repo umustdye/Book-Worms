@@ -37,7 +37,7 @@ public:
     QVector<QPair<int, QString>> itemIdTitle;
     Account *acnt = new Account();
     QVector<userItems> itemVector;
-    void updateDatabaseAfterReturn(QVector<QPair<int, int>>);
+    void updateDatabaseAfterReturn(int, int);
 
 private slots:
     void on_returnItemPushButton_clicked();

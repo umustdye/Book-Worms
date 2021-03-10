@@ -78,8 +78,9 @@ void Account::addItem(userItems u) {
 
 QVector<userItems> Account::delItem(QVector<userItems> ui, int id) {
     for(int i = 0; i < ui.size(); i++) {
-        if(ui[i].id == id)
+        if(ui[i].id == id) {
             ui.remove(i);
+        }
     }
 
     return ui;

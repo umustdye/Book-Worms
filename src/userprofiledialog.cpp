@@ -94,7 +94,7 @@ void UserProfileDialog::createItemListView() {
 //    }
 }
 
-void UserProfileDialog::updateDatabaseAfterReturn(QVector<QPair<int, int>> vector) {
+void UserProfileDialog::updateDatabaseAfterReturn(int idNum, int qty) {
     dbItems.setDatabaseName("/home/chris/Documents/databases/items (copy).sqlite");
     bool ok = dbItems.open();
 
@@ -103,12 +103,21 @@ void UserProfileDialog::updateDatabaseAfterReturn(QVector<QPair<int, int>> vecto
 
         QSqlQuery query;
 
-        query.exec("SELECT id, title FROM items");
+        query.exec("SELECT id, quantity FROM items");
 
+        int newQty = 0;
         while (query.next()) {
-            itemIdTitle.push_back(qMakePair(query.value(0).toInt(), query.value(1).toString()));
-            //qDebug() << query.value(0).toInt() << ", " << query.value(1).toString();
+            if(query.value(0) == idNum) {
+                newQty = query.value(1).toInt();
+            }
         }
+
+        qty += newQty;
+
+        query.prepare("UPDATE items SET quantity = :q WHERE id = :idNum");
+        query.bindValue(":q", qty);
+        query.bindValue(":idNum", idNum);
+        query.exec();
 
         dbItems.close();
     }
@@ -171,11 +180,14 @@ void UserProfileDialog::on_returnItemPushButton_clicked() {
                 itemVector = acnt->delItem(itemVector, id);
 
                 dbUpdateVector.push_back(qMakePair(id, qty));
-                qDebug() << dbUpdateVector.front();
+//                qDebug() << dbUpdateVector.front();
             }
         }
     }
 
-    updateDatabaseAfterReturn(dbUpdateVector);
+    for(int i = 0; i < dbUpdateVector.size(); i++) {
+        updateDatabaseAfterReturn(dbUpdateVector[i].first, dbUpdateVector[i].second);
+    }
+
     createItemListView();
 }
