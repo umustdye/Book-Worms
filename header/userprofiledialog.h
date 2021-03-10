@@ -5,7 +5,6 @@
 #include <QDialog>
 
 #include <QTableView>
-#include <QSqlQueryModel>
 
 #include <QSqlDatabase>
 #include <QSqlDriver>
@@ -13,6 +12,13 @@
 #include <QSqlQuery>
 #include <QtSql>
 #include <QDebug>
+
+#include <QPair>
+#include <QStandardItemModel>
+
+#include "header/account.hpp"
+#include "header/libraryLogin.hpp"
+#include "header/accountwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class UserProfileDialog; }
@@ -23,16 +29,20 @@ class UserProfileDialog : public QDialog
     Q_OBJECT
 
 public:
-    UserProfileDialog(QWidget *parent = nullptr);
+    UserProfileDialog(QDialog *parent = nullptr);                       // !! change to libraryLogin class
     ~UserProfileDialog();
     void createItemListView();
     void returnItem();
+    void getIdsTitlesFromDB();
+    QVector<QPair<int, QString>> itemIdTitle;
+    QVector<userItems> itemVector;
 
 private slots:
     void on_returnItemPushButton_clicked();
 
 private:
     Ui::UserProfileDialog *ui;
+    QSqlDatabase dbItems;
 };
 
 #endif // USERPROFILEDIALOG_H

@@ -207,12 +207,13 @@ void LibraryLogin::loadAccount(QString userName, QString password)
     qDebug() << lastName;
     qDebug() << accountTypeInt;
     qDebug() << accountType;
+
     for (int i=0; i<items.count(); i++)
     {
-       qDebug() << items[i].id;
-       qDebug() << items[i].quantity;
-       qDebug() << items[i].dueDate;
-       account->addItem(items[i]);
+        qDebug() << items[i].id;
+        qDebug() << items[i].quantity;
+        qDebug() << items[i].dueDate;
+        account->addItem(items[i]);
     }
 
     // store database values in account object
@@ -229,6 +230,15 @@ void LibraryLogin::loadAccount(QString userName, QString password)
     qDebug() << account->getLastName();
     qDebug() << account->getAccountType();
     qDebug() << account->getId();
+
+    items = account->getItemVector();
+
+    for (int i=0; i<items.count(); i++)
+    {
+        qDebug() << items[i].id;
+        qDebug() << items[i].quantity;
+        qDebug() << items[i].dueDate;
+    }
 }
 
 
@@ -250,7 +260,6 @@ void LibraryLogin::loadAccount(QString userName, QString password)
 
 //    pageComboBox->setCurrentIndex(0);
 //}
-
 
 
 QVector<userItems> LibraryLogin::parseObject(QByteArray byteArray)

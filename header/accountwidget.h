@@ -18,11 +18,17 @@ public:
     void checkAdminStatus();
     ~AccountMainPage();
 
+    // delete this
+    Account* a = new Account();
+
 private slots:
     void on_logoutButton_clicked();
     void on_libraryButton_clicked();
     void on_profileButton_clicked();
     void on_adminButton_clicked();
+
+    // delete this
+    void tempAccount();
 
 private:
     Ui::AccountMainPage *ui;

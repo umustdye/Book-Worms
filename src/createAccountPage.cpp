@@ -6,12 +6,13 @@
 #include <QDebug>
 #include <QRegularExpression>
 #include <QRegularExpressionValidator>
-
+#include <QLocale>
+#include <QByteArray>
 
 
 CreateAccountPage::CreateAccountPage(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::CreateAccountPage)
+        QDialog(parent),
+        ui(new Ui::CreateAccountPage)
 {
     ui->setupUi(this);
     //hide message
@@ -32,7 +33,7 @@ bool CreateAccountPage::connectToAccountDB()
     //connect to DB driver
     db = QSqlDatabase::addDatabase("QSQLITE");
     //database name
-    QString dbName = "/home/chris/Documents/qt-to-push/ChristopherCE_qt-branch/databases/account.db3";
+    QString dbName = "Account.db3";
     //try to connect to database
     db.setDatabaseName(dbName);
     db.open();
@@ -108,7 +109,7 @@ void CreateAccountPage::on_createButton_clicked()
         }
 
 
-        //if we could not connect to the database
+            //if we could not connect to the database
         else
         {
             //change message text
@@ -127,10 +128,10 @@ void CreateAccountPage::addAccount(QString userName, QString password, QString f
 {
 
 
-    /*FOR TESTING PURPOSES
-    QJsonDocument jsonDoc(makeObjArray());
-    QByteArray byteArray = jsonDoc.toJson(QJsonDocument::Compact);
-    -------------------------------------------------------*/
+    //FOR TESTING PURPOSES
+    //QJsonDocument jsonDoc(makeObjArray());
+    //QByteArray byteArray = jsonDoc.toJson(QJsonDocument::Compact);
+    //-------------------------------------------------------
     //put the values into the database
     QByteArray byteArray;
     //make a query
@@ -192,11 +193,11 @@ void CreateAccountPage::on_visiblePassword1_stateChanged(int state)
     //the visible password box is checked
     if(state == 2)
     {
-      ui->passwordInput->setEchoMode(QLineEdit::Normal);
+        ui->passwordInput->setEchoMode(QLineEdit::Normal);
     }
     else
     {
-      ui->passwordInput->setEchoMode(QLineEdit::Password);
+        ui->passwordInput->setEchoMode(QLineEdit::Password);
     }
 }
 
@@ -205,13 +206,14 @@ void CreateAccountPage::on_visiblePassword2_stateChanged(int state)
     //the visible password box is checked
     if(state == 2)
     {
-      ui->retypePasswordInput->setEchoMode(QLineEdit::Normal);
+        ui->retypePasswordInput->setEchoMode(QLineEdit::Normal);
     }
     else
     {
-      ui->retypePasswordInput->setEchoMode(QLineEdit::Password);
+        ui->retypePasswordInput->setEchoMode(QLineEdit::Password);
     }
 }
+
 
 
 //FOR ITEM  INSERTING TESTING
@@ -227,7 +229,9 @@ QJsonArray CreateAccountPage::makeObjArray()
     QDateTime dueDate;
     dueDate.setDate(date);
     dueDate.setTime(time);
+    //QString dueDateStr = dueDate.toString(Qt::SystemLocaleLongDate);
     QString dueDateStr = dueDate.toString("ddd MMMM d yyyy h:m ap");
+
 
     for (int i=0; i<10; i++)
     {

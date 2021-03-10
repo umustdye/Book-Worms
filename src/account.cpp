@@ -76,6 +76,6 @@ void Account::addItem(userItems u) {
     this->userItem.push_back(u);
 }
 
-void Account::deleteItem(userItems u) {
-
+QVector<userItems> Account::getItemVector() {
+    return this->userItem;
 }

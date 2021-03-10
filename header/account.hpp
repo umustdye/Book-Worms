@@ -20,7 +20,7 @@ private:
     QString password;
     QString firstName;
     QString lastName;
-    std::vector<userItems> userItem;
+    QVector<userItems> userItem;
 
     AccountType accountType;
     int id;
@@ -49,7 +49,7 @@ public:
     int getId();
 
     void addItem(userItems);
-    void deleteItem(userItems);
+    QVector<userItems> getItemVector();
 };
 
 #endif //__ACCOUNT_HPP__
