@@ -76,6 +76,15 @@ void Account::addItem(userItems u) {
     this->userItem.push_back(u);
 }
 
+QVector<userItems> Account::delItem(QVector<userItems> ui, int id) {
+    for(int i = 0; i < ui.size(); i++) {
+        if(ui[i].id == id)
+            ui.remove(i);
+    }
+
+    return ui;
+}
+
 QVector<userItems> Account::getItemVector() {
     return this->userItem;
 }

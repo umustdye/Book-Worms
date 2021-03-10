@@ -49,6 +49,7 @@ public:
     int getId();
 
     void addItem(userItems);
+    QVector<userItems> delItem(QVector<userItems>, int);
     QVector<userItems> getItemVector();
 };
 
