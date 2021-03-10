@@ -3,39 +3,39 @@
 
 #include "gtest/gtest.h"
 
-#include "account.hpp"
+#include "header/account.hpp"
 
 TEST(AccountTest, SetGetUsername) {
     Account account;
     account.setUserName("Parcival");
-    std::string userName = account.getUserName();
+    QString userName = account.getUserName();
     EXPECT_EQ("Parcival", userName);
 }
 
 TEST(AccountTest, SetGetPassword) {
     Account account;
     account.setPassword("password");
-    std::string password = account.getPassword();
+    QString password = account.getPassword();
     EXPECT_EQ("password", password);
 }
 
 TEST(AccountTest, SetGetFirstName) {
     Account account;
     account.setFirstName("Peter");
-    std::string firstName = account.getFirstName();
+    QString firstName = account.getFirstName();
     EXPECT_EQ("Peter", firstName);
 }
 
 TEST(AccountTest, SetGetLastName) {
     Account account;
     account.setLastName("Southward");
-    std::string lastName = account.getLastName();
+    QString lastName = account.getLastName();
     EXPECT_EQ("Southward", lastName);
 }
 
 TEST(AccountTest, SetGetTwice) {
     Account account;
-    std::string str;
+    QString str;
     account.setUserName("ExecutiveGoth");
     str = account.getUserName();
     EXPECT_EQ("ExecutiveGoth", str);
@@ -75,7 +75,7 @@ TEST(AccountTest, SetGetItemType) {
 
 TEST(AccountTest, SetGetEmpty) {
     Account account;
-    std::string str;
+    QString str;
 
     account.setUserName("");
     str = account.getUserName();
@@ -96,7 +96,7 @@ TEST(AccountTest, SetGetEmpty) {
 
 TEST(AccountTest, SetGetFromAccountClass) {
     Account account;
-    std::string str;
+    QString str;
 
     account.setUserName("SomethingElse");
     str = account.getUserName();
