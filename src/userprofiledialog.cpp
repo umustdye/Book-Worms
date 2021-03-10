@@ -1,5 +1,6 @@
 #include "header/userprofiledialog.h"
 #include "ui_userprofiledialog.h"
+#include "header/libraryLogin.hpp"
 
 UserProfileDialog::UserProfileDialog(QWidget *parent)
     : QDialog(parent)

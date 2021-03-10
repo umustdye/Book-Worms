@@ -47,6 +47,9 @@ public:
     AccountType getAccountType();
     void setId(int);
     int getId();
+
+    void addItem(userItems);
+    void deleteItem(userItems);
 };
 
 #endif //__ACCOUNT_HPP__

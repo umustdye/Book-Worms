@@ -70,3 +70,12 @@ void Account::setId(int i) {
 int Account::getId() {
     return this->id;
 }
+
+
+void Account::addItem(userItems u) {
+    this->userItem.push_back(u);
+}
+
+void Account::deleteItem(userItems u) {
+
+}

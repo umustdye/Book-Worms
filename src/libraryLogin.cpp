@@ -17,12 +17,13 @@ LibraryLogin::LibraryLogin(QWidget *parent)
     ui->passwordInput->setEchoMode(QLineEdit::Password);
     //ui->passwordInput->passwordMaskDelay();
 
-
+    //setStackWidget();
 }
 
 LibraryLogin::~LibraryLogin()
 {
     delete ui;
+    delete account;
 }
 
 
@@ -30,7 +31,6 @@ void LibraryLogin::on_loginButton_clicked()
 {
     //check if the user is in the database
     QString message = "";
-
 
     if(connectToAccountDB())
     {
@@ -102,7 +102,7 @@ bool LibraryLogin::connectToAccountDB()
     //connect to DB driver
     db = QSqlDatabase::addDatabase("QSQLITE");
     //database name
-    QString dbName = "Account.db3";
+    QString dbName = "/home/chris/Documents/qt-to-push/ChristopherCE_qt-branch/databases/account.db3";
     //try to connect to database
     db.setDatabaseName(dbName);
     db.open();
@@ -153,7 +153,6 @@ QString LibraryLogin::validLogin(QString userName, QString password)
 
     }
 
-
     //username and password exist
     return "Login Successful";
 }
@@ -200,6 +199,7 @@ void LibraryLogin::loadAccount(QString userName, QString password)
             break;
 
     };
+
     qDebug() << id;
     qDebug() << userName;
     qDebug() << password;
@@ -212,11 +212,44 @@ void LibraryLogin::loadAccount(QString userName, QString password)
        qDebug() << items[i].id;
        qDebug() << items[i].quantity;
        qDebug() << items[i].dueDate;
+       account->addItem(items[i]);
     }
-    //save in user object
+
+    // store database values in account object
+    account->setUserName(userName);
+    account->setPassword(password);
+    account->setFirstName(firstName);
+    account->setLastName(lastName);
+    account->setAccountType(accountType);
+    account->setId(accountTypeInt);
+
+    qDebug() << account->getUserName();
+    qDebug() << account->getPassword();
+    qDebug() << account->getFirstName();
+    qDebug() << account->getLastName();
+    qDebug() << account->getAccountType();
+    qDebug() << account->getId();
 }
 
 
+//void LibraryLogin::setStackWidget() {
+//    QWidget *libraryPageWidget = new QWidget;
+
+//    QStackedWidget *libraryStackedWidget = new QStackedWidget;
+//    libraryStackedWidget->addWidget(libraryPageWidget);
+
+//    QVBoxLayout *stackLayout = new QVBoxLayout;
+//    stackLayout->addWidget(libraryStackedWidget);
+//    setLayout(stackLayout);
+
+//    QComboBox *pageComboBox = new QComboBox;
+//    pageComboBox->addItem(tr("Page 1"));
+
+//    connect(pageComboBox, QOverload<int>::of(&QComboBox::activated),
+//            libraryStackedWidget, &QStackedWidget::setCurrentIndex);
+
+//    pageComboBox->setCurrentIndex(0);
+//}
 
 
 
@@ -232,11 +265,11 @@ QVector<userItems> LibraryLogin::parseObject(QByteArray byteArray)
         int id = obj["id"].toInt();
         int quantity = obj["quantity"].toInt();
         QString dueDateStr = obj["dueDate"].toString();
-        //QDateTime dueDate = QDateTime::fromString(dueDateStr, Qt::SystemLocaleLongDate);
+        QDateTime dueDate = QDateTime::fromString(dueDateStr, "ddd MMMM d yyyy h:m ap");
         userItems item;
         item.id = id;
         item.quantity = quantity;
-        //item.dueDate = dueDate;
+        item.dueDate = dueDate;
         items.push_back(item);
     }
 

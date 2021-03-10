@@ -32,7 +32,7 @@ bool CreateAccountPage::connectToAccountDB()
     //connect to DB driver
     db = QSqlDatabase::addDatabase("QSQLITE");
     //database name
-    QString dbName = "Account.db3";
+    QString dbName = "/home/chris/Documents/qt-to-push/ChristopherCE_qt-branch/databases/account.db3";
     //try to connect to database
     db.setDatabaseName(dbName);
     db.open();
@@ -227,14 +227,14 @@ QJsonArray CreateAccountPage::makeObjArray()
     QDateTime dueDate;
     dueDate.setDate(date);
     dueDate.setTime(time);
-    //QString dueDateStr = dueDate.toString(Qt::SystemLocaleLongDate);
+    QString dueDateStr = dueDate.toString("ddd MMMM d yyyy h:m ap");
 
     for (int i=0; i<10; i++)
     {
         QJsonObject obj;
         obj.insert("id", QJsonValue::fromVariant(2));
         obj.insert("quantity", QJsonValue::fromVariant(3));
-        //obj.insert("dueDate", QJsonValue::fromVariant(dueDateStr));
+        obj.insert("dueDate", QJsonValue::fromVariant(dueDateStr));
         array.push_back(obj);
     }
     //qDebug() << array;
