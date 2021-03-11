@@ -20,9 +20,11 @@ public:
     void setChildren(QVector<LibraryItemComponent*> children);
     QVector<LibraryItemComponent*> getChildren();
 //    virtual QString stringifyItem() override;
-    QString getCreator() const override;
-    QString getLength() const override;
+    QString getCreatorStr() const override;
+    QString getLengthStr() const override;
     QString getDescription() override;
+    QString getCreator() override;
+    int getLength() override;
 };
 
 #endif //__COLLECTION_HPP__

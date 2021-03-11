@@ -20,6 +20,7 @@ CollectionDialog::~CollectionDialog()
 LibraryItemCollection* CollectionDialog::create(LibraryItemCollection *item)
 {
     //Populate form if given item
+    id = -1;
     if(item) {
         //GET ITEM FROM LIBRARY LIST, LOAD VALUES
         ui->collectionTitle->setText(item->getTitle());
@@ -27,6 +28,7 @@ LibraryItemCollection* CollectionDialog::create(LibraryItemCollection *item)
         ui->collectionYearSpinbox->setValue(item->getYear().toInt());
         ui->collectionQuantitySpinbox->setValue(item->getQuantity());
         ui->titleLabel->setText("Update Collection");
+        id = item->getId();
     }
 
     //Execute dialog

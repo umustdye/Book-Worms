@@ -1,6 +1,5 @@
 #include "collection.hpp"
 
-
 LibraryItemCollection::LibraryItemCollection(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description, QVector<LibraryItemComponent*> children, QString creator)
     : LibraryItemComponent(title, quantity, genres, year, id, description), creator(creator)
 {
@@ -40,20 +39,20 @@ QVector<LibraryItemComponent*> LibraryItemCollection::getChildren()
     return this->children;
 }
 
-QString LibraryItemCollection::getCreator() const
+QString LibraryItemCollection::getCreatorStr() const
 {
     return QString("Creator: %0").arg(this->creator);
 }
 
-QString LibraryItemCollection::getLength() const
+QString LibraryItemCollection::getLengthStr() const
 {
-    return children.size() == 1 ? QString("%0 Items").arg(children.size()) : QString("%0 Item").arg(children.size());
+    return children.size() == 1 ? QString("%0 Item").arg(children.size()) : QString("%0 Items").arg(children.size());
 }
 
 QString LibraryItemCollection::getDescription()
 {
     QString desc = LibraryItemComponent::getDescription();
-    desc += "\tContains: ";
+    desc += "\nContains: ";
 
     for(int i = 0; i < children.size(); ++i) {
         desc += children[i]->getTitle();
@@ -61,6 +60,16 @@ QString LibraryItemCollection::getDescription()
     }
 
     return desc;
+}
+
+QString LibraryItemCollection::getCreator()
+{
+    return this->creator;
+}
+
+int LibraryItemCollection::getLength()
+{
+    return this->children.size();
 }
 
 //QString LibraryItemCollection::stringifyItem()

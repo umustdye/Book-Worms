@@ -3,22 +3,16 @@
 // admin
 Account::Account()
 {
+    userName = "";
+    password = "";
+    firstName = "";
+    lastName = "";
+    accountType = user;
+    id = -1;
 }
 
 Account::~Account()
 {
-}
-
-void Account::addItem() {
-
-}
-
-void Account::updateItem(int id) {
-
-}
-
-void Account::removeItem(int id) {
-
 }
 
 void Account::setItemType(int type) {
@@ -95,4 +89,14 @@ QVector<userItems> Account::delItem(QVector<userItems> ui, int id) {
 
 QVector<userItems> Account::getItemVector() {
     return this->userItem;
+}
+
+void Account::setItemVector(QVector<userItems> newItems)
+{
+    this->userItem = newItems;
+}
+
+void Account::clearItemVector()
+{
+    this->userItem.clear();
 }

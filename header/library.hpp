@@ -33,8 +33,12 @@ private:
     LibraryLogin *loginPage;
     Account *user;
     AccountMainPage *mainPage;
+    QSqlDatabase db;
 
+    bool connectToItemDB();
+    QVector<LibraryItemComponent *> parseItems(QByteArray byteArray);
+    QVector<QString> parseGenres(QByteArray byteArray);
     void readItemsFromDatabase();
-    void simulateAdmin();
+    void resetUser();
 };
 #endif // LIBRARY_H

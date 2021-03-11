@@ -26,19 +26,29 @@ void Dvd::setLength(int length)
     this->length = length;
 }
 
-int Dvd::getLength()
+int Dvd::getLengthStr()
 {
     return this->length;
 }
 
-QString Dvd::getCreator() const
+QString Dvd::getCreatorStr() const
 {
     return QString("Director: %0").arg(this->director);
 }
 
-QString Dvd::getLength() const
+QString Dvd::getLengthStr() const
 {
-    return length == 1 ? QString("%0 Minutes").arg(length) : QString("%0 Minute").arg(length);
+    return length == 1 ? QString("%0 Minute").arg(length) : QString("%0 Minutes").arg(length);
+}
+
+QString Dvd::getCreator()
+{
+    return this->director;
+}
+
+int Dvd::getLength()
+{
+    return this->length;
 }
 
 //QString Dvd::stringifyItem()

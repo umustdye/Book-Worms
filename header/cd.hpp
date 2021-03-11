@@ -17,8 +17,10 @@ public:
     void setTracks(int tracks);
     int getTracks();
 //    virtual QString stringifyItem() override;
-    QString getCreator() const override;
-    QString getLength() const override;
+    QString getCreatorStr() const override;
+    QString getLengthStr() const override;
+    QString getCreator() override;
+    int getLength() override;
 };
 
 #endif //__CD_HPP__

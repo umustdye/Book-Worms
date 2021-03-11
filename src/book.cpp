@@ -31,14 +31,24 @@ int Book::getPages()
     return this->pages;
 }
 
-QString Book::getCreator() const
+QString Book::getCreatorStr() const
 {
     return QString("Author: %0").arg(this->author);
 }
 
-QString Book::getLength() const
+QString Book::getLengthStr() const
 {
-    return pages == 1 ? QString("%0 Pages").arg(pages) : QString("%0 Page").arg(pages);
+    return pages == 1 ? QString("%0 Page").arg(pages) : QString("%0 Pages").arg(pages);
+}
+
+QString Book::getCreator()
+{
+    return this->author;
+}
+
+int Book::getLength()
+{
+    return this->pages;
 }
 
 //QString Book::stringifyItem()

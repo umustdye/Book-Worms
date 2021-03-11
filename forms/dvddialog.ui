@@ -100,7 +100,7 @@
      <item row="4" column="1">
       <widget class="QSpinBox" name="dvdLengthSpinbox">
        <property name="maximum">
-        <number>1000</number>
+        <number>10000</number>
        </property>
       </widget>
      </item>
@@ -137,7 +137,7 @@
        </property>
        <item>
         <property name="text">
-         <string>Adventure</string>
+         <string>Action</string>
         </property>
        </item>
        <item>
@@ -152,7 +152,12 @@
        </item>
        <item>
         <property name="text">
-         <string>Documentary</string>
+         <string>Drama</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Fantasy</string>
         </property>
        </item>
        <item>
@@ -162,7 +167,22 @@
        </item>
        <item>
         <property name="text">
+         <string>Mystery</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>Romance</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Thriller</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Western</string>
         </property>
        </item>
       </widget>
