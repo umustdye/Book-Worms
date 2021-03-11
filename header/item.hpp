@@ -30,8 +30,10 @@ public:
     int getId();
     void setDescription(QString description);
     virtual QString getDescription();
-    virtual QString getCreator() const = 0;
-    virtual QString getLength() const = 0;
+    virtual QString getCreator() = 0;
+    virtual int getLength() = 0;
+    virtual QString getCreatorStr() const = 0;
+    virtual QString getLengthStr() const = 0;
 //    virtual QString stringifyItem();
 };
 

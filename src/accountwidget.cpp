@@ -12,7 +12,7 @@ AccountMainPage::AccountMainPage(Account *user, QWidget *parent)
     ui->setupUi(this);
 
     //Set Admin button visibility
-    ui->adminButton->setVisible(user->getAccountType() == admin);
+    checkAdminButtonEnable();
 }
 
 AccountMainPage::~AccountMainPage()
@@ -20,15 +20,13 @@ AccountMainPage::~AccountMainPage()
     delete ui;
 }
 
+void AccountMainPage::checkAdminButtonEnable()
+{
+    ui->adminButton->setVisible(user->getAccountType() == admin);
+}
+
 void AccountMainPage::on_logoutButton_clicked() {
     qDebug() << "LOGOUT";
-    user->setAccountType(static_cast<AccountType>(0));
-    user->setFirstName("");
-    user->setId(-1);
-    user->setItemType(0);
-    user->setLastName("");
-    user->setPassword("");
-    user->setUserName("");
     emit changePage(0);
 }
 

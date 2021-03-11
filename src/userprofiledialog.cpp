@@ -9,16 +9,6 @@ UserProfileDialog::UserProfileDialog(Account *user, QDialog *parent)
 {
     ui->setupUi(this);
 
-    itemVector = user->getItemVector();
-
-    // delete this
-//    qDebug() << "FROM OTHER CLASS(Constructor): ";
-//    for(int i = 0; i < itemVector.count(); i++) {
-//        qDebug() << itemVector[i].id;
-//        qDebug() << itemVector[i].quantity;
-//        qDebug() << itemVector[i].dueDate;
-//    }
-
     createItemListView();
 }
 
@@ -29,13 +19,9 @@ UserProfileDialog::~UserProfileDialog()
 }
 
 void UserProfileDialog::createItemListView() {
-
-    ////
-
-    // get the pair of ids and titles from items database
     getIdsTitlesFromDB();
 
-    QStandardItemModel *model = new QStandardItemModel();
+    QStandardItemModel *model = new QStandardItemModel(this);
 
     QList<QString> h, r;
     h.push_back("Item Name");
@@ -43,35 +29,32 @@ void UserProfileDialog::createItemListView() {
     h.push_back("Due Date");
     model->setHorizontalHeaderLabels(h);
 
-    for(int i = 0; i < itemVector.size(); i++) {
-
+    for(int i = 0; i < user->getItemVector().size(); i++) {
+        qDebug()<<"id: "<<user->getItemVector()[i].id;
         for(int j = 0; j < 3; j++) {
 
-            QStandardItem *item;
             if(j == 0) {
                 QString str = "NULL";
                 for(int k = 0; k < itemIdTitle.size(); k++) {
-                    if(itemVector[i].id == itemIdTitle[k].first)
+                    if(user->getItemVector()[i].id == itemIdTitle[k].first)
                         str = itemIdTitle[k].second;
                 }
-                item = new QStandardItem(QString("%0").arg(str));
+                model->setItem(i, j, new QStandardItem(QString("%0").arg(str)));
             }
             else if(j == 1) {
-                item = new QStandardItem(QString("%0").arg(itemVector[i].quantity));
+                ;
+                model->setItem(i, j, new QStandardItem(QString("%0").arg(user->getItemVector()[i].quantity)));
             }
             else if(j == 2) {
-                item = new QStandardItem(QString("%0").arg(itemVector[i].dueDate.toString()));
+                model->setItem(i, j, new QStandardItem(QString("%0").arg(user->getItemVector()[i].dueDate.toString())));
             }
             else {
-                item = new QStandardItem(QString("%0").arg("NULL"));
+                model->setItem(i, j, new QStandardItem(QString("%0").arg("NULL")));
             }
-
-            model->setItem(i, j, item);
-            //delete item;
         }
     }
 
-    //model->appendRow(itemVector);
+    //model->appendRow(user->getItemVector());
 
     ui->itemTableView->setModel(model);
     ui->itemTableView->resizeColumnsToContents();
@@ -79,25 +62,15 @@ void UserProfileDialog::createItemListView() {
     ui->itemTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
     ui->itemTableView->show();
-
-
-    // delete this
-//    qDebug() << "END OF FUNCTION TEST: ";
-//    for(int i = 0; i < itemVector.count(); i++) {
-//        qDebug() << itemVector[i].id;
-//        qDebug() << itemVector[i].quantity;
-//        qDebug() << itemVector[i].dueDate;
-//    }
 }
 
 void UserProfileDialog::updateDatabaseAfterReturn(int idNum, int qty) {
-    dbItems.setDatabaseName("/home/chris/Documents/databases/items (copy).sqlite");
-    bool ok = dbItems.open();
 
-    if(ok) {
+    if(connectToItemDB())
+    {
         qDebug() << "Successfully updated items database";
 
-        QSqlQuery query;
+        QSqlQuery query = QSqlQuery(db);
 
         query.exec("SELECT id, quantity FROM items");
 
@@ -115,7 +88,7 @@ void UserProfileDialog::updateDatabaseAfterReturn(int idNum, int qty) {
         query.bindValue(":idNum", idNum);
         query.exec();
 
-        dbItems.close();
+        db.close();
     }
     else {
         qDebug() << "Cannot open item database for update";
@@ -123,22 +96,19 @@ void UserProfileDialog::updateDatabaseAfterReturn(int idNum, int qty) {
 }
 
 void UserProfileDialog::getIdsTitlesFromDB() {
-    dbItems.setDatabaseName("/home/chris/Documents/databases/items (copy).sqlite");
-    bool ok = dbItems.open();
 
-    if(ok) {
+    if(connectToItemDB()) {
         qDebug() << "Successfully opened items database";
 
-        QSqlQuery query;
+        QSqlQuery query = QSqlQuery(db);
 
         query.exec("SELECT id, title FROM items");
 
         while (query.next()) {
             itemIdTitle.push_back(qMakePair(query.value(0).toInt(), query.value(1).toString()));
-            //qDebug() << query.value(0).toInt() << ", " << query.value(1).toString();
         }
 
-        dbItems.close();
+        db.close();
     }
     else {
         qDebug() << "Cannot open item database";
@@ -151,6 +121,7 @@ void UserProfileDialog::on_returnItemPushButton_clicked() {
     QItemSelectionModel *select = ui->itemTableView->selectionModel();
 
     QModelIndexList row = select->selectedRows();
+    if(row.size() == 0) return;
 
     //
     QVector<QPair<int, int>> dbUpdateVector;
@@ -166,14 +137,16 @@ void UserProfileDialog::on_returnItemPushButton_clicked() {
                 id = itemIdTitle[j].first;
 //                qDebug() << id;
 
-                for(int k = 0; k < itemVector.size(); k++) {
-                    if(itemVector[k].id == id) {
-                        qty = itemVector[k].quantity;
+                for(int k = 0; k < user->getItemVector().size(); k++) {
+                    if(user->getItemVector()[k].id == id) {
+                        qty = user->getItemVector()[k].quantity;
 //                        qDebug() << qty;
                     }
                 }
 
-                itemVector = user->delItem(itemVector, id);
+                user->setItemVector(user->delItem(user->getItemVector(), id));
+                //update user database
+                updateUserDB(user->getItemVector());
 
                 dbUpdateVector.push_back(qMakePair(id, qty));
 //                qDebug() << dbUpdateVector.front();
@@ -186,4 +159,110 @@ void UserProfileDialog::on_returnItemPushButton_clicked() {
     }
 
     createItemListView();
+}
+
+bool UserProfileDialog::connectToItemDB()
+{
+    //connect to DB driver
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    //database name
+    QString dbName = "Items.db3";
+    //try to connect to database
+    db.setDatabaseName(dbName);
+    db.open();
+    //if we are able to connected into the database
+    if(db.isOpen())
+    {
+        qDebug() << "Successfully connected to the database";
+        //set a new query
+        QSqlQuery query = QSqlQuery(db);
+        //create account table if it does not exist
+        query.exec( "CREATE TABLE IF NOT EXISTS items ( id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, creator TEXT, year TEXT, length INTEGER, genres BLOB, quantity INTEGER, description TEXT, itemType TEXT )" );
+        query.exec( "CREATE TABLE IF NOT EXISTS collections ( id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, quantity INTEGER,  genres BLOB, year TEXT, description TEXT, children BLOB, creator TEXT )" );
+
+
+        return true;
+
+    }
+
+    else
+    {
+        //account could not be added
+        qDebug() << "Could not connect to database";
+        return false;
+    }
+}
+
+
+void UserProfileDialog::updateUserDB(QVector<userItems> items)
+{
+    //connect to account database
+    if(connectToAccountDB())
+    {
+        //convert vect into qbytearray
+        QByteArray itemsByte = convertVectToArray(items);
+        QSqlQuery query = QSqlQuery(db);
+        query.prepare("UPDATE items SET items = :item WHERE id = :idNum");
+        query.bindValue(":item", itemsByte);
+        query.bindValue(":idNum", user->getId());
+        query.exec();
+
+        //close item database
+        db.close();
+    }
+
+    else
+    {
+        qDebug() << "Unable to update items in account database";
+    }
+}
+
+
+bool UserProfileDialog::connectToAccountDB()
+{
+    //connect to DB driver
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    //database name
+    QString dbName = "Account.db3";
+    //try to connect to database
+    db.setDatabaseName(dbName);
+    db.open();
+    //if we are able to connected into the database
+    if(db.isOpen())
+    {
+        qDebug() << "Successfully connected to the database";
+        //set a new query
+        QSqlQuery query = QSqlQuery(db);
+        //create account table if it does not exist
+        query.exec( "CREATE TABLE IF NOT EXISTS account ( id INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT, password TEXT, firstName TEXT, lastName TEXT, accountType INTEGER )" );
+        return true;
+
+    }
+
+    else
+    {
+        //account could not be added
+        qDebug() << "Could not connect to database";
+        return false;
+    }
+
+}
+
+
+QByteArray UserProfileDialog::convertVectToArray(QVector<userItems> itemVect)
+{
+    QJsonArray jsonArray;
+    for (int i=0; i<itemVect.count(); i++)
+    {
+        QJsonObject obj;
+        obj.insert("id", QJsonValue::fromVariant(itemVect[i].id));
+        obj.insert("quantity", QJsonValue::fromVariant(itemVect[i].quantity));
+        obj.insert("dueDate", QJsonValue::fromVariant(itemVect[i].dueDate));
+        jsonArray.push_back(obj);
+    }
+
+    QJsonDocument jsonDoc(jsonArray);
+    QByteArray byteArray = jsonDoc.toJson(QJsonDocument::Compact);
+
+    return byteArray;
 }

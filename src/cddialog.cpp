@@ -16,6 +16,7 @@ CdDialog::~CdDialog()
 Cd *CdDialog::create(Cd *item)
 {
     //Populate form if given valid item
+    id = -1;
     if(item) {
         //GET ITEM FROM LIBRARY LIST, LOAD VALUES
         ui->cdTitle->setText(item->getTitle());
@@ -25,6 +26,7 @@ Cd *CdDialog::create(Cd *item)
         ui->cdQuantitySpinbox->setValue(item->getQuantity());
         ui->cdTracksSpinbox->setValue(item->getTracks());
         ui->titleLabel->setText("Update cd");
+        id = item->getId();
     }
 
     //Execute dialog

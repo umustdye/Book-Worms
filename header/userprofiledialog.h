@@ -27,16 +27,20 @@ public:
     void returnItem();
     void getIdsTitlesFromDB();
     QVector<QPair<int, QString>> itemIdTitle;
-    QVector<userItems> itemVector;
     void updateDatabaseAfterReturn(int, int);
+    void updateUserDB(QVector<userItems> items);
+    QByteArray convertVectToArray(QVector<userItems> itemVect);
 
 private slots:
     void on_returnItemPushButton_clicked();
 
 private:
     Ui::UserProfileDialog *ui;
-    QSqlDatabase dbItems = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase db;
     Account *user;
+
+    bool connectToItemDB();
+    bool connectToAccountDB();
 };
 
 #endif // USERPROFILEDIALOG_H

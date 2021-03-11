@@ -17,6 +17,7 @@ BookDialog::~BookDialog()
 Book* BookDialog::create(Book *item)
 {
     //Populate form if given valid item
+    id = -1;
     if(item) {
         //GET ITEM FROM LIBRARY LIST, LOAD VALUES
         ui->bookTitle->setText(item->getTitle());
@@ -26,6 +27,7 @@ Book* BookDialog::create(Book *item)
         ui->bookQuantitySpinbox->setValue(item->getQuantity());
         ui->bookPagesSpinbox->setValue(item->getPages());
         ui->titleLabel->setText("Update Book");
+        id = item->getId();
     }
 
     //Execute dialog
@@ -50,8 +52,6 @@ void BookDialog::accept()
     for(QListWidgetItem *item : ui->bookGenreList->selectedItems()) {
         genres.push_back(item->text());
     }
-
-    //INSERT INTO DATABASE, GET NEW ID IF ADDING
 
     //Set library item data
     book = new Book(title, quantity, genres, QString::number(year), id, description, author, pages);

@@ -44,9 +44,7 @@ bool CreateAccountPage::connectToAccountDB()
         //set a new query
         QSqlQuery query = QSqlQuery(db);
         //create account table if it does not exist
-        query.exec( "CREATE TABLE IF NOT EXISTS account ( id INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT, password TEXT, firstName TEXT, lastName TEXT, accountType INTEGER, items BLOB )" );
-        return true;
-
+        return query.exec( "CREATE TABLE IF NOT EXISTS account ( id INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT, password TEXT, firstName TEXT, lastName TEXT, accountType INTEGER, items BLOB )" );
     }
 
     else
@@ -98,11 +96,16 @@ void CreateAccountPage::on_createButton_clicked()
 
             else
             {
-                addAccount(userName, password, firstName, lastName, user);
-                message = "Account has been successfully added.";
-                //disable the create account button
-                ui->createButton->setDisabled(true);
-                created = true;
+                if(addAccount(userName, password, firstName, lastName, user)) {
+                    message = "Account has been successfully added.";
+                    //disable the create account button
+                    ui->createButton->setDisabled(true);
+                    created = true;
+                } else {
+                    message = "Failed to create account";
+                    created = false;
+                }
+
             }
 
             //close the database connection
@@ -132,7 +135,7 @@ void CreateAccountPage::on_createButton_clicked()
 }
 
 
-void CreateAccountPage::addAccount(QString userName, QString password, QString firstName, QString lastName, AccountType accountType)
+bool CreateAccountPage::addAccount(QString userName, QString password, QString firstName, QString lastName, AccountType accountType)
 {
 
 
@@ -154,7 +157,7 @@ void CreateAccountPage::addAccount(QString userName, QString password, QString f
 
 
     //insert it into database
-    query.exec();
+    return query.exec();
 }
 
 

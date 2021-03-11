@@ -27,10 +27,6 @@ private:
 public:
     Account();
     ~Account();
-    // admin
-    void addItem();
-    void updateItem(int);
-    void removeItem(int);
     void setItemType(int);
     int getItemType();
 
@@ -52,6 +48,8 @@ public:
     void addItem(userItems);
     QVector<userItems> delItem(QVector<userItems>, int);
     QVector<userItems> getItemVector();
+    void setItemVector(QVector<userItems> newItems);
+    void clearItemVector();
 };
 
 #endif //__ACCOUNT_HPP__

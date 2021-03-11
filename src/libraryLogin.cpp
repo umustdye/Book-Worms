@@ -93,18 +93,16 @@ bool LibraryLogin::connectToAccountDB()
         //set a new query
         QSqlQuery query = QSqlQuery(db);
         //create account table if it does not exist
-        query.exec( "CREATE TABLE IF NOT EXISTS account ( id INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT, password TEXT, firstName TEXT, lastName TEXT, accountType INTEGER )" );
-        return true;
-
+        bool tableMade = query.exec( "CREATE TABLE IF NOT EXISTS account ( id INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT, password TEXT, firstName TEXT, lastName TEXT, accountType INTEGER )" );
+        qDebug()<<"Table made: "<<tableMade;
+        return tableMade;
     }
-
     else
     {
         //account could not be added
         qDebug() << "Could not connect to database";
         return false;
     }
-
 }
 
 QString LibraryLogin::validLogin(QString userName, QString password)

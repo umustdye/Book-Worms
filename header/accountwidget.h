@@ -17,6 +17,7 @@ public:
     AccountMainPage(Account *user, QWidget *parent = nullptr);
     void checkAdminStatus();
     ~AccountMainPage();
+    void checkAdminButtonEnable();
 
 private slots:
     void on_logoutButton_clicked();
