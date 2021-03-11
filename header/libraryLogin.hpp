@@ -7,8 +7,8 @@
 #include <QStackedWidget>
 #include <QDateTime>
 
-#include "header/account.hpp"
-#include "header/user_items.hpp"
+#include "account.hpp"
+#include "user_items.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class LibraryLogin; }
@@ -19,25 +19,25 @@ class LibraryLogin : public QWidget
     Q_OBJECT
 
 public:
-    LibraryLogin(QWidget *parent = nullptr);
+    LibraryLogin(Account *user,QWidget *parent = nullptr);
     ~LibraryLogin();
     QString validLogin(QString userName, QString password);
     bool connectToAccountDB();
     void loadAccount(QString userName, QString password);
     QVector<userItems> parseObject(QByteArray byteArray);
     QSqlDatabase db;
-    Account* account = new Account();
-    //void setStackWidget();
+    Account *account;
 
 private slots:
     void on_loginButton_clicked();
-
     void on_createAccountButton_clicked();
-
     void changeInputMessage(const QString &iconText);
 
 private:
     Ui::LibraryLogin *ui;
+
+signals:
+    void changePage(int pageNum = 1);
 };
 
 #endif // LIBRARYLOGIN_H

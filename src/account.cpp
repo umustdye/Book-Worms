@@ -1,6 +1,14 @@
-#include "header/account.hpp"
+#include "account.hpp"
 
 // admin
+Account::Account()
+{
+}
+
+Account::~Account()
+{
+}
+
 void Account::addItem() {
 
 }
@@ -70,7 +78,6 @@ void Account::setId(int i) {
 int Account::getId() {
     return this->id;
 }
-
 
 void Account::addItem(userItems u) {
     this->userItem.push_back(u);

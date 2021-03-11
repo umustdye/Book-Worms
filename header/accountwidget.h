@@ -3,7 +3,7 @@
 
 #include "userprofiledialog.h"
 
-#include "header/account.hpp"
+#include "account.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class AccountMainPage; }
@@ -14,12 +14,9 @@ class AccountMainPage : public QWidget
     Q_OBJECT
 
 public:
-    AccountMainPage(QWidget *parent = nullptr);
+    AccountMainPage(Account *user, QWidget *parent = nullptr);
     void checkAdminStatus();
     ~AccountMainPage();
-
-    // delete this
-    Account* a = new Account();
 
 private slots:
     void on_logoutButton_clicked();
@@ -27,14 +24,12 @@ private slots:
     void on_profileButton_clicked();
     void on_adminButton_clicked();
 
-    // delete this
-    void tempAccount();
-
 signals:
     void changePage(int pageNum = 1);
 
 private:
     Ui::AccountMainPage *ui;
+    Account *user;
 };
 
 #endif // ACCOUNTMAINPAGE_H

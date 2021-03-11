@@ -1,16 +1,15 @@
-#include "header/userprofiledialog.h"
+#include "userprofiledialog.h"
 #include "ui_userprofiledialog.h"
-#include "header/libraryLogin.hpp"
-#include "header/accountwidget.h"
+#include "libraryLogin.hpp"
+#include "accountwidget.h"
 
-UserProfileDialog::UserProfileDialog(QDialog *parent)
+UserProfileDialog::UserProfileDialog(Account *user, QDialog *parent)
     : QDialog(parent)
-    , ui(new Ui::UserProfileDialog)
+    , ui(new Ui::UserProfileDialog), user(user)
 {
     ui->setupUi(this);
 
-    AccountMainPage amp;                                        // !! change to libraryLogin class instead
-    itemVector = amp.a->getItemVector();
+    itemVector = user->getItemVector();
 
     // delete this
 //    qDebug() << "FROM OTHER CLASS(Constructor): ";
@@ -27,9 +26,6 @@ UserProfileDialog::UserProfileDialog(QDialog *parent)
 UserProfileDialog::~UserProfileDialog()
 {
     delete ui;
-
-    // delete ptr to account / libary objects
-
 }
 
 void UserProfileDialog::createItemListView() {
@@ -177,7 +173,7 @@ void UserProfileDialog::on_returnItemPushButton_clicked() {
                     }
                 }
 
-                itemVector = acnt->delItem(itemVector, id);
+                itemVector = user->delItem(itemVector, id);
 
                 dbUpdateVector.push_back(qMakePair(id, qty));
 //                qDebug() << dbUpdateVector.front();

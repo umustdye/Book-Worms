@@ -1,4 +1,4 @@
-#include "header/createAccountPage.hpp"
+#include "createAccountPage.hpp"
 #include "ui_createAccountPage.h"
 
 #include <QtSql>
@@ -33,7 +33,7 @@ bool CreateAccountPage::connectToAccountDB()
     //connect to DB driver
     db = QSqlDatabase::addDatabase("QSQLITE");
     //database name
-    QString dbName = "/home/chris/Documents/databases/account (copy).db3";
+    QString dbName = "Account.db3";
     //try to connect to database
     db.setDatabaseName(dbName);
     db.open();
@@ -60,6 +60,8 @@ bool CreateAccountPage::connectToAccountDB()
 
 void CreateAccountPage::on_createButton_clicked()
 {
+    bool created = false;
+
     QString message = "";
     if(ui->firstNameInput->text().isEmpty()||ui->lastNameInput->text().isEmpty()|| ui->userNameInput->text().isEmpty()|| ui->passwordInput->text().isEmpty()||ui->retypePasswordInput->text().isEmpty())
     {
@@ -100,7 +102,7 @@ void CreateAccountPage::on_createButton_clicked()
                 message = "Account has been successfully added.";
                 //disable the create account button
                 ui->createButton->setDisabled(true);
-
+                created = true;
             }
 
             //close the database connection
@@ -121,6 +123,12 @@ void CreateAccountPage::on_createButton_clicked()
     //call change text message
     ui->createAccountMessage->setText(message);
     ui->createAccountMessage->show();
+
+
+    //Exit if created
+    if(created) {
+        this->accept();
+    }
 }
 
 

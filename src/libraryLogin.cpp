@@ -1,14 +1,14 @@
-#include "header/libraryLogin.hpp"
+#include "libraryLogin.hpp"
 #include "ui_libraryLogin.h"
-#include "header/account.hpp"
-#include "header/createAccountPage.hpp"
+#include "account.hpp"
+#include "createAccountPage.hpp"
 
 #include <QDebug>
 
 
-LibraryLogin::LibraryLogin(QWidget *parent)
+LibraryLogin::LibraryLogin(Account *user, QWidget *parent)
     : QWidget(parent)
-    , ui(new Ui::LibraryLogin)
+    , ui(new Ui::LibraryLogin), account(user)
 {
     ui->setupUi(this);
 
@@ -16,14 +16,11 @@ LibraryLogin::LibraryLogin(QWidget *parent)
     //Set up password field
     ui->passwordInput->setEchoMode(QLineEdit::Password);
     //ui->passwordInput->passwordMaskDelay();
-
-    //setStackWidget();
 }
 
 LibraryLogin::~LibraryLogin()
 {
     delete ui;
-    delete account;
 }
 
 
@@ -38,34 +35,18 @@ void LibraryLogin::on_loginButton_clicked()
         QString userName = ui->userNameInput->text();
         QString password = ui->passwordInput->text();
 
-
-
-
         //if the login is successful
         message = validLogin(userName, password);
-
-
 
         //get the values from the database and save into User item
         if(message == "Login Successful")
         {
            loadAccount(userName, password);
-
-           /*
-           //go to the appropriate login page
-           if(user)
-           {
-               //go to user page
-           }
-
-           else
-           {
-               //go to admin page
-           }
-           */
+           message = "";
+           ui->userNameInput->clear();
+           ui->passwordInput->clear();
+           emit changePage();
         }
-
-
 
         //close database connection
         db.close();
@@ -93,7 +74,6 @@ void LibraryLogin::changeInputMessage(const QString &iconText)
     //error message change text
     ui->inputMessage->setText(iconText);
     ui->inputMessage->show();
-
 }
 
 
@@ -102,7 +82,7 @@ bool LibraryLogin::connectToAccountDB()
     //connect to DB driver
     db = QSqlDatabase::addDatabase("QSQLITE");
     //database name
-    QString dbName = "/home/chris/Documents/databases/account (copy).db3";
+    QString dbName = "Account.db3";
     //try to connect to database
     db.setDatabaseName(dbName);
     db.open();
