@@ -78,7 +78,11 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QSpinBox" name="collectionQuantitySpinbox"/>
+      <widget class="QSpinBox" name="collectionQuantitySpinbox">
+       <property name="maximum">
+        <number>10000</number>
+       </property>
+      </widget>
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="label_8">
@@ -113,7 +117,17 @@
        </property>
        <item>
         <property name="text">
+         <string>Action</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>Adventure</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Alternative Rock</string>
         </property>
        </item>
        <item>
@@ -123,12 +137,57 @@
        </item>
        <item>
         <property name="text">
+         <string>Biography</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Christian Gospel</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Classic</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>Comedy</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Documentary</string>
+         <string>Comic Book</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Country</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Drama</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>EDM</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Fantasy</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Graphic Novel</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Historical</string>
         </property>
        </item>
        <item>
@@ -138,7 +197,77 @@
        </item>
        <item>
         <property name="text">
+         <string>Indie Rock</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Jazz</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Latin</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Literary Fiction</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Mystery</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Poetry</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rap</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rhythm and Blues</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rock</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>Romance</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Science Fiction</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Short Story</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Suspense</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Techno</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Western</string>
         </property>
        </item>
       </widget>

@@ -35,14 +35,24 @@ int Cd::getTracks()
     return this->tracks;
 }
 
-QString Cd::getCreator() const
+QString Cd::getCreatorStr() const
 {
     return QString("Artist: %0").arg(this->artist);
 }
 
-QString Cd::getLength() const
+QString Cd::getLengthStr() const
 {
-    return tracks == 1 ? QString("%0 Tracks").arg(tracks) : QString("%0 Track").arg(tracks);
+    return tracks == 1 ? QString("%0 Track").arg(tracks) : QString("%0 Tracks").arg(tracks);
+}
+
+QString Cd::getCreator()
+{
+    return this->artist;
+}
+
+int Cd::getLength()
+{
+    return this->tracks;
 }
 
 //QString Cd::stringifyItem()

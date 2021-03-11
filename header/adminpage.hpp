@@ -3,6 +3,12 @@
 
 #include <QWidget>
 #include <QVector>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlIndex>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include "libraryitemfactory.hpp"
 #include "libraryitemmodel.hpp"
 
@@ -33,6 +39,14 @@ private:
     Ui::AdminPage *ui;
     LibraryItemModel *model;
     LibraryItemFactory fac;
+
+    //Heidi helper functions
+    QSqlDatabase db;
+    bool connectToItemDB();
+    void addItemToDB(LibraryItemComponent *item);
+    void addCollectionToDB(LibraryItemCollection *item);
+    QByteArray convertItemVectToArray(QVector<LibraryItemComponent *> itemVect);
+    QByteArray convertGenreVectToArray(QVector<QString> genresVect);
 
 signals:
     void changePage(int pageNum = 1);

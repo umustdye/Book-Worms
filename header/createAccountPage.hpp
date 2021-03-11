@@ -29,7 +29,7 @@ public:
     explicit CreateAccountPage(QWidget *parent = nullptr);
     ~CreateAccountPage();
     bool connectToAccountDB();
-    void addAccount(QString userName, QString password, QString firstName, QString lastName, AccountType accountType);
+    bool addAccount(QString userName, QString password, QString firstName, QString lastName, AccountType accountType);
     bool validUserName(QString userName);
     bool validPassword(QString password);
     QJsonArray makeObjArray();

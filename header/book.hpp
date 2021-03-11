@@ -16,9 +16,11 @@ public:
     void setPages(int pages);
     int getPages();
 //    QString stringifyItem() override;
-    QString getCreator() const override;
+    QString getCreatorStr() const override;
     void setCreator();
-    QString getLength() const override;
+    QString getLengthStr() const override;
+    QString getCreator() override;
+    int getLength() override;
 };
 
 

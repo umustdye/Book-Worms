@@ -16,6 +16,7 @@ DvdDialog::~DvdDialog()
 Dvd *DvdDialog::create(Dvd *item)
 {
     //Populate form if given valid item
+    id = -1;
     if(item) {
         //GET ITEM FROM LIBRARY LIST, LOAD VALUES
         ui->dvdTitle->setText(item->getTitle());
@@ -23,8 +24,9 @@ Dvd *DvdDialog::create(Dvd *item)
         ui->dvdDescriptionTextEdit->setText(item->getDescription());
         ui->dvdYearSpinbox->setValue(item->getYear().toInt());
         ui->dvdQuantitySpinbox->setValue(item->getQuantity());
-        ui->dvdLengthSpinbox->setValue(item->getLength());
+        ui->dvdLengthSpinbox->setValue(item->getLengthStr());
         ui->titleLabel->setText("Update dvd");
+        id = item->getId();
     }
 
     //Execute dialog

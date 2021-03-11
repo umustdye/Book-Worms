@@ -15,10 +15,12 @@ public:
     void setDirector(QString director);
     QString getDirector();
     void setLength(int length);
-    int getLength();
+    int getLengthStr();
 //    QString stringifyItem() override;
-    QString getCreator() const override;
-    QString getLength() const override;
+    QString getCreatorStr() const override;
+    QString getLengthStr() const override;
+    QString getCreator() override;
+    int getLength() override;
 };
 
 #endif //__DVD_HPP__

@@ -35,12 +35,6 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
 ![Factory Pattern OMT](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/factory-pattern.png?raw=true)
   - Factory Pattern
     - In terms of structure above we have a concrete factory called LibraryItemFactory that can create objects of the classes of either Book, Cd, Dvd, or LibraryItemCollection. These four are the concrete products . The abstract product they all inherit from is the LibraryItemComponent class. The factory pattern lets the user create these different library objects and allows them to be modified this way as well.
-
- > ## Final deliverable
- > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  
  ## Screenshots
  ![Screenshot 1](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-1.png?raw=true)

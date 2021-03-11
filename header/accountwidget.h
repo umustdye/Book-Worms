@@ -17,9 +17,7 @@ public:
     AccountMainPage(Account *user, QWidget *parent = nullptr);
     void checkAdminStatus();
     ~AccountMainPage();
-
-    // delete this
-    void tempItems();
+    void checkAdminButtonEnable();
 
 private slots:
     void on_logoutButton_clicked();
@@ -35,4 +33,5 @@ private:
     Account *user;
 };
 
-#endif // ACCOUNTMAINPAGE_H
+#endif // ACCOUNTMAINPAGE_
+
