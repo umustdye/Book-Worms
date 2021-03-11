@@ -21,7 +21,7 @@ class UserProfileDialog : public QDialog
     Q_OBJECT
 
 public:
-    UserProfileDialog(Account *user, QDialog *parent = nullptr);                       // !! change to libraryLogin class
+    UserProfileDialog(Account *user, QDialog *parent = nullptr);
     ~UserProfileDialog();
     void createItemListView();
     void returnItem();

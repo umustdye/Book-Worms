@@ -11,7 +11,7 @@ UserProfileDialog::UserProfileDialog(Account *user, QDialog *parent)
 
     itemVector = user->getItemVector();
 
-    // delete this
+//    // delete this
 //    qDebug() << "FROM OTHER CLASS(Constructor): ";
 //    for(int i = 0; i < itemVector.count(); i++) {
 //        qDebug() << itemVector[i].id;
@@ -28,9 +28,12 @@ UserProfileDialog::~UserProfileDialog()
     delete ui;
 }
 
+
 void UserProfileDialog::createItemListView() {
 
     ////
+
+    //itemVector = user->getItemVector();
 
     // get the pair of ids and titles from items database
     getIdsTitlesFromDB();
@@ -91,7 +94,7 @@ void UserProfileDialog::createItemListView() {
 }
 
 void UserProfileDialog::updateDatabaseAfterReturn(int idNum, int qty) {
-    dbItems.setDatabaseName("/home/chris/Documents/databases/items (copy).sqlite");
+    dbItems.setDatabaseName("/home/chris/Documents/cs100-final/databases/items (copy).sqlite");
     bool ok = dbItems.open();
 
     if(ok) {

@@ -18,6 +18,9 @@ public:
     void checkAdminStatus();
     ~AccountMainPage();
 
+    // delete this
+    void tempItems();
+
 private slots:
     void on_logoutButton_clicked();
     void on_libraryButton_clicked();
