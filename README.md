@@ -14,17 +14,17 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
   
 ### Input / Output
   - Input: 
-    - User Information (Account Name, Account Password)
+    - User Information (Account Username, Account Password)
     - Library Item Information (Book/CD/DVD Title, Book/CD/DVD Quantity on Hand, Book/CD/DVD Genre/Sub-genre, Item Type)
     - Library Item Changes (Add/Edit/Remove Item)
   - Output: 
-    - User Displays (Books currently borrowed, Account Debt, Available Books/CDs/DVDs, Recommended Books/CDs/DVDs)
+    - User Displays (Books currently borrowed, Available Books/CDs/DVDs)
 
 ### Design Patterns
   - Design 1: Composite Pattern
     - We picked the Composite Pattern for its simplicity and its ability to treat primitives and composites uniformly. We intend to use it to implement items in our library like Books, DVDs, and CDs that have genres / sub-genres. The problem we anticipate in the project is in both adding more items / collections of items to the library and in searching through them to create user recommendations. The composite pattern will allow us to use a single interface to easily add more primitives and composites to the libary and then search through the tree of items for our various reasons. 
   - Design 2: Factory Pattern
-    - 
+    - We picked the Factory Pattern for its object creation-focus design that allows for creating objects from an interface. We intend to use it to determine if we create a book, cd, dvd, or collection object. The problem we intend to solve is in being able to select a product to create an object simply. It is a benefit that our product classes above are consistent apart from a few variables.
 
 ## Class Diagram
 
@@ -34,7 +34,7 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
  
 ![Factory Pattern OMT](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/factory-pattern.png?raw=true)
   - Factory Pattern
-    - 
+    - ...
 
  > ## Final deliverable
  > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
@@ -44,8 +44,18 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
  
  ## Screenshots
  > Screenshots of the input/output after running your application
+ 
  ## Installation/Usage
- > Instructions on installing and running your application
+ The first thing to do in order to run this project yourself is to create an account for and download Qt.
+ It is free and open source. We used the latest version, here it is ->[Qt 6](https://www.qt.io/download-open-source).
+ You can just download the default / recommended option. This includes SQLite for you.
+ 
+ Once that is installed on your machine, go ahead and download this repo from GitHub onto your local machine.
+ Either do a `git clone https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025.git` or use the same green code dropdown tab to download the .zip file. Unzip the file if you went this route.
+ 
+ Open the Qt program and go to Open a project. Navigate to where you stored the project file above and click on the `.pro` file to open the project in Qt. From here click the big green play button on the bottom left of the screen in Qt to start the program, Qt will load in everything automatically if you followed the steps above.
+  
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ For testing this project we used the `google test` unit testing library.
+ The C++ gui application we used, Qt 6, has support for google test and is able to run it inside their project window. This is because Qt uses for example QVector instead of std::vector and QString instead of std::string. We can run it using the command line or inside the Qt window.
  
