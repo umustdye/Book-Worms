@@ -1,4 +1,4 @@
-#include "header/bookdialog.hpp"
+#include "bookdialog.hpp"
 #include "ui_bookdialog.h"
 
 BookDialog::BookDialog(QWidget *parent) :

@@ -21,11 +21,12 @@ private:
     QString firstName;
     QString lastName;
     QVector<userItems> userItem;
-
     AccountType accountType;
     int id;
 
 public:
+    Account();
+    ~Account();
     // admin
     void addItem();
     void updateItem(int);

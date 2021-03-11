@@ -18,7 +18,7 @@ class LibraryItemFactory {
 public:
     LibraryItemFactory();
     ~LibraryItemFactory();
-    LibraryItemComponent* createItem(Type type, int id = -1);
+    LibraryItemComponent* createItem(Type type, LibraryItemComponent *item = nullptr);
 };
 
 #endif // LIBRARYITEMFACTORY_HPP

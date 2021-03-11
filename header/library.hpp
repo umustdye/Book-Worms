@@ -1,19 +1,40 @@
-#ifndef __LIBRARY_HPP__
-#define __LIBRARY_HPP__
+#ifndef LIBRARY_H
+#define LIBRARY_H
 
+#include <QMainWindow>
+#include "libraryitemmodel.hpp"
+#include "adminpage.hpp"
+#include "libraryview.hpp"
+#include "libraryLogin.hpp"
 #include "account.hpp"
-#include "item.hpp"
+#include "accountwidget.h"
 
-class Library {
-private:
-    Account* acnt;
-    LibraryItemComponent* item;
+QT_BEGIN_NAMESPACE
+namespace Ui { class Library; }
+QT_END_NAMESPACE
+
+class Library : public QMainWindow
+{
+    Q_OBJECT
 
 public:
-    Library(Account* a, LibraryItemComponent* i);
+    Library(QWidget *parent = nullptr);
     ~Library();
-    void checkOutItem();
-    void returnItem();
-};
 
-#endif //__LIBRARY_HPP__
+private slots:
+    void setPage(int pageNum = 1);
+
+private:
+    Ui::Library *ui;
+    LibraryItemModel *model;
+    LibraryView *catalogPage;
+    AdminPage *adminPage;
+    QVector<LibraryItemComponent *> *items;
+    LibraryLogin *loginPage;
+    Account *user;
+    AccountMainPage *mainPage;
+
+    void readItemsFromDatabase();
+    void simulateAdmin();
+};
+#endif // LIBRARY_H

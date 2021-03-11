@@ -1,4 +1,4 @@
-#include "header/cddialog.hpp"
+#include "cddialog.hpp"
 #include "ui_cddialog.h"
 
 CdDialog::CdDialog(QWidget *parent) :
