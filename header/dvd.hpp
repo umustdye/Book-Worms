@@ -16,7 +16,9 @@ public:
     QString getDirector();
     void setLength(int length);
     int getLength();
-    QString stringifyItem() override;
+//    QString stringifyItem() override;
+    QString getCreator() const override;
+    QString getLength() const override;
 };
 
 #endif //__DVD_HPP__
