@@ -14,18 +14,17 @@ BookDialog::~BookDialog()
     delete ui;
 }
 
-Book* BookDialog::create(int id)
+Book* BookDialog::create(Book *item)
 {
-    //Populate form if given id
-    this->id = id;
-    if(id >= 0) {
+    //Populate form if given valid item
+    if(item) {
         //GET ITEM FROM LIBRARY LIST, LOAD VALUES
-        ui->bookTitle->setText("Loaded Title");
-        ui->bookAuthor->setText("Loaded Author");
-        ui->bookDescriptionTextEdit->setText("Loaded Description");
-        ui->bookYearSpinbox->setValue(1969);
-        ui->bookQuantitySpinbox->setValue(69);
-        ui->bookPagesSpinbox->setValue(69);
+        ui->bookTitle->setText(item->getTitle());
+        ui->bookAuthor->setText(item->getAuthor());
+        ui->bookDescriptionTextEdit->setText(item->getDescription());
+        ui->bookYearSpinbox->setValue(item->getYear().toInt());
+        ui->bookQuantitySpinbox->setValue(item->getQuantity());
+        ui->bookPagesSpinbox->setValue(item->getPages());
         ui->titleLabel->setText("Update Book");
     }
 

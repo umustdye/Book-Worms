@@ -13,19 +13,18 @@ DvdDialog::~DvdDialog()
     delete ui;
 }
 
-Dvd *DvdDialog::create(int id)
+Dvd *DvdDialog::create(Dvd *item)
 {
-    //Populate form if given id
-    this->id = id;
-    if(id >= 0) {
+    //Populate form if given valid item
+    if(item) {
         //GET ITEM FROM LIBRARY LIST, LOAD VALUES
-        ui->dvdTitle->setText("Loaded Title");
-        ui->dvdDirector->setText("Loaded Director");
-        ui->dvdDescriptionTextEdit->setText("Loaded Title");
-        ui->dvdYearSpinbox->setValue(1969);
-        ui->dvdQuantitySpinbox->setValue(69);
-        ui->dvdLengthSpinbox->setValue(69);
-        ui->titleLabel->setText("Update Dvd");
+        ui->dvdTitle->setText(item->getTitle());
+        ui->dvdDirector->setText(item->getDirector());
+        ui->dvdDescriptionTextEdit->setText(item->getDescription());
+        ui->dvdYearSpinbox->setValue(item->getYear().toInt());
+        ui->dvdQuantitySpinbox->setValue(item->getQuantity());
+        ui->dvdLengthSpinbox->setValue(item->getLength());
+        ui->titleLabel->setText("Update dvd");
     }
 
     //Execute dialog

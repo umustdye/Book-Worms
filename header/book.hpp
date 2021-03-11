@@ -15,7 +15,10 @@ public:
     QString getAuthor();
     void setPages(int pages);
     int getPages();
-    QString stringifyItem() override;
+//    QString stringifyItem() override;
+    QString getCreator() const override;
+    void setCreator();
+    QString getLength() const override;
 };
 
 

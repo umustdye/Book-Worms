@@ -7,11 +7,12 @@ class LibraryItemComponent
 {
 private:
     QString title;
-    int quantity;
-    QVector<QString> genres;
     QString year;
-    int id;
     QString description;
+    int quantity;
+    int id;
+    QVector<QString> genres;
+
 
 public:
     LibraryItemComponent(QString title="", int quantity=0, QVector<QString> genres = QVector<QString>(), QString year="", int id=-1, QString description="");
@@ -28,8 +29,10 @@ public:
     void setId(int id);
     int getId();
     void setDescription(QString description);
-    QString getDescription();
-    virtual QString stringifyItem();
+    virtual QString getDescription();
+    virtual QString getCreator() const = 0;
+    virtual QString getLength() const = 0;
+//    virtual QString stringifyItem();
 };
 
 #endif //__ITEM_HPP__
