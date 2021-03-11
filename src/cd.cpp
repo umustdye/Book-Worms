@@ -1,4 +1,4 @@
-#include "header/cd.hpp"
+#include "cd.hpp"
 #include <algorithm>
 
 using std::max;
@@ -35,11 +35,20 @@ int Cd::getTracks()
     return this->tracks;
 }
 
-QString Cd::stringifyItem()
+QString Cd::getCreator() const
 {
-    QString item = LibraryItemComponent::stringifyItem();
-    item += "\nArtist: "+ this->artist+"\n";
-    item += "Tracks: "+QString::number(tracks)+"\n";
-
-    return item;
+    return QString("Artist: %0").arg(this->artist);
 }
+
+QString Cd::getLength() const
+{
+    return tracks == 1 ? QString("%0 Tracks").arg(tracks) : QString("%0 Track").arg(tracks);
+}
+
+//QString Cd::stringifyItem()
+//{
+//    QString item = LibraryItemComponent::stringifyItem();
+//    item += "\nArtist: "+ this->artist+"\n";
+//    item += "Tracks: "+QString::number(tracks)+"\n";
+//    return item;
+//}
