@@ -9,6 +9,10 @@ LibraryItemModel::LibraryItemModel(QVector<LibraryItemComponent *> *items, QObje
 
 LibraryItemModel::~LibraryItemModel()
 {
+    for(int i = 0; i < items->size(); ++i) {
+        delete items->at(i);
+    }
+    delete items;
 }
 
 QVariant LibraryItemModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -372,7 +376,6 @@ void LibraryItemModel::updateCollection(LibraryItemCollection *item)
             QString description = item->getDescription();
             int quantity = item->getQuantity();
             QString creator = item->getCreator();
-            int length = item->getLength();
             QByteArray genres = convertGenreVectToArray(item->getGenres());
             QByteArray children = convertItemVectToArray(item->getChildren());
 
@@ -406,8 +409,6 @@ void LibraryItemModel::updateCollection(LibraryItemCollection *item)
             qDebug() << "Could not add item to database";
         }
 }
-
-
 
 QByteArray LibraryItemModel::convertItemVectToArray(QVector<LibraryItemComponent *> itemVect)
 {

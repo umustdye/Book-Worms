@@ -33,5 +33,4 @@ private:
     Account *user;
 };
 
-#endif // ACCOUNTMAINPAGE_
-
+#endif // ACCOUNTMAINPAGE_H

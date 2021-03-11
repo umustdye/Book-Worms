@@ -45,3 +45,4 @@ void AccountMainPage::on_adminButton_clicked() {
     qDebug() << "ADMIN";
     emit changePage(3);
 }
+

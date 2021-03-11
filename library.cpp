@@ -46,8 +46,6 @@ Library::~Library()
     delete catalogPage;
     delete adminPage;
     delete model;
-    qDeleteAll(*items);
-    delete items;
     delete loginPage;
     delete user;
     delete mainPage;
