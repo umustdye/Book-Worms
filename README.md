@@ -34,7 +34,7 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
  
 ![Factory Pattern OMT](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/factory-pattern.png?raw=true)
   - Factory Pattern
-    - ...
+    - In terms of structure above we have a concrete factory called LibraryItemFactory that can create objects of the classes of either Book, Cd, Dvd, or LibraryItemCollection. These four are the concrete products . The abstract product they all inherit from is the LibraryItemComponent class. The factory pattern lets the user create these different library objects and allows them to be modified this way as well.
 
  > ## Final deliverable
  > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
@@ -57,5 +57,5 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
   
  ## Testing
  For testing this project we used the `google test` unit testing library.
- The C++ gui application we used, Qt 6, has support for google test and is able to run it inside their project window. This is because Qt uses for example QVector instead of std::vector and QString instead of std::string. We can run it using the command line or inside the Qt window.
+ The C++ gui application we used, Qt 6, has support for google test and is able to run it inside their project window. This is because Qt uses for example QVector instead of std::vector and QString instead of std::string. We can run it using the command line or inside the Qt window. Valgrind is also included in Qt and can be run inside the Qt window.
  
