@@ -43,7 +43,14 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+ ![Screenshot 1](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-1.png?raw=true)
+ ![Screenshot 2](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-2.png?raw=true)
+ ![Screenshot 3](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-3.png?raw=true)
+ ![Screenshot 4](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-4.png?raw=true)
+ ![Screenshot 5](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-5.png?raw=true)
+ ![Screenshot 6](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-6.png?raw=true)
+ ![Screenshot 7](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-7.png?raw=true)
+ ![Screenshot 8](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-8.png?raw=true)
  
  ## Installation/Usage
  The first thing to do in order to run this project yourself is to create an account for and download Qt.
