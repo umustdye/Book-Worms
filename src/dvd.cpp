@@ -1,4 +1,4 @@
-#include "header/dvd.hpp"
+#include "dvd.hpp"
 
 Dvd::Dvd(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description, QString director, int length)
     : LibraryItemComponent(title, quantity, genres, year, id, description)
@@ -31,11 +31,20 @@ int Dvd::getLength()
     return this->length;
 }
 
-QString Dvd::stringifyItem()
+QString Dvd::getCreator() const
 {
-    QString item = LibraryItemComponent::stringifyItem();
-    item += "\nDirector: "+ this->director+"\n";
-    item += "Length: "+QString::number(length)+" minutes\n";
-
-    return item;
+    return QString("Director: %0").arg(this->director);
 }
+
+QString Dvd::getLength() const
+{
+    return length == 1 ? QString("%0 Minutes").arg(length) : QString("%0 Minute").arg(length);
+}
+
+//QString Dvd::stringifyItem()
+//{
+//    QString item = LibraryItemComponent::stringifyItem();
+//    item += "\nDirector: "+ this->director+"\n";
+//    item += "Length: "+QString::number(length)+" minutes\n";
+//    return item;
+//}

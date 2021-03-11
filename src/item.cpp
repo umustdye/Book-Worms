@@ -1,4 +1,4 @@
-#include "header/item.hpp"
+#include "item.hpp"
 
 LibraryItemComponent::LibraryItemComponent(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description)
 {
@@ -18,7 +18,7 @@ void LibraryItemComponent::setTitle(QString title)
 {
     this->title = title;
 }
-
+        
 QString LibraryItemComponent::getTitle()
 {
     return this->title;
@@ -79,20 +79,19 @@ QString LibraryItemComponent::getDescription()
     return this->description;
 }
 
-QString LibraryItemComponent::stringifyItem()
-{
-    QString item = "";
-    item = "Title: "+this->title+"\n";
-    item += "Item ID: "+QString::number(this->id)+"\n";
-    item += "Year: "+this->year+"\n";
-    item += "Genres: ";
-    for(QString &genre : genres)
-    {
-        item += genre + " ";
-    }
-    item += "\nDescription: "+this->description+"\n";
-    item += "Quantity: "+QString::number(this->quantity);
-
-    return item;
-}
+//QString LibraryItemComponent::stringifyItem()
+//{
+//    QString item = "";
+//    item = "Title: "+this->title+"\n";
+//    item += "Item ID: "+QString::number(this->id)+"\n";
+//    item += "Year: "+this->year+"\n";
+//    item += "Genres: ";
+//    for(QString &genre : genres)
+//    {
+//        item += genre + " ";
+//    }
+//    item += "\nDescription: "+this->description+"\n";
+//    item += "Quantity: "+QString::number(this->quantity);
+//    return item;
+//}
 

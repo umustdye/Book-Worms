@@ -1,4 +1,4 @@
-#include "header/book.hpp"
+#include "book.hpp"
 
 Book::Book(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description, QString author, int pages)
     : LibraryItemComponent(title, quantity, genres, year, id, description)
@@ -31,11 +31,20 @@ int Book::getPages()
     return this->pages;
 }
 
-QString Book::stringifyItem()
+QString Book::getCreator() const
 {
-    QString item = LibraryItemComponent::stringifyItem();
-    item += "\nAuthor: "+ this->author+"\n";
-    item += "Pages: "+QString::number(pages)+"\n";
-
-    return item;
+    return QString("Author: %0").arg(this->author);
 }
+
+QString Book::getLength() const
+{
+    return pages == 1 ? QString("%0 Pages").arg(pages) : QString("%0 Page").arg(pages);
+}
+
+//QString Book::stringifyItem()
+//{
+//    QString item = LibraryItemComponent::stringifyItem();
+//    item += "\nAuthor: "+ this->author+"\n";
+//    item += "Pages: "+QString::number(pages)+"\n";
+//    return item;
+//}
