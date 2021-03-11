@@ -14,17 +14,17 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
   
 ### Input / Output
   - Input: 
-    - User Information (Account Name, Account Password)
+    - User Information (Account Username, Account Password)
     - Library Item Information (Book/CD/DVD Title, Book/CD/DVD Quantity on Hand, Book/CD/DVD Genre/Sub-genre, Item Type)
     - Library Item Changes (Add/Edit/Remove Item)
   - Output: 
-    - User Displays (Books currently borrowed, Account Debt, Available Books/CDs/DVDs, Recommended Books/CDs/DVDs)
+    - User Displays (Books currently borrowed, Available Books/CDs/DVDs)
 
 ### Design Patterns
   - Design 1: Composite Pattern
     - We picked the Composite Pattern for its simplicity and its ability to treat primitives and composites uniformly. We intend to use it to implement items in our library like Books, DVDs, and CDs that have genres / sub-genres. The problem we anticipate in the project is in both adding more items / collections of items to the library and in searching through them to create user recommendations. The composite pattern will allow us to use a single interface to easily add more primitives and composites to the libary and then search through the tree of items for our various reasons. 
-  - Design 2: Strategy Pattern
-    - We picked the Strategy Design Pattern for its ability to easily allow algorithms to vary independently when being used by the client. We intend to use this design pattern to allow the admin to update, add, and delete library items in the library system. The problem we anticipate is adding and updating items when library items can be of different types, such as books, CDs, DVDs, and Collections. The strategy pattern will allow us to implement udp multipleate and add functions for each of the types of items with only one update and add function in the admin class.
+  - Design 2: Factory Pattern
+    - We picked the Factory Pattern for its object creation-focus design that allows for creating objects from an interface. We intend to use it to determine if we create a book, cd, dvd, or collection object. The problem we intend to solve is in being able to select a product to create an object simply. It is a benefit that our product classes above are consistent apart from a few variables.
 
 ## Class Diagram
 
@@ -32,20 +32,31 @@ Authors: [Heidi Dye](https://github.com/umustdye), [Sebastian Hall](https://gith
   - Library Item Composite Pattern
     - A library item can consist of a book, dvd, cd, or a collection which consists of multiple books, dvds, and/or cds. A collection could be the Lord of the Rings Trilogy for example. So the Book, DVD, and CD classes, which are our leafs, represent the type of library item that the item is and the Library Item Collection class, which is our composite, represents multiple books, dvds, and/or cds. The Lbrary item Component class, which is our component, represents any item in the library system. It holds all the values that are true to all items in the libary sytems such as return due date and the year it was released. This class is what is derivative to the client. 
  
-![Admin Strategy OMT](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/admin_strategy_uml.png?raw=true)
-  - Admin Account Strategy Pattern 
-    - The strategy pattern is for modifying library item content. An admin has the ability to add, update, and remove the four different library items of Books, CDs, DVDs, and collections through a singular interface. There are three different strategy patterns, one for each of the major types of modifications that an admin can make. These are for adding, updating, and removing library item content.
-
- > ## Final deliverable
- > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
+![Factory Pattern OMT](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/factory-pattern.png?raw=true)
+  - Factory Pattern
+    - In terms of structure above we have a concrete factory called LibraryItemFactory that can create objects of the classes of either Book, Cd, Dvd, or LibraryItemCollection. These four are the concrete products . The abstract product they all inherit from is the LibraryItemComponent class. The factory pattern lets the user create these different library objects and allows them to be modified this way as well.
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+ ![Screenshot 1](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-1.png?raw=true)
+ ![Screenshot 2](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-2.png?raw=true)
+ ![Screenshot 3](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-3.png?raw=true)
+ ![Screenshot 4](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-4.png?raw=true)
+ ![Screenshot 5](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-5.png?raw=true)
+ ![Screenshot 6](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-6.png?raw=true)
+ ![Screenshot 7](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-7.png?raw=true)
+ ![Screenshot 8](https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025/blob/master/images/screenshot-8.png?raw=true)
+ 
  ## Installation/Usage
- > Instructions on installing and running your application
+ The first thing to do in order to run this project yourself is to create an account for and download Qt.
+ It is free and open source. We used the latest version, here it is ->[Qt 6](https://www.qt.io/download-open-source).
+ You can just download the default / recommended option. This includes SQLite for you.
+ 
+ Once that is installed on your machine, go ahead and download this repo from GitHub onto your local machine.
+ Either do a `git clone https://github.com/cs100/final-project-final-project-hdye001-shall016-calex025.git` or use the same green code dropdown tab to download the .zip file. Unzip the file if you went this route.
+ 
+ Open the Qt program and go to Open a project. Navigate to where you stored the project file above and click on the `.pro` file to open the project in Qt. From here click the big green play button on the bottom left of the screen in Qt to start the program, Qt will load in everything automatically if you followed the steps above.
+  
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ For testing this project we used the `google test` unit testing library.
+ The C++ gui application we used, Qt 6, has support for google test and is able to run it inside their project window. This is because Qt uses for example QVector instead of std::vector and QString instead of std::string. We can run it using the command line or inside the Qt window. Valgrind is also included in Qt and can be run inside the Qt window.
  
