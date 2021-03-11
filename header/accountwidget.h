@@ -30,6 +30,9 @@ private slots:
     // delete this
     void tempAccount();
 
+signals:
+    void changePage(int pageNum = 1);
+
 private:
     Ui::AccountMainPage *ui;
 };

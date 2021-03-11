@@ -80,12 +80,14 @@ void AccountMainPage::checkAdminStatus() {
 
 void AccountMainPage::on_logoutButton_clicked() {
     qDebug() << "LOGOUT";
+    emit changePage(1);
 
     // TODO, delete user/admin object upon logout, just need the variable name from library main page
 }
 
 void AccountMainPage::on_libraryButton_clicked() {
     qDebug() << "LIBRARY";
+    emit changePage(1);
 }
 
 void AccountMainPage::on_profileButton_clicked() {
@@ -96,5 +98,6 @@ void AccountMainPage::on_profileButton_clicked() {
 
 void AccountMainPage::on_adminButton_clicked() {
     qDebug() << "ADMIN";
+    emit changePage(1);
 }
 
