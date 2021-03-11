@@ -1,4 +1,4 @@
-#include "book.hpp"
+#include "header/book.hpp"
 
 Book::Book(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description, QString author, int pages)
     : LibraryItemComponent(title, quantity, genres, year, id, description)
@@ -36,5 +36,6 @@ QString Book::stringifyItem()
     QString item = LibraryItemComponent::stringifyItem();
     item += "\nAuthor: "+ this->author+"\n";
     item += "Pages: "+QString::number(pages)+"\n";
+
     return item;
 }

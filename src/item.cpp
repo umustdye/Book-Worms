@@ -1,4 +1,4 @@
-#include "item.hpp"
+#include "header/item.hpp"
 
 LibraryItemComponent::LibraryItemComponent(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description)
 {
@@ -18,7 +18,7 @@ void LibraryItemComponent::setTitle(QString title)
 {
     this->title = title;
 }
-        
+
 QString LibraryItemComponent::getTitle()
 {
     return this->title;
@@ -92,6 +92,7 @@ QString LibraryItemComponent::stringifyItem()
     }
     item += "\nDescription: "+this->description+"\n";
     item += "Quantity: "+QString::number(this->quantity);
+
     return item;
 }
 

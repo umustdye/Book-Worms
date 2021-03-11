@@ -1,7 +1,7 @@
-#include "libraryLogin.hpp"
+#include "header/libraryLogin.hpp"
 #include "ui_libraryLogin.h"
-#include "account.hpp"
-#include "createAccountPage.hpp"
+#include "header/account.hpp"
+#include "header/createAccountPage.hpp"
 
 #include <QDebug>
 
@@ -17,12 +17,13 @@ LibraryLogin::LibraryLogin(QWidget *parent)
     ui->passwordInput->setEchoMode(QLineEdit::Password);
     //ui->passwordInput->passwordMaskDelay();
 
-
+    //setStackWidget();
 }
 
 LibraryLogin::~LibraryLogin()
 {
     delete ui;
+    delete account;
 }
 
 
@@ -30,7 +31,6 @@ void LibraryLogin::on_loginButton_clicked()
 {
     //check if the user is in the database
     QString message = "";
-
 
     if(connectToAccountDB())
     {
@@ -102,7 +102,7 @@ bool LibraryLogin::connectToAccountDB()
     //connect to DB driver
     db = QSqlDatabase::addDatabase("QSQLITE");
     //database name
-    QString dbName = "Account.db3";
+    QString dbName = "/home/chris/Documents/databases/account (copy).db3";
     //try to connect to database
     db.setDatabaseName(dbName);
     db.open();
@@ -153,7 +153,6 @@ QString LibraryLogin::validLogin(QString userName, QString password)
 
     }
 
-
     //username and password exist
     return "Login Successful";
 }
@@ -200,6 +199,7 @@ void LibraryLogin::loadAccount(QString userName, QString password)
             break;
 
     };
+
     qDebug() << id;
     qDebug() << userName;
     qDebug() << password;
@@ -207,17 +207,59 @@ void LibraryLogin::loadAccount(QString userName, QString password)
     qDebug() << lastName;
     qDebug() << accountTypeInt;
     qDebug() << accountType;
+
     for (int i=0; i<items.count(); i++)
     {
-       qDebug() << items[i].id;
-       qDebug() << items[i].quantity;
-       qDebug() << items[i].dueDate;
+        qDebug() << items[i].id;
+        qDebug() << items[i].quantity;
+        qDebug() << items[i].dueDate;
+        account->addItem(items[i]);
     }
-    //save in user object
+
+    // store database values in account object
+    account->setUserName(userName);
+    account->setPassword(password);
+    account->setFirstName(firstName);
+    account->setLastName(lastName);
+    account->setAccountType(accountType);
+    account->setId(accountTypeInt);
+
+    qDebug() << account->getUserName();
+    qDebug() << account->getPassword();
+    qDebug() << account->getFirstName();
+    qDebug() << account->getLastName();
+    qDebug() << account->getAccountType();
+    qDebug() << account->getId();
+
+    items = account->getItemVector();
+
+    for (int i=0; i<items.count(); i++)
+    {
+        qDebug() << items[i].id;
+        qDebug() << items[i].quantity;
+        qDebug() << items[i].dueDate;
+    }
 }
 
 
+//void LibraryLogin::setStackWidget() {
+//    QWidget *libraryPageWidget = new QWidget;
 
+//    QStackedWidget *libraryStackedWidget = new QStackedWidget;
+//    libraryStackedWidget->addWidget(libraryPageWidget);
+
+//    QVBoxLayout *stackLayout = new QVBoxLayout;
+//    stackLayout->addWidget(libraryStackedWidget);
+//    setLayout(stackLayout);
+
+//    QComboBox *pageComboBox = new QComboBox;
+//    pageComboBox->addItem(tr("Page 1"));
+
+//    connect(pageComboBox, QOverload<int>::of(&QComboBox::activated),
+//            libraryStackedWidget, &QStackedWidget::setCurrentIndex);
+
+//    pageComboBox->setCurrentIndex(0);
+//}
 
 
 QVector<userItems> LibraryLogin::parseObject(QByteArray byteArray)

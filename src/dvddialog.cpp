@@ -1,4 +1,4 @@
-#include "dvddialog.hpp"
+#include "header/dvddialog.hpp"
 #include "ui_dvddialog.h"
 
 DvdDialog::DvdDialog(QWidget *parent) :

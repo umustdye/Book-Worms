@@ -1,4 +1,4 @@
-#include "cd.hpp"
+#include "header/cd.hpp"
 #include <algorithm>
 
 using std::max;
@@ -40,5 +40,6 @@ QString Cd::stringifyItem()
     QString item = LibraryItemComponent::stringifyItem();
     item += "\nArtist: "+ this->artist+"\n";
     item += "Tracks: "+QString::number(tracks)+"\n";
+
     return item;
 }

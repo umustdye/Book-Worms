@@ -1,4 +1,4 @@
-#include "collection.hpp"
+#include "header/collection.hpp"
 
 
 LibraryItemCollection::LibraryItemCollection(QString title, int quantity, QVector<QString> genres, QString year, int id, QString description, QVector<LibraryItemComponent*> children)
@@ -34,7 +34,7 @@ void LibraryItemCollection::setChildren(QVector<LibraryItemComponent*> children)
 {
     this->children = children;
 }
-        
+
 QVector<LibraryItemComponent*> LibraryItemCollection::getChildren()
 {
     return this->children;

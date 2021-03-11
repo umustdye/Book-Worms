@@ -1,4 +1,4 @@
-#include "createAccountPage.hpp"
+#include "header/createAccountPage.hpp"
 #include "ui_createAccountPage.h"
 
 #include <QtSql>
@@ -11,8 +11,8 @@
 
 
 CreateAccountPage::CreateAccountPage(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::CreateAccountPage)
+        QDialog(parent),
+        ui(new Ui::CreateAccountPage)
 {
     ui->setupUi(this);
     //hide message
@@ -33,7 +33,7 @@ bool CreateAccountPage::connectToAccountDB()
     //connect to DB driver
     db = QSqlDatabase::addDatabase("QSQLITE");
     //database name
-    QString dbName = "Account.db3";
+    QString dbName = "/home/chris/Documents/databases/account (copy).db3";
     //try to connect to database
     db.setDatabaseName(dbName);
     db.open();
@@ -109,7 +109,7 @@ void CreateAccountPage::on_createButton_clicked()
         }
 
 
-        //if we could not connect to the database
+            //if we could not connect to the database
         else
         {
             //change message text
@@ -193,11 +193,11 @@ void CreateAccountPage::on_visiblePassword1_stateChanged(int state)
     //the visible password box is checked
     if(state == 2)
     {
-      ui->passwordInput->setEchoMode(QLineEdit::Normal);
+        ui->passwordInput->setEchoMode(QLineEdit::Normal);
     }
     else
     {
-      ui->passwordInput->setEchoMode(QLineEdit::Password);
+        ui->passwordInput->setEchoMode(QLineEdit::Password);
     }
 }
 
@@ -206,11 +206,11 @@ void CreateAccountPage::on_visiblePassword2_stateChanged(int state)
     //the visible password box is checked
     if(state == 2)
     {
-      ui->retypePasswordInput->setEchoMode(QLineEdit::Normal);
+        ui->retypePasswordInput->setEchoMode(QLineEdit::Normal);
     }
     else
     {
-      ui->retypePasswordInput->setEchoMode(QLineEdit::Password);
+        ui->retypePasswordInput->setEchoMode(QLineEdit::Password);
     }
 }
 
